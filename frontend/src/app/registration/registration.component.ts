@@ -13,42 +13,15 @@ import {faAddressCard, faCaretLeft, faChevronLeft, faInfoCircle} from '@fortawes
 export class RegistrationComponent {
   public form$: Observable<FormGroup[]>;
 
-  @ViewChildren('form')
-  public form: ElementRef;
-
-  public icon = faAddressCard;
-  public backIcon = faChevronLeft;
-
   constructor(private currentPatientService: CurrentPatientService) {
     this.form$ = this.currentPatientService.patient$.pipe(
-      map(user => [
-        new FormGroup({
-          firstName: new FormControl(user.firstName)
-        }),
-        new FormGroup({
-          lastName: new FormControl(user.lastName)
-        }),
-        new FormGroup({
-          identificationNumber: new FormControl(user.identificationNumber)
-        }),
-        new FormGroup({
-          email: new FormControl(user.email)
-        }),
-        new FormGroup({
-          phoneNumber: new FormControl(user.phoneNumber)
-        }),
-        new FormGroup({
-          dateOfBirth: new FormControl(user.dateOfBirth)
-        }),
-        new FormGroup({
-          address: new FormControl(user.address)
-        }),
-        new FormGroup({
-          town: new FormControl(user.town)
-        }),
-        new FormGroup({
-          zipCode: new FormControl(user.zipCode)
-        }),
+      map(user => new FormGroup({
+          firstName: new FormControl(user.firstName),
+          lastName: new FormControl(user.lastName),
+          birthId: new FormControl(user.birthId),
+          email: new FormControl(user.email),
+          phone: new FormControl(user.phone),
+        })
       ]),
       shareReplay(1)
     );
@@ -63,7 +36,13 @@ export class RegistrationComponent {
 
   public onSubmit(): void {
     this.form$.pipe(first()).subscribe(
-      form => this.updatePacient(form)
+      form => this.currentPatientService.setPatient({
+        firstName: form.value['firstName'],
+        lastName: form.value['lastName'],
+        birthId: form.value['birthId'],
+        email: form.value['email'],
+        phone: form.value['phone'],
+      })
     );
   }
 
