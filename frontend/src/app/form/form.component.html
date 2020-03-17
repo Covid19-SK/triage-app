@@ -49,7 +49,7 @@
 
 
   <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="2">
+    <div appFormStep id="3">
       <div class="form-wrapper">
 
         <div class="registration-page__step">Step c.3</div>
@@ -70,7 +70,7 @@
   </ng-template>
 
   <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="2">
+    <div appFormStep id="4">
       <div class="form-wrapper">
 
         <div class="registration-page__step">Step c.4</div>
@@ -89,7 +89,7 @@
   </ng-template>
 
   <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="2">
+    <div appFormStep id="5">
       <div class="form-wrapper">
 
         <div class="registration-page__step">Step c.5</div>
@@ -99,6 +99,66 @@
           <div class="form-group">
             <label class="form-label">Iné:</label>
             <textarea formControlName="other"></textarea>
+          </div>
+        </form>
+        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+    <div appFormStep id="6">
+      <div class="form-wrapper">
+
+        <div class="registration-page__step">Step c.6</div>
+        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+
+        <form [formGroup]="step_content">
+          <div class="form-group">
+            <label class="form-label">Pobyt v zahraničí v posledných 14 dňoch:</label>
+            <input value="yes" type="radio" formControlName="abroad"/>Ano
+            <input value="no" type="radio" formControlName="abroad"/>Nie
+          </div>
+        </form>
+        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+     </div>
+    </div>
+  </ng-template>
+
+  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+    <div appFormStep id="7">
+      <div class="form-wrapper">
+
+        <div class="registration-page__step">Step c.7</div>
+        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+
+        <form [formGroup]="step_content">
+          <div class="form-group">
+            <label class="form-label">Blizky kontakt s osobou s horuckou alebo respiracnymi priznakmi za poslednych 14 dni</label>
+            <input value="yes" type="radio" formControlName="contactWithFeverPerson"/>Ano
+            <input value="no" type="radio" formControlName="contactWithFeverPerson"/>Nie
+          </div>
+        </form>
+        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+    <div appFormStep id="8">
+      <div class="form-wrapper">
+
+        <div class="registration-page__step">Step c.8</div>
+        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+
+        <form [formGroup]="step_content">
+          <div class="form-group">
+            <label class="form-label">Blizky kontakt s potvrdenym pripadom COVID-19 za poslednych 14 dni:</label>
+            <input value="yes" type="radio" formControlName="contactWithCovidPerson"/>Ano
+            <input value="no" type="radio" formControlName="contactWithCovidPerson"/>Nie
           </div>
         </form>
         <button class="btn btn-error" (click)="backStepHandle()">Back</button>

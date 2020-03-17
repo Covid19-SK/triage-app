@@ -26,6 +26,9 @@ const defaultExams = [{
   breathShortness: 'modest',
   fever: true,
   other: '',
+  abroad: false,
+  contactWithFeverPerson: false,
+  contactWithCovidPerson: false,
   status: ExamStatus.INITIAL,
 }];
 
@@ -47,6 +50,9 @@ export class ExamService {
       breathShortness: 'no',
       fever: false,
       other: '',
+      abroad: false,
+      contactWithFeverPerson: false,
+      contactWithCovidPerson: false,
     })),
     shareReplay(1)
   );
