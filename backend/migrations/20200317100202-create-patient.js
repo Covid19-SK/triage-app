@@ -17,6 +17,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       identificationNumber: {
+        unique: true,
         type: Sequelize.STRING,
       },
       dateOfBirth: {
