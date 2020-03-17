@@ -14,9 +14,10 @@ import {RegistrationModule} from './registration/registration.module';
 import {PatientsModule} from './admin/patients/patients.module';
 import {WorkplaceModule} from './workplace/workplace.module';
 import {WorkplacesModule} from './admin/workplaces/workplaces.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HeaderComponent } from './widgets/header/header.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {HeaderComponent} from './widgets/header/header.component';
+import {ScanModule} from './admin/scan/scan.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { HeaderComponent } from './widgets/header/header.component';
     LoginModule,
     PatientsModule,
     RegistrationModule,
+    ScanModule,
     WorkplaceModule,
     WorkplacesModule,
     AppRoutingModule,
