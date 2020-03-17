@@ -1,21 +1,26 @@
 <h1>Pacienti</h1>
-<button>Pridat pacienta</button>
 <p>
-  Tu bude filter
+  <a class="btn btn-primary btn-sm" routerLink="/admin/patients" routerLinkActive="active">Nový pacient</a>
 </p>
-<table border="1">
+<p>
+  <em>Tu bude filter</em>
+</p>
+<table class="table">
   <tr>
-    <td>Meno</td>
-    <td>Priezvisko</td>
-    <td>Rodné číslo</td>
+    <th>Meno</th>
+    <th>Priezvisko</th>
+    <th>Rodné číslo</th>
+    <th></th>
   </tr>
   <tr *ngFor="let patient of patients$ | async">
-    <td>
-      <a routerLink="/admin/detail/{{patient.id}}" routerLinkActive="active">{{patient.firstName}}</a>
-    </td>
+    <td>{{patient.firstName}}</td>
     <td>{{patient.lastName}}</td>
     <td>{{patient.birthId}}</td>
+    <td>
+      <a routerLink="/admin/detail/{{patient.id}}" routerLinkActive="active">Zobraziť</a>
+    </td>
   </tr>
 </table>
-<a routerLink="/admin/scan" routerLinkActive="active">Oskenovat QR kod</a>
-| <a routerLink="/admin" routerLinkActive="active">Naspat</a>
+<hr/>
+<a class="btn btn-default" routerLink="/admin" routerLinkActive="active">Naspäť</a>
+<a class="btn btn-primary" routerLink="/admin/scan" routerLinkActive="active">Oskenovať QR kód</a>
