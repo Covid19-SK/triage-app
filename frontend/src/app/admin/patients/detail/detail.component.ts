@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {ExamService} from '../../../shared/exam.service';
 import {Exam} from '../../../shared/exam';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
-import {first, map, shareReplay, switchMap} from 'rxjs/operators';
+import {filter, first, map, shareReplay, switchMap} from 'rxjs/operators';
 import {FormControl, FormGroup} from '@angular/forms';
-import {PatientsService} from '../../../shared/patients.service';
+import {defaultPatient, PatientsService} from '../../../shared/patients.service';
 import {isNil} from 'lodash-es';
 import {InstitutionsService} from '../../../shared/institutions.service';
 
@@ -19,6 +19,9 @@ export class DetailComponent {
     map(paramMap => paramMap.get('patientId'))
   );
   public form$: Observable<FormGroup>;
+  public examsShown$: Observable<boolean> = this.patientId$.pipe(
+    map(patientId => patientId !== 'new')
+  );
   public exams$: Observable<Exam[]> = this.patientId$.pipe(
     switchMap(patientId => this.examService.getByPatientId(patientId))
   );
@@ -28,10 +31,18 @@ export class DetailComponent {
     private patientsService: PatientsService,
     private institutionsService: InstitutionsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {
     this.form$ = this.patientId$.pipe(
-      switchMap(patientId => this.patientsService.getById(patientId)),
+      switchMap(patientId => {
+        if (patientId === 'new') {
+          return of({
+            ...defaultPatient,
+            id: undefined,
+          });
+        }
+        return this.patientsService.getById(patientId);
+      }),
       map(patient => new FormGroup({
         id: new FormControl(patient.id),
         firstName: new FormControl(patient.firstName),
@@ -55,6 +66,7 @@ export class DetailComponent {
         } else {
           this.patientsService.update(form.value);
         }
+        this.router.navigate(['admin/patients']);
       }
     );
   }
