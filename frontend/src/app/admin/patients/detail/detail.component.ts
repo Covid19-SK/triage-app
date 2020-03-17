@@ -1,4 +1,9 @@
 import {Component} from '@angular/core';
+import {ExamService} from '../../../shared/exam.service';
+import {Exam} from '../../../shared/exam';
+import {Observable} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-detail',
@@ -6,5 +11,12 @@ import {Component} from '@angular/core';
   styleUrls: ['detail.scss']
 })
 export class DetailComponent {
-  constructor() {}
+  public exams$: Observable<Exam[]> = this.route.paramMap.pipe(
+    switchMap(paramMap => this.examService.getExams(paramMap.get('patientId')))
+  );
+
+  constructor(
+    private examService: ExamService,
+    private route: ActivatedRoute
+  ) {}
 }

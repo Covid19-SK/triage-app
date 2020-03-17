@@ -1,15 +1,30 @@
 import {Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
 import {shareReplay, startWith} from 'rxjs/operators';
 import {Exam} from './exam';
 import {DataService} from './data.service';
+import {AuthService} from './auth.service';
+import {CurrentExam} from './current-exam';
+
+const defaultExams = [{
+  id: '2020-03-07T13:00:00Z',
+  date: '2020-03-07T13:00:00Z',
+  patientId: 'vncnt',
+  workplace: 'Kramare',
+  cough: 'no',
+  breathShortness: 'modest',
+  fever: true,
+  other: '',
+}];
 
 @Injectable({providedIn: 'root'})
 export class ExamService {
-  private examSource$: Subject<Exam> = new Subject();
+  private examSource$: Subject<CurrentExam> = new Subject();
 
-  public exam$: Observable<Exam> = this.examSource$.asObservable().pipe(
+  public exam$: Observable<CurrentExam> = this.examSource$.asObservable().pipe(
     startWith(this.dataService.load('tpExam', {
+      // use something normal for date
+      date: new Date().toString(),
       workplace: '',
       cough: 'no',
       breathShortness: 'no',
@@ -19,10 +34,20 @@ export class ExamService {
     shareReplay(1)
   );
 
-  public constructor(private dataService: DataService) {}
+  public constructor(
+    private authService: AuthService,
+    private dataService: DataService
+  ) {}
 
-  public setExam(exam: Exam): void {
+  public setExam(exam: CurrentExam): void {
     this.dataService.save('tpExam', exam);
     this.examSource$.next(exam);
+  }
+
+  public getExams(patientId: string): Observable<Exam[]> {
+    return of(this.dataService
+      .load('tpPatientExams', defaultExams)
+      .filter(e => e.patientId === patientId)
+    );
   }
 }

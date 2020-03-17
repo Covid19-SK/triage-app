@@ -6,8 +6,6 @@
   Zoznam vysetreni
 </p>
 <ul>
-  <li><a routerLink="/admin/exam" routerLinkActive="active">30. januar 2020</a></li>
-  <li><a routerLink="/admin/exam" routerLinkActive="active">25. februar 2020</a></li>
-  <li><a routerLink="/admin/exam" routerLinkActive="active">17. marec 2020</a></li>
+  <li *ngFor="let exam of exams$ | async"><a routerLink="/admin/exam" routerLinkActive="active">{{exam.date}}</a></li>
 </ul>
 <a routerLink="/admin/patients" routerLinkActive="active">Naspat</a>

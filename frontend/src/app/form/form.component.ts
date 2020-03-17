@@ -30,6 +30,8 @@ export class FormComponent {
     this.form$.pipe(first()).subscribe(
       form => {
         this.examService.setExam({
+          // TODO: use something normal
+          date: new Date().toString(),
           workplace: form.value['workplace'],
           cough: form.value['cough'],
           breathShortness: form.value['breathShortness'],

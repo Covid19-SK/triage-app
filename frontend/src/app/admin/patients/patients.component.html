@@ -1,8 +1,20 @@
 <h1>Pacienti</h1>
 <p>
-  Filter
+  Tu bude filter
 </p>
-<p>
-  Tabulka s pacientami. Pri kliknuti na pacienta sa dostanem na jeho <a routerLink="/admin/detail" routerLinkActive="active">detail</a>.
-</p>
-<a routerLink="/admin/detail" routerLinkActive="active">Oskenovat QR kod</a> | <a routerLink="/admin" routerLinkActive="active">Naspat</a>
+<table border="1">
+  <tr>
+    <td>Meno</td>
+    <td>Priezvisko</td>
+    <td>Rodné číslo</td>
+  </tr>
+  <tr *ngFor="let patient of patients$ | async">
+    <td>
+      <a routerLink="/admin/detail/{{patient.id}}" routerLinkActive="active">{{patient.firstName}}</a>
+    </td>
+    <td>{{patient.lastName}}</td>
+    <td>{{patient.birthId}}</td>
+  </tr>
+</table>
+<a routerLink="/admin/detail/abcd" routerLinkActive="active">Oskenovat QR kod</a>
+| <a routerLink="/admin" routerLinkActive="active">Naspat</a>
