@@ -83,4 +83,11 @@ export class PatientsService {
       }])),
     ).subscribe(patients => this.save(patients));
   }
+
+  public delete(patientId: string): void {
+    this.patients$.pipe(
+      first(),
+      map(patients => patients.filter(i => i.id !== patientId)),
+    ).subscribe(patients => this.save(patients));
+  }
 }
