@@ -28,11 +28,11 @@ import {InstitutionDetailModule} from './admin/institutions/institution-detail/i
   imports: [
     BrowserModule,
     AdminModule,
+    ButtonsModule.forRoot(),
     CodeModule,
     DetailModule,
     ExamModule,
     FormModule,
-    FontAwesomeModule,
     HomeModule,
     LoginModule,
     PatientsModule,
@@ -43,7 +43,7 @@ import {InstitutionDetailModule} from './admin/institutions/institution-detail/i
     InstitutionsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   bootstrap: [AppComponent]
 })

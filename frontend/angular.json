@@ -25,10 +25,7 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/fonts/Roboto-Bold.ttf",
-              "src/fonts/Roboto-Regular.ttf",
-              "src/fonts/Roboto-Medium.ttf"
+              "src/assets"
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",

@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.info-holder {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+}
+
+.info-img {
+  width: 80%;
+  max-width: 300px;
+}
+
+.bottom-cta {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-holder {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.btn-prev,
+.btn-next {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  text-decoration: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
