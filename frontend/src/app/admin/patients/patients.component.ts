@@ -12,4 +12,8 @@ export class PatientsComponent {
   public patients$: Observable<Patient[]> = this.patientsService.patients$;
 
   constructor(private patientsService: PatientsService) {}
+
+  public onDeleteClick(patientId: string): void {
+    this.patientsService.delete(patientId);
+  }
 }

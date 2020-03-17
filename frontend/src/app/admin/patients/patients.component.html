@@ -13,7 +13,7 @@
     <th>Priezvisko</th>
     <th>Telefón</th>
     <th>Rodné číslo</th>
-    <th></th>
+    <th colspan="2"></th>
   </tr>
   <tr *ngFor="let patient of patients$ | async">
     <td>{{patient.firstName}}</td>
@@ -22,6 +22,9 @@
     <td>{{patient.birthId}}</td>
     <td>
       <a routerLink="/admin/detail/{{patient.id}}" routerLinkActive="active">Upraviť</a>
+    </td>
+    <td>
+      <a routerLink="/admin/patients" routerLinkActive="active" (click)="onDeleteClick(patient.id)">Zmazať</a>
     </td>
   </tr>
 </table>
