@@ -15,6 +15,7 @@ import {PatientsModule} from './admin/patients/patients.module';
 import {WorkplaceModule} from './workplace/workplace.module';
 import {WorkplacesModule} from './admin/workplaces/workplaces.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DetailModule,
     ExamModule,
     FormModule,
+    FontAwesomeModule,
     HomeModule,
     LoginModule,
     PatientsModule,
@@ -34,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     WorkplaceModule,
     WorkplacesModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   bootstrap: [AppComponent]
 })
