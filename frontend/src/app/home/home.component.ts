@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AuthService} from '../shared/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,6 @@ import {Component} from '@angular/core';
   styleUrls: ['home.scss']
 })
 export class HomeComponent {
-  constructor() {}
+  public userId: string = this.authService.id;
+  constructor(private authService: AuthService) {}
 }

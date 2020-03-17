@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {first, map, shareReplay} from 'rxjs/operators';
 import {Observable} from 'rxjs';
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ExamService} from '../shared/exam.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class FormComponent {
   constructor(private examService: ExamService) {
     this.form$ = this.examService.exam$.pipe(
       map(exam => new FormGroup({
-          place: new FormControl(exam.place),
+          workplace: new FormControl(exam.workplace),
           cough: new FormControl(exam.cough),
           breathShortness: new FormControl(exam.breathShortness),
           fever: new FormControl(exam.fever),
@@ -30,7 +30,7 @@ export class FormComponent {
     this.form$.pipe(first()).subscribe(
       form => {
         this.examService.setExam({
-          place: form.value['place'],
+          workplace: form.value['workplace'],
           cough: form.value['cough'],
           breathShortness: form.value['breathShortness'],
           fever: form.value['fever'],
