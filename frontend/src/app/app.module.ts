@@ -14,6 +14,7 @@ import {RegistrationModule} from './registration/registration.module';
 import {PatientsModule} from './admin/patients/patients.module';
 import {WorkplaceModule} from './workplace/workplace.module';
 import {WorkplacesModule} from './admin/workplaces/workplaces.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {WorkplacesModule} from './admin/workplaces/workplaces.module';
     RegistrationModule,
     WorkplaceModule,
     WorkplacesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })
