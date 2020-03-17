@@ -2,10 +2,10 @@
 
 <form *ngIf="form$ | async as form" [formGroup]="form">
   <div>
-    <label>
+    <label *ngIf="institutions$ | async as institutions">
       Odberné miesto:
       <select formControlName="institution">
-        <option value="kramare">Kramare</option>
+        <option *ngFor="let institution of institutions" value="kramare">{{institution.name}}</option>
       </select>
     </label>
   </div>
