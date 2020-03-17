@@ -1,28 +1,38 @@
 <h1>Registracny formular</h1>
 
-<form>
+<form *ngIf="form$ | async as form" [formGroup]="form">
   <div>
-    <label>Meno:</label>
-    <input/>
+    <label>
+      Meno:
+      <input type="text" formControlName="firstName">
+    </label>
   </div>
   <div>
-    <label>Priezvisko:</label>
-    <input/>
+    <label>
+      Priezvisko:
+      <input type="text" formControlName="lastName">
+    </label>
   </div>
   <div>
-    <label>Rodne cislo:</label>
-    <input/>
+    <label>
+      Rodné číslo:
+      <input type="text" formControlName="birthId">
+    </label>
   </div>
   <div>
-    <label>Email:</label>
-    <input/>
+    <label>
+      Email:
+      <input type="text" formControlName="email">
+    </label>
   </div>
   <div>
-    <label>Telefonne cislo:</label>
-    <input/>
+    <label>
+      Telefónne číslo:
+      <input type="text" formControlName="phone">
+    </label>
   </div>
   <div>
-    <a routerLink="/" routerLinkActive="active">Naspat</a>
-    <a routerLink="/form" routerLinkActive="active">Dalej</a>
+    <a routerLink="/" routerLinkActive="active">Naspať</a> |
+    <a (click)="onSubmit()" routerLink="/form" routerLinkActive="active">Pokracovať</a>
   </div>
 </form>
