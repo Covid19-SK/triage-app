@@ -20,7 +20,7 @@ export class DetailComponent {
   );
   public form$: Observable<FormGroup>;
   public exams$: Observable<Exam[]> = this.patientId$.pipe(
-    switchMap(patientId => this.examService.getExams(patientId))
+    switchMap(patientId => this.examService.getByPatientId(patientId))
   );
 
   constructor(
