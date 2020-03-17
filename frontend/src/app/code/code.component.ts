@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AuthService} from '../shared/auth.service';
 
 @Component({
   selector: 'app-code',
@@ -6,6 +7,6 @@ import {Component} from '@angular/core';
   styleUrls: ['code.scss']
 })
 export class CodeComponent {
-  public constructor() {
-  }
+  public userId: string = this.authService.id;
+  constructor(private authService: AuthService) {}
 }

@@ -14,7 +14,6 @@ import {RegistrationModule} from './registration/registration.module';
 import {PatientsModule} from './admin/patients/patients.module';
 import {WorkplaceModule} from './workplace/workplace.module';
 import {WorkplacesModule} from './admin/workplaces/workplaces.module';
-import {UserService} from './shared/user.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +33,6 @@ import {UserService} from './shared/user.service';
     WorkplaceModule,
     WorkplacesModule,
     AppRoutingModule
-  ],
-  providers: [
-    UserService,
   ],
   bootstrap: [AppComponent]
 })
