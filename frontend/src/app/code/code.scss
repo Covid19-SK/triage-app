@@ -1,0 +1,25 @@
+.code-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+}
+
+.code-page__headline {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.code-page__description {
+  display: flex;
+  margin: 12px;
+  text-align: center;
+}
+
+.code-page__qr-code {
+  display: flex;
+  justify-content: space-around;
+  margin: 48px;
+}
