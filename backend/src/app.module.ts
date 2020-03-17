@@ -4,17 +4,20 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigService } from 'src/shared/config/config.service';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { InstitutionsModule } from './institutions/institutions.module';
 import { PatientsModule } from './patients/patients.module';
 import { SharedModule } from './shared/shared.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    SharedModule,
-    PatientsModule,
     SequelizeModule.forRootAsync({
       useClass: ConfigService,
     }),
+    SharedModule,
+
+    InstitutionsModule,
+    PatientsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
