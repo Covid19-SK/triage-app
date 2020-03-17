@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {UserService} from '../shared/user.service';
+import {CurrentPatientService} from '../shared/current-patient.service';
 import {Observable} from 'rxjs';
 import {first, map, shareReplay} from 'rxjs/operators';
 
@@ -12,8 +12,8 @@ import {first, map, shareReplay} from 'rxjs/operators';
 export class RegistrationComponent {
   public form$: Observable<FormGroup>;
 
-  constructor(private userService: UserService) {
-    this.form$ = this.userService.user$.pipe(
+  constructor(private currentPatientService: CurrentPatientService) {
+    this.form$ = this.currentPatientService.patient$.pipe(
       map(user => new FormGroup({
           firstName: new FormControl(user.firstName),
           lastName: new FormControl(user.lastName),
@@ -28,7 +28,7 @@ export class RegistrationComponent {
 
   public onSubmit(): void {
     this.form$.pipe(first()).subscribe(
-      form => this.userService.setUser({
+      form => this.currentPatientService.setPatient({
         firstName: form.value['firstName'],
         lastName: form.value['lastName'],
         birthId: form.value['birthId'],
