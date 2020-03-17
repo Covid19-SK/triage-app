@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Patient} from './patient';
-import {Observable, of, Subject} from 'rxjs';
-import {shareReplay, startWith} from 'rxjs/operators';
+import {Observable, Subject} from 'rxjs';
+import {first, map, shareReplay, startWith} from 'rxjs/operators';
 import {DataService} from './data.service';
-import {first} from 'lodash-es';
+import {concat, first as _first} from 'lodash-es';
+import * as uuidv4 from 'uuid/v4';
 
 const defaultPatients = [
   {
@@ -36,21 +37,42 @@ const defaultPatients = [
 export class PatientsService {
   private patientsSource$: Subject<Patient[]> = new Subject();
   public patients$: Observable<Patient[]> = this.patientsSource$.asObservable().pipe(
-    startWith(this.getAll()),
+    startWith(this.dataService.load('tpPatients', defaultPatients)),
     shareReplay(1)
   );
 
-  public constructor(private dataService: DataService) {
-  }
+  public constructor(private dataService: DataService) {}
 
-  private getAll(): Patient[] {
-    return this.dataService.load('tpPatients', defaultPatients);
+  private save(patients: Patient[]): void {
+    this.patientsSource$.next(patients);
+    this.dataService.save('tpPatients', patients);
   }
 
   public getById(patientId: string): Observable<Patient> {
-    const patients = this.getAll()
-      .filter(p => p.id === patientId);
-    console.assert(patients.length === 1);
-    return of(first(patients));
+    return this.patients$.pipe(
+      first(),
+      map(patients => {
+        const result = patients.filter(p => p.id === patientId);
+        console.assert(result.length === 1);
+        return _first(result);
+      })
+    );
+  }
+
+  public update(patient: Patient): void {
+    this.patients$.pipe(
+      first(),
+      map(patients => patients.map(i => i.id === patient.id ? patient : i)),
+    ).subscribe(institutions => this.save(institutions));
+  }
+
+  public create(patient: Patient): void {
+    this.patients$.pipe(
+      first(),
+      map(patients => concat(patients, [{
+        ...patient,
+        id: uuidv4()
+      }])),
+    ).subscribe(institutions => this.save(institutions));
   }
 }

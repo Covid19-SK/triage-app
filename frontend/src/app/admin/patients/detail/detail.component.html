@@ -1,11 +1,60 @@
-<h1>Detail o pacientovi</h1>
+<h1>Pacient</h1>
+<h4>Údaje</h4>
+<ng-container *ngIf="form$ | async as form" [formGroup]="form">
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Meno:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="firstName"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Priezvisko:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="lastName"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Rodné číslo:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="birthId"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Email:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="email"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Telefón:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="phone"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-9">
+      <a class="btn btn-default" routerLink="/admin/patients" routerLinkActive="active">Naspäť</a>
+      <button (click)="onSaveClick()" class="btn btn-primary">Uložiť</button>
+    </div>
+  </div>
+</ng-container>
+
+<h4>Odbery</h4>
 <p>
-  Udaje o pacientovi v tabulke
+  <a class="btn btn-primary btn-sm" routerLink="/admin/exam/new" routerLinkActive="active">Nový odber</a>
 </p>
-<p>
-  Zoznam vysetreni
-</p>
-<ul>
-  <li *ngFor="let exam of exams$ | async"><a routerLink="/admin/exam/{{exam.id}}" routerLinkActive="active">{{exam.date}}</a></li>
-</ul>
-<a routerLink="/admin/patients" routerLinkActive="active">Naspat</a>
+<table class="table">
+  <tr>
+    <th>Dátum</th>
+    <th>Odberné miesto</th>
+    <th>Stav</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let exam of exams$ | async">
+    <td>{{exam.date}}</td>
+    <td>{{getInstitutionName(exam.institution) | async}}</td>
+    <td>{{exam.status}}</td>
+    <td><a routerLink="/admin/exam/{{exam.id}}" routerLinkActive="active">Upraviť</a></td>
+  </tr>
+</table>
