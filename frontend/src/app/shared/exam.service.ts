@@ -11,7 +11,7 @@ const defaultExams = [{
   id: '2020-03-07T13:00:00Z',
   date: '2020-03-07T13:00:00Z',
   patientId: 'vncnt',
-  institution: 'Kramare',
+  institution: 'kramare',
   cough: 'no',
   breathShortness: 'modest',
   fever: true,

@@ -1,11 +1,10 @@
 import {Component} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {Institution} from '../../../shared/institution';
 import {InstitutionsService} from '../../../shared/institutions.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first, map, shareReplay, switchMap} from 'rxjs/operators';
 import {FormControl, FormGroup} from '@angular/forms';
-import {isNil} from "lodash-es";
+import {isNil} from 'lodash-es';
 
 @Component({
   selector: 'app-institutions',

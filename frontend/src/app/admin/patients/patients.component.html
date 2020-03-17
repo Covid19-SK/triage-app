@@ -1,6 +1,6 @@
 <h1>Pacienti</h1>
 <p>
-  <a class="btn btn-primary btn-sm" routerLink="/admin/patients" routerLinkActive="active">Nový pacient</a>
+  <a class="btn btn-primary btn-sm" routerLink="/admin/patient/new" routerLinkActive="active">Nový pacient</a>
 </p>
 <p>
   <em>Tu bude filter</em>
@@ -9,15 +9,17 @@
   <tr>
     <th>Meno</th>
     <th>Priezvisko</th>
+    <th>Telefón</th>
     <th>Rodné číslo</th>
     <th></th>
   </tr>
   <tr *ngFor="let patient of patients$ | async">
     <td>{{patient.firstName}}</td>
     <td>{{patient.lastName}}</td>
+    <td>{{patient.phone}}</td>
     <td>{{patient.birthId}}</td>
     <td>
-      <a routerLink="/admin/detail/{{patient.id}}" routerLinkActive="active">Zobraziť</a>
+      <a routerLink="/admin/detail/{{patient.id}}" routerLinkActive="active">Upraviť</a>
     </td>
   </tr>
 </table>
