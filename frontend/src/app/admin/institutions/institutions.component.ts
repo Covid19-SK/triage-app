@@ -1,4 +1,8 @@
 import {Component} from '@angular/core';
+import {Institution} from '../../shared/institution';
+import {Observable} from 'rxjs';
+import {InstitutionsService} from '../../shared/institutions.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-institutions',
@@ -6,5 +10,10 @@ import {Component} from '@angular/core';
   styleUrls: ['institutions.scss']
 })
 export class InstitutionsComponent {
-  constructor() {}
+  public institutions$: Observable<Institution[]> = this.institutionsService.institutions$;
+  constructor(private institutionsService: InstitutionsService, private router: Router) {}
+
+  public onDeleteClick(institutionId: string): void {
+    this.institutionsService.delete(institutionId);
+  }
 }

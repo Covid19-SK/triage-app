@@ -13,7 +13,7 @@ import {InstitutionsService} from '../shared/institutions.service';
 })
 export class FormComponent {
   public form$: Observable<FormGroup>;
-  public institutions$: Observable<Institution[]> = this.institutionsService.getInstitutions();
+  public institutions$: Observable<Institution[]> = this.institutionsService.institutions$;
 
   constructor(
     private examService: ExamService,
