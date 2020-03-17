@@ -6,6 +6,6 @@
   Zoznam vysetreni
 </p>
 <ul>
-  <li *ngFor="let exam of exams$ | async"><a routerLink="/admin/exam" routerLinkActive="active">{{exam.date}}</a></li>
+  <li *ngFor="let exam of exams$ | async"><a routerLink="/admin/exam/{{exam.id}}" routerLinkActive="active">{{exam.date}}</a></li>
 </ul>
 <a routerLink="/admin/patients" routerLinkActive="active">Naspat</a>
