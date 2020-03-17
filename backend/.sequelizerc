@@ -1,0 +1,7 @@
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('db', 'config.ts'),
+}
+
+// vim: ft=javascript
