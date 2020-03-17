@@ -1,5 +1,5 @@
 export interface CurrentExam {
-  workplace: string;
+  institution: string;
   cough: string; // 'no' | 'modest' | 'severe';
   breathShortness: string; // 'no' | 'modest' | 'severe';
   fever: boolean;

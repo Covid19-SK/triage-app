@@ -15,7 +15,7 @@ export class FormComponent {
   constructor(private examService: ExamService) {
     this.form$ = this.examService.exam$.pipe(
       map(exam => new FormGroup({
-          workplace: new FormControl(exam.workplace),
+          institution: new FormControl(exam.institution),
           cough: new FormControl(exam.cough),
           breathShortness: new FormControl(exam.breathShortness),
           fever: new FormControl(exam.fever),
@@ -32,7 +32,7 @@ export class FormComponent {
         this.examService.setExam({
           // TODO: use something normal
           date: new Date().toString(),
-          workplace: form.value['workplace'],
+          institution: form.value['institution'],
           cough: form.value['cough'],
           breathShortness: form.value['breathShortness'],
           fever: form.value['fever'],
