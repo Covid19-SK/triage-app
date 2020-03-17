@@ -6,8 +6,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {first, map, shareReplay, switchMap} from 'rxjs/operators';
 import {FormControl, FormGroup} from '@angular/forms';
 import {PatientsService} from '../../../shared/patients.service';
-import {isNil} from "lodash-es";
-import {InstitutionsService} from "../../../shared/institutions.service";
+import {isNil} from 'lodash-es';
+import {InstitutionsService} from '../../../shared/institutions.service';
 
 @Component({
   selector: 'app-detail',
@@ -15,7 +15,7 @@ import {InstitutionsService} from "../../../shared/institutions.service";
   styleUrls: ['detail.scss']
 })
 export class DetailComponent {
-  private patientId$: Observable<string> = this.route.paramMap.pipe(
+  public patientId$: Observable<string> = this.route.paramMap.pipe(
     map(paramMap => paramMap.get('patientId'))
   );
   public form$: Observable<FormGroup>;

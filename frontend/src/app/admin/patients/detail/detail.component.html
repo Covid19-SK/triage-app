@@ -41,8 +41,8 @@
 </ng-container>
 
 <h4>Odbery</h4>
-<p>
-  <a class="btn btn-primary btn-sm" routerLink="/admin/exam/new" routerLinkActive="active">Nový odber</a>
+<p *ngIf="patientId$ | async as patientId">
+  <a class="btn btn-primary btn-sm" routerLink="/admin/exam/{{patientId}}/new" routerLinkActive="active">Nový odber</a>
 </p>
 <table class="table">
   <tr>
@@ -55,6 +55,6 @@
     <td>{{exam.date}}</td>
     <td>{{getInstitutionName(exam.institution) | async}}</td>
     <td>{{exam.status}}</td>
-    <td><a routerLink="/admin/exam/{{exam.id}}" routerLinkActive="active">Upraviť</a></td>
+    <td><a routerLink="/admin/exam/{{exam.patientId}}/{{exam.id}}" routerLinkActive="active">Upraviť</a></td>
   </tr>
 </table>

@@ -78,7 +78,9 @@ export class ExamService {
       first(),
       map(exams => concat(exams, [{
         ...exam,
-        id: uuidv4()
+        id: uuidv4(),
+        // use something normal
+        date: new Date().toISOString()
       }])),
     ).subscribe(institutions => this.save(institutions));
   }
