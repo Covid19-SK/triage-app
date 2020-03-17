@@ -1,36 +1,40 @@
-<h1>Formular</h1>
+<h1>Formulár</h1>
 
-<form>
+<form *ngIf="form$ | async as form" [formGroup]="form">
   <div>
-    <label>Odberne miesto:</label>
-    <select>
-      <option>Vyberte</option>
-      <option>Kramare</option>
-    </select>
+    <label>
+      Odberné miesto:
+      <select formControlName="place">
+        <option value="kramare">Kramare</option>
+      </select>
+    </label>
   </div>
   <div>
-    <label>Kasel:</label>
-    <button>Ziadny</button>
-    <button>Mierny</button>
-    <button>Vyrazny</button>
+    <label>
+      Kašeľ:
+      <input value="no" type="radio" formControlName="cough"/>Žiadny
+      <input value="modest" type="radio" formControlName="cough"/>Mierny
+      <input value="severe" type="radio" formControlName="cough"/>Výrazný
+    </label>
   </div>
   <div>
-    <label>Dychavicnost:</label>
-    <button>Ziadna</button>
-    <button>Mierna</button>
-    <button>Vyrazna</button>
+    <label>
+      Dýchavičnosť:
+      <input value="no" type="radio" formControlName="breathShortness"/>Žiadna
+      <input value="modest" type="radio" formControlName="breathShortness"/>Mierna
+      <input value="severe" type="radio" formControlName="breathShortness"/>Výrazná
+    </label>
   </div>
   <div>
-    <label>Horucka nad 38°C:</label>
-    <button>Ano</button>
-    <button>Nie</button>
+    <label>Horúčka nad 38°C:</label>
+    <input type="checkbox" formControlName="fever"/>
   </div>
   <div>
-    <label>Ine:</label>
-    <textarea></textarea>
+    <label>Iné:</label>
+    <textarea formControlName="other"></textarea>
   </div>
   <div>
-    <a routerLink="/registration" routerLinkActive="active">Naspat</a>
-    <a routerLink="/code" routerLinkActive="active">Dokoncit</a>
+    <a routerLink="/registration" routerLinkActive="active">Naspať</a> |
+    <a (click)="onSubmit()" routerLink="/code" routerLinkActive="active">Dokončiť</a>
   </div>
 </form>
