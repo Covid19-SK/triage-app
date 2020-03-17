@@ -48,17 +48,7 @@ export class RegistrationComponent {
 
   public onSubmit(): void {
     this.form$.pipe(first()).subscribe(
-      form => {
-        const patient = {
-          firstName: form[0].controls['firstName'].value,
-          lastName: form[1].controls['lastName'].value,
-          birthId: form[2].controls['birthId'].value,
-          email: form[3].controls['email'].value,
-          phone: form[4].controls['phone'].value,
-        };
-        console.log(`Patient: `, patient);
-        this.currentPatientService.setPatient(patient);
-      }
+      form => this.updatePacient(form)
     );
   }
 
@@ -66,13 +56,9 @@ export class RegistrationComponent {
     const patient = {
       firstName: form[0].controls['firstName'].value,
       lastName: form[1].controls['lastName'].value,
-      identificationNumber: form[2].controls['identificationNumber'].value,
+      birthId: form[2].controls['birthId'].value,
       email: form[3].controls['email'].value,
-      phoneNumber: form[4].controls['phoneNumber'].value,
-      dateOfBirth: '', // TODO
-      address: '', // TODO
-      town: '', // TODO
-      zipCode: '', // TODO
+      phone: form[4].controls['phone'].value,
     };
     console.log(`Patient: `, patient);
     this.currentPatientService.setPatient(patient);
