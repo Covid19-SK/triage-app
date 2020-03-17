@@ -11,7 +11,7 @@ const defaultExams = [{
   id: '2020-03-07T13:00:00Z',
   date: '2020-03-07T13:00:00Z',
   patientId: 'vncnt',
-  workplace: 'Kramare',
+  institution: 'Kramare',
   cough: 'no',
   breathShortness: 'modest',
   fever: true,
@@ -27,7 +27,7 @@ export class ExamService {
     startWith(this.dataService.load('tpExam', {
       // use something normal for date
       date: new Date().toString(),
-      workplace: '',
+      institution: '',
       cough: 'no',
       breathShortness: 'no',
       fever: false,
