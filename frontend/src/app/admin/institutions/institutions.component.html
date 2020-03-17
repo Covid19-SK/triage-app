@@ -1,6 +1,6 @@
 <h1>Odberné miesta</h1>
 <p>
-  <a routerLink="/admin/institution/new" routerLinkActive="active">Nové odberné miesto</a>
+  <a class="btn btn-primary btn-sm" routerLink="/admin/institution/new" routerLinkActive="active">Nové odberné miesto</a>
 </p>
 
 <table class="table" *ngIf="institutions$ | async as institutions">
@@ -14,4 +14,5 @@
     <td><a routerLink="/admin/institutions" routerLinkActive="active" (click)="onDeleteClick(institution.id)">Zmazať</a></td>
   </tr>
 </table>
+<hr/>
 <a routerLink="/admin" routerLinkActive="active">Naspäť</a>
