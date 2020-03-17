@@ -1,6 +1,25 @@
-<p>
-  Nejake info, vysvetlenie na co sluzi aplikacia. (userId: {{userId}})
-</p>
-<p>
-  <a routerLink="/registration" routerLinkActive="active">Pokracovat</a>
-</p>
+<div class="info-holder">
+  <div class="info" *ngIf="selectedStep === 1" [@EnterLeave]>
+    <h3 class="info-text">Krok 1</h3>
+    <p class="info-decription text-secondary">Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Cras tellus est, faucibus
+      tempor diam vitae, condimentum interdum nibh.</p>
+    <img class="info-img" src="/assets/images/intro-screen-1.jpg" alt="">
+  </div>
+  <div class="info" *ngIf="selectedStep === 2" [@EnterLeave]>
+    <h3 class="info-text">Krok 2</h3>
+    <p class="info-decription text-secondary">Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Cras tellus est, faucibus
+      tempor diam vitae, condimentum interdum nibh.</p>
+    <img class="info-img" src="/assets/images/intro-screen-2.jpg" alt="">
+  </div>
+</div>
+<div class="bottom-cta">
+  <div class="button-holder">
+    <button type="button" class="btn-prev btn btn-link" [disabled]="selectedStep === 1" (click)="prev()">Späť</button>
+    <button type="button" class="btn-next btn btn-primary" (click)="next()">
+      Pokračovať
+    </button>
+  </div>
+  <button [ngClass]="{'hidden': skipHidden}" routerLink="/registration" routerLinkActive="active" type="button" class="btn btn-link">Preskočiť inštrukcie</button>
+</div>
