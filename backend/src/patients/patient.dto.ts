@@ -1,7 +1,7 @@
 import { Patient } from 'src/patients/patient.model';
 
 export class PatientDto {
-  // id: string;
+  id: string;
   firstName: string;
   lastName: string;
   dateOfBirth: Date;
@@ -13,6 +13,7 @@ export class PatientDto {
   zipCode: string;
 
   constructor(patient: Patient) {
+    this.id = patient.id;
     this.firstName = patient.firstName;
     this.lastName = patient.lastName;
     this.dateOfBirth = patient.dateOfBirth;
