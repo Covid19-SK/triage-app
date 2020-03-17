@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {CurrentPatientService} from '../shared/current-patient.service';
 import {Observable} from 'rxjs';
 import {first, map, shareReplay, tap} from 'rxjs/operators';
+import {faAddressCard, faCaretLeft, faChevronLeft, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-registration',
@@ -14,6 +15,9 @@ export class RegistrationComponent {
 
   @ViewChildren('form')
   public form: ElementRef;
+
+  public icon = faAddressCard;
+  public backIcon = faChevronLeft;
 
   constructor(private currentPatientService: CurrentPatientService) {
     this.form$ = this.currentPatientService.patient$.pipe(
