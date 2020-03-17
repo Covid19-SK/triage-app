@@ -1,8 +1,45 @@
-<h1>Vysetrenie</h1>
-<p>
-  Identifikacia pacienta (meno, priezvisko)
-</p>
-<p>
-  Vysledok: <button>Pozitivny</button> <button>Negativny</button>
-</p>
-<a routerLink="/admin/detail" routerLinkActive="active">Naspat</a>
+<h1>Vyšetrenie</h1>
+<h2>Pacient</h2>
+<table border="1" *ngIf="patient$ | async as patient">
+  <tr>
+    <td>Meno</td>
+    <td>{{patient.firstName}}</td>
+  </tr>
+  <tr>
+    <td>Priezvisko</td>
+    <td>{{patient.lastName}}</td>
+  </tr>
+  <tr>
+    <td>Rodné číslo</td>
+    <td>{{patient.birthId}}</td>
+  </tr>
+</table>
+
+<ng-container *ngIf="exam$ | async as exam">
+  <h2>Príznaky</h2>
+  <table border="1">
+    <tr>
+      <td>Odberné miesto</td>
+      <td>{{exam.workplace}}</td>
+    </tr>
+    <tr>
+      <td>Kašeľ</td>
+      <td>{{exam.cough}}</td>
+    </tr>
+    <tr>
+      <td>Dýchavičnosť</td>
+      <td>{{exam.breathShortness}}</td>
+    </tr>
+    <tr>
+      <td>Horúčka nad 38°C</td>
+      <td>{{exam.fever}}</td>
+    </tr>
+  </table>
+
+  <h2>Výsledok</h2>
+  <p>
+    {{exam.status}}
+  </p>
+</ng-container>
+
+<a *ngIf="patient$ | async as patient" routerLink="/admin/detail/{{patient.id}}" routerLinkActive="active">Naspat</a>
