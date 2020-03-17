@@ -29,6 +29,7 @@ import {InstitutionDetailModule} from './admin/institutions/institution-detail/i
     BrowserModule,
     AdminModule,
     ButtonsModule.forRoot(),
+    BsDropdownModule.forRoot(),
     CodeModule,
     DetailModule,
     ExamModule,

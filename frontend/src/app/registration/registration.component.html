@@ -1,26 +1,26 @@
-<h1>Registracny formular</h1>
-
 <app-multi-step-form *ngIf="form$ | async as form"
                     [formData]="form"
                     (nextAction)="onNextAction($event)"
                     (finishAction)="onSubmit()">
   <ng-template let-step_content let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="1">
+    <div appFormStep id="1" class="form-step">
       <div class="form-wrapper">
 
-        <div class="registration-page__step">Step c.1</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+        <div class="form-center-content">
+          <div class="registration-page__title">Meno</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label" for="name">Meno:</label>
-            <input id="name" type="text" formControlName="firstName" value="">
-<!--            <input class="form-input" [ngClass]="{'is-error': name.invalid && (name.dirty || name.touched)}" type="text" id="name" name="name" [ngModel]="step_content.data.name" #name="ngModel" placeholder="Name" required>-->
+          <form [formGroup]="step_content">
+            <div class="form-group">
+              <input id="name" class="form-control" type="text" formControlName="firstName" value="" autofocus>
+  <!--            <input class="form-input" [ngClass]="{'is-error': name.invalid && (name.dirty || name.touched)}" type="text" id="name" name="name" [ngModel]="step_content.data.name" #name="ngModel" placeholder="Name" required>-->
 
-          </div>
-        </form>
+            </div>
+          </form>
+        </div>
 <!--        <button class="btn btn-success" [disabled]="form.invalid" (click)="nextStepHandle(form.value)">Next</button>-->
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+        <div class="bottom-cta">
+          <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+        </div>
       </div>
     </div>
   </ng-template>
@@ -29,7 +29,7 @@
     <div appFormStep id="2">
       <div class="form-wrapper">
 
-        <div class="registration-page__step">Step c.2</div>
+        <div class="registration-page__title">Step c.2</div>
         <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
 
         <form [formGroup]="step_content">
@@ -50,7 +50,7 @@
     <div appFormStep id="3">
       <div class="form-wrapper">
 
-        <div class="registration-page__step">Step c.3</div>
+        <div class="registration-page__title">Step c.3</div>
         <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
 
         <form [formGroup]="step_content">
@@ -71,7 +71,7 @@
     <div appFormStep id="4">
       <div class="form-wrapper">
 
-        <div class="registration-page__step">Step c.4</div>
+        <div class="registration-page__title">Step c.4</div>
         <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
 
         <form [formGroup]="step_content">
@@ -92,7 +92,7 @@
     <div appFormStep id="5">
       <div class="form-wrapper">
 
-        <div class="registration-page__step">Step c.5</div>
+        <div class="registration-page__title">Step c.5</div>
         <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
 
         <form [formGroup]="step_content">

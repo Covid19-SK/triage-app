@@ -1,6 +1,42 @@
-.registration-page__step {
+:host,
+app-multi-step-form,
+.form-step,
+.form-center-content,
+.form-wrapper,
+.bottom-cta {
+  display: flex;
+  width: 100%;
+}
+
+.form-wrapper {
+  flex-direction: column;
+  text-align: center;
+}
+
+.form-center-content {
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.form-control {
+  text-align: center;
+}
+
+.bottom-cta {
+  justify-content: flex-end;
+}
+
+.btn-next {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}
+
+.registration-page__title {
   display: block;
-  font-size: 16px;
+  font-size: 24px;
+  font-weight: 500;
   margin-bottom: 12px;
 }
 
