@@ -12,26 +12,14 @@ import {first, map, shareReplay, tap} from 'rxjs/operators';
 export class RegistrationComponent {
   public form$: Observable<FormGroup[]>;
 
-  @ViewChildren('form')
-  public form: ElementRef;
-
   constructor(private currentPatientService: CurrentPatientService) {
     this.form$ = this.currentPatientService.patient$.pipe(
-      map(user => [
-        new FormGroup({
-          firstName: new FormControl(user.firstName)
-        }),
-        new FormGroup({
-          lastName: new FormControl(user.lastName)
-        }),
-        new FormGroup({
-          birthId: new FormControl(user.birthId)
-        }),
-        new FormGroup({
-          email: new FormControl(user.email)
-        }),
-        new FormGroup({
-          phone: new FormControl(user.phone)
+      map(user => new FormGroup({
+          firstName: new FormControl(user.firstName),
+          lastName: new FormControl(user.lastName),
+          birthId: new FormControl(user.birthId),
+          email: new FormControl(user.email),
+          phone: new FormControl(user.phone),
         })
       ]),
       shareReplay(1)
@@ -52,17 +40,13 @@ export class RegistrationComponent {
 
   public onSubmit(): void {
     this.form$.pipe(first()).subscribe(
-      form => {
-        const patient = {
-          firstName: form[0].controls['firstName'].value,
-          lastName: form[1].controls['lastName'].value,
-          birthId: form[2].controls['birthId'].value,
-          email: form[3].controls['email'].value,
-          phone: form[4].controls['phone'].value,
-        };
-        console.log(`Patient: `, patient);
-        this.currentPatientService.setPatient(patient);
-      }
+      form => this.currentPatientService.setPatient({
+        firstName: form.value['firstName'],
+        lastName: form.value['lastName'],
+        birthId: form.value['birthId'],
+        email: form.value['email'],
+        phone: form.value['phone'],
+      })
     );
   }
 }
