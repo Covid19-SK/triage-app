@@ -6,6 +6,14 @@ import {DataService} from './data.service';
 import {concat, first as _first} from 'lodash-es';
 import * as uuidv4 from 'uuid/v4';
 
+export const defaultPatient = {
+  firstName: '',
+  lastName: '',
+  birthId: '',
+  email: '',
+  phone: '',
+};
+
 const defaultPatients = [
   {
     id: 'vncnt',
@@ -63,7 +71,7 @@ export class PatientsService {
     this.patients$.pipe(
       first(),
       map(patients => patients.map(i => i.id === patient.id ? patient : i)),
-    ).subscribe(institutions => this.save(institutions));
+    ).subscribe(patients => this.save(patients));
   }
 
   public create(patient: Patient): void {
@@ -73,6 +81,6 @@ export class PatientsService {
         ...patient,
         id: uuidv4()
       }])),
-    ).subscribe(institutions => this.save(institutions));
+    ).subscribe(patients => this.save(patients));
   }
 }
