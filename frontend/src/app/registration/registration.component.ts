@@ -16,6 +16,9 @@ export class RegistrationComponent {
   @ViewChildren('form')
   public form: ElementRef;
 
+  public icon = faAddressCard;
+  public backIcon = faChevronLeft;
+
   constructor(private currentPatientService: CurrentPatientService) {
     this.form$ = this.currentPatientService.patient$.pipe(
       map(user => [
