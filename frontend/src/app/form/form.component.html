@@ -1,40 +1,109 @@
 <h1>Formulár</h1>
 
-<form *ngIf="form$ | async as form" [formGroup]="form">
-  <div>
-    <label>
-      Odberné miesto:
-      <select formControlName="workplace">
-        <option value="kramare">Kramare</option>
-      </select>
-    </label>
-  </div>
-  <div>
-    <label>
-      Kašeľ:
-      <input value="no" type="radio" formControlName="cough"/>Žiadny
-      <input value="modest" type="radio" formControlName="cough"/>Mierny
-      <input value="severe" type="radio" formControlName="cough"/>Výrazný
-    </label>
-  </div>
-  <div>
-    <label>
-      Dýchavičnosť:
-      <input value="no" type="radio" formControlName="breathShortness"/>Žiadna
-      <input value="modest" type="radio" formControlName="breathShortness"/>Mierna
-      <input value="severe" type="radio" formControlName="breathShortness"/>Výrazná
-    </label>
-  </div>
-  <div>
-    <label>Horúčka nad 38°C:</label>
-    <input type="checkbox" formControlName="fever"/>
-  </div>
-  <div>
-    <label>Iné:</label>
-    <textarea formControlName="other"></textarea>
-  </div>
-  <div>
-    <a routerLink="/registration" routerLinkActive="active">Naspať</a> |
-    <a (click)="onSubmit()" routerLink="/code" routerLinkActive="active">Dokončiť</a>
-  </div>
-</form>
+<app-multi-step-form *ngIf="form$ | async as form"
+                     [formData]="form"
+                     (nextAction)="onNextAction()"
+                     (finishAction)="onSubmit()">
+  <ng-template let-step_content let-nextStepHandle="nextStepHandle">
+    <div appFormStep id="1">
+      <div class="form-wrapper">
+
+        <div class="registration-page__step">Step c.1</div>
+        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+
+        <form [formGroup]="step_content">
+          <div class="form-group">
+            <label class="form-label" for="workplace">Odberné miesto:</label>
+            <select id="workplace" formControlName="workplace">
+              <option value="kramare">Kramare</option>
+            </select>
+          </div>
+        </form>
+        <!--        <button class="btn btn-success" [disabled]="form.invalid" (click)="nextStepHandle(form.value)">Next</button>-->
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+      </div>
+    </div>
+  </ng-template>
+
+
+  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+    <div appFormStep id="2">
+      <div class="form-wrapper">
+
+        <div class="registration-page__step">Step c.2</div>
+        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+
+        <form [formGroup]="step_content">
+          <div class="form-group">
+            <label class="form-label">Kašeľ:</label>
+            <input value="no" type="radio" formControlName="cough"/>Žiadny
+            <input value="modest" type="radio" formControlName="cough"/>Mierny
+            <input value="severe" type="radio" formControlName="cough"/>Výrazný
+          </div>
+        </form>
+        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+      </div>
+    </div>
+  </ng-template>
+
+
+  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+    <div appFormStep id="2">
+      <div class="form-wrapper">
+
+        <div class="registration-page__step">Step c.3</div>
+        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+
+        <form [formGroup]="step_content">
+          <div class="form-group">
+            <label class="form-label">Dýchavičnosť:</label>
+            <input value="no" type="radio" formControlName="breathShortness"/>Žiadna
+            <input value="modest" type="radio" formControlName="breathShortness"/>Mierna
+            <input value="severe" type="radio" formControlName="breathShortness"/>Výrazná
+          </div>
+        </form>
+        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+    <div appFormStep id="2">
+      <div class="form-wrapper">
+
+        <div class="registration-page__step">Step c.4</div>
+        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+
+        <form [formGroup]="step_content">
+          <div class="form-group">
+            <label class="form-label">Horúčka nad 38°C:</label>
+            <input type="checkbox" formControlName="fever"/>
+          </div>
+        </form>
+        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+    <div appFormStep id="2">
+      <div class="form-wrapper">
+
+        <div class="registration-page__step">Step c.5</div>
+        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+
+        <form [formGroup]="step_content">
+          <div class="form-group">
+            <label class="form-label">Iné:</label>
+            <textarea formControlName="other"></textarea>
+          </div>
+        </form>
+        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
+        <button class="btn btn-success" (click)="onSubmit()" routerLink="/form" routerLinkActive="active" >Next</button>
+      </div>
+    </div>
+  </ng-template>
+</app-multi-step-form>

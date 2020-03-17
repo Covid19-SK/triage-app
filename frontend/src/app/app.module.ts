@@ -14,10 +14,14 @@ import {RegistrationModule} from './registration/registration.module';
 import {PatientsModule} from './admin/patients/patients.module';
 import {WorkplaceModule} from './workplace/workplace.module';
 import {WorkplacesModule} from './admin/workplaces/workplaces.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderComponent } from './widgets/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,13 +30,16 @@ import {WorkplacesModule} from './admin/workplaces/workplaces.module';
     DetailModule,
     ExamModule,
     FormModule,
+    FontAwesomeModule,
     HomeModule,
     LoginModule,
     PatientsModule,
     RegistrationModule,
     WorkplaceModule,
     WorkplacesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   bootstrap: [AppComponent]
 })

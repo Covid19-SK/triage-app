@@ -1,0 +1,40 @@
+@import "src/app/variables";
+
+:host {
+  display: flex;
+  padding: $space-default;
+  border-bottom: 1px solid $color-border;
+}
+
+.head-icon__wrapper {
+  background-color: #BFC1FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+  height: 46px;
+  width: 46px;
+}
+
+.head-icon {
+  font-size: 25px;
+}
+
+.head-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: $space-default;
+}
+
+.head-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.head-subtitle {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}

@@ -10,33 +10,54 @@ import {ExamService} from '../shared/exam.service';
   styleUrls: ['form.scss']
 })
 export class FormComponent {
-  public form$: Observable<FormGroup>;
+  public form$: Observable<FormGroup[]>;
 
   constructor(private examService: ExamService) {
     this.form$ = this.examService.exam$.pipe(
-      map(exam => new FormGroup({
-          workplace: new FormControl(exam.workplace),
-          cough: new FormControl(exam.cough),
-          breathShortness: new FormControl(exam.breathShortness),
-          fever: new FormControl(exam.fever),
-          other: new FormControl(exam.other),
+      map(exam => [
+        new FormGroup({
+          workplace: new FormControl(exam.workplace)
+        }),
+        new FormGroup({
+          cough: new FormControl(exam.cough)
+        }),
+        new FormGroup({
+          breathShortness: new FormControl(exam.breathShortness)
+        }),
+        new FormGroup({
+          fever: new FormControl(exam.fever)
+        }),
+        new FormGroup({
+          other: new FormControl(exam.other)
         })
-      ),
+      ]),
       shareReplay(1)
+    );
+  }
+
+  public onNextAction(): void {
+    this.form$.pipe(first()).subscribe(
+      form => this.updateExam(form)
     );
   }
 
   public onSubmit(): void {
     this.form$.pipe(first()).subscribe(
-      form => {
-        this.examService.setExam({
-          workplace: form.value['workplace'],
-          cough: form.value['cough'],
-          breathShortness: form.value['breathShortness'],
-          fever: form.value['fever'],
-          other: form.value['other'],
-        });
-      }
+      form => this.updateExam(form)
     );
+  }
+
+  private updateExam(form: FormGroup[]): void {
+    const exam = {
+      // TODO: use something normal
+      date: new Date().toString(),
+      workplace: form[0].controls['workplace'].value,
+      cough: form[1].controls['cough'].value,
+      breathShortness: form[2].controls['breathShortness'].value,
+      fever: form[3].controls['fever'].value,
+      other: form[4].controls['other'].value,
+    };
+    this.examService.setExam(exam);
+
   }
 }

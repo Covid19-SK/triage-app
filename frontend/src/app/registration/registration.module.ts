@@ -3,15 +3,17 @@ import {RouterModule} from '@angular/router';
 
 import {REGISTRATION_ROUTE} from './registration.route';
 import {RegistrationComponent} from './registration.component';
-import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {FormComponentsModule} from '../form-components.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
+    FormComponentsModule,
     RouterModule.forChild([REGISTRATION_ROUTE])
   ],
-  declarations: [RegistrationComponent]
+  declarations: [
+    RegistrationComponent,
+  ]
 })
 export class RegistrationModule {}
