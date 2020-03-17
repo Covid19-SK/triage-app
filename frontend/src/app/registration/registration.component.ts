@@ -40,29 +40,26 @@ export class RegistrationComponent {
 
   // tslint:disable-next-line:no-any
   public onNextAction(formData: any): void {
-    this.form$.pipe(first()).subscribe(form =>
-      console.log(`onNExtStep$: `, form)
+    this.form$.pipe(first()).subscribe(
+      form => this.updatePacient(form)
     );
-    // this.form_data = {
-    //   ...this.form_data,
-    //   ...formData
-    // };
-    // console.log('next',this.form_data);
   }
 
   public onSubmit(): void {
     this.form$.pipe(first()).subscribe(
-      form => {
-        const patient = {
-          firstName: form[0].controls['firstName'].value,
-          lastName: form[1].controls['lastName'].value,
-          birthId: form[2].controls['birthId'].value,
-          email: form[3].controls['email'].value,
-          phone: form[4].controls['phone'].value,
-        };
-        console.log(`Patient: `, patient);
-        this.currentPatientService.setPatient(patient);
-      }
+      form => this.updatePacient(form)
     );
+  }
+
+  private updatePacient(form: FormGroup[]): void {
+    const patient = {
+      firstName: form[0].controls['firstName'].value,
+      lastName: form[1].controls['lastName'].value,
+      birthId: form[2].controls['birthId'].value,
+      email: form[3].controls['email'].value,
+      phone: form[4].controls['phone'].value,
+    };
+    console.log(`Patient: `, patient);
+    this.currentPatientService.setPatient(patient);
   }
 }
