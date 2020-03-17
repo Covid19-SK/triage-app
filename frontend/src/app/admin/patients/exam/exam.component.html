@@ -25,7 +25,8 @@
     <label class="col-sm-3 col-form-label">Odberné miesto:</label>
     <div class="col-sm-9">
       <select class="form-control" formControlName="institution">
-        <option *ngFor="let institution of institutions" value="kramare">{{institution.name}}</option>
+        <option value="">Vyberte odberné miesto</option>
+        <option *ngFor="let institution of institutions" [value]="institution.id">{{institution.name}}</option>
       </select>
     </div>
   </div>
@@ -81,15 +82,15 @@
     <label class="col-sm-3 col-form-label">Stav:</label>
     <div class="col-sm-9">
       <div class="form-check">
-        <input class="form-check-input" type="radio" formControlName="status" value="INITIAL" checked>
+        <input class="form-check-input" type="radio" formControlName="status" value="Initial" checked>
         <label class="form-check-label">Neznámy</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" formControlName="status" value="POSITIVE" checked>
+        <input class="form-check-input" type="radio" formControlName="status" value="Positive" checked>
         <label class="form-check-label">Pozitívny</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" formControlName="status" value="NEGATIVE" checked>
+        <input class="form-check-input" type="radio" formControlName="status" value="Negative" checked>
         <label class="form-check-label">Negatívny</label>
       </div>
     </div>

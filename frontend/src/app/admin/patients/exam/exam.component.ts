@@ -18,11 +18,8 @@ import {InstitutionsService} from '../../../shared/institutions.service';
 })
 export class ExamComponent {
   public form$: Observable<FormGroup>;
-  public exam$: Observable<Exam> = this.route.paramMap.pipe(
-    switchMap(paramMap => this.examService.getById(paramMap.get('examId')))
-  );
-  public patient$: Observable<Patient> = this.exam$.pipe(
-    switchMap(exam => this.patientsService.getById(exam.patientId))
+  public patient$: Observable<Patient> = this.route.paramMap.pipe(
+    switchMap(paramMap => this.patientsService.getById(paramMap.get('patientId')))
   );
   public institutions$: Observable<Institution[]> = this.institutionsService.institutions$;
 
@@ -40,6 +37,7 @@ export class ExamComponent {
           return of({
             ...defaultExam,
             id: undefined,
+            patientId: paramMap.get('patientId')
           });
         }
         return this.examService.getById(examId);
