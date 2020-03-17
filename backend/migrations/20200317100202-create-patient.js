@@ -1,12 +1,13 @@
-'use strict';
+('use strict');
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('patients', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        unique: true,
+        type: Sequelize.UUID,
       },
       firstName: {
         allowNull: false,
@@ -17,6 +18,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       identificationNumber: {
+        unique: true,
         type: Sequelize.STRING,
       },
       dateOfBirth: {

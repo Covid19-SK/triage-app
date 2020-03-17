@@ -1,15 +1,33 @@
 import {
   AllowNull,
+  BeforeCreate,
   Column,
   DataType,
+  HasMany,
   IsEmail,
+  IsUUID,
   Model,
+  PrimaryKey,
   Table,
   Unique,
 } from 'sequelize-typescript';
+import { Examination } from 'src/examinations/examinations.model';
+
+const { v4: uuidv4 } = require('uuid');
 
 @Table({ tableName: 'patients' })
 export class Patient extends Model<Patient> {
+  @IsUUID(4)
+  @PrimaryKey
+  @Unique
+  @Column
+  id: string;
+
+  @BeforeCreate
+  static createId(instance: Patient) {
+    instance.id = uuidv4();
+  }
+
   @AllowNull(false)
   @Column
   firstName: string;
@@ -42,4 +60,7 @@ export class Patient extends Model<Patient> {
 
   @Column
   zipCode: string;
+
+  @HasMany(() => Examination)
+  examinations: Examination[];
 }

@@ -4,6 +4,8 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigService } from 'src/shared/config/config.service';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { CountriesModule } from './countries/countries.module';
+import { ExaminationsModule } from './examinations/examinations.module';
 import { InstitutionsModule } from './institutions/institutions.module';
 import { PatientsModule } from './patients/patients.module';
 import { SharedModule } from './shared/shared.module';
@@ -16,6 +18,8 @@ import { SharedModule } from './shared/shared.module';
     }),
     SharedModule,
 
+    CountriesModule,
+    ExaminationsModule,
     InstitutionsModule,
     PatientsModule,
   ],
