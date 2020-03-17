@@ -44,6 +44,7 @@ import {InstitutionDetailModule} from './admin/institutions/institution-detail/i
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
+    ScanCodeModule
   ],
   bootstrap: [AppComponent],
 })
