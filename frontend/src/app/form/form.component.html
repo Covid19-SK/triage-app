@@ -19,8 +19,8 @@
             </select>
           </div>
         </form>
-        <!--        <button class="btn btn-success" [disabled]="form.invalid" (click)="nextStepHandle(form.value)">Next</button>-->
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+        <button class="btn btn-error" routerLink="/registration" routerLinkActive="active">Späť</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
       </div>
     </div>
   </ng-template>
@@ -41,8 +41,8 @@
             <input value="severe" type="radio" formControlName="cough"/>Výrazný
           </div>
         </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
       </div>
     </div>
   </ng-template>
@@ -63,8 +63,8 @@
             <input value="severe" type="radio" formControlName="breathShortness"/>Výrazná
           </div>
         </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
       </div>
     </div>
   </ng-template>
@@ -82,8 +82,8 @@
             <input type="checkbox" formControlName="fever"/>
           </div>
         </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
       </div>
     </div>
   </ng-template>
@@ -101,8 +101,8 @@
             <textarea formControlName="other"></textarea>
           </div>
         </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
       </div>
     </div>
   </ng-template>
@@ -121,8 +121,8 @@
             <input value="no" type="radio" formControlName="abroad"/>Nie
           </div>
         </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
      </div>
     </div>
   </ng-template>
@@ -141,8 +141,8 @@
             <input value="no" type="radio" formControlName="contactWithFeverPerson"/>Nie
           </div>
         </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
+        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
       </div>
     </div>
   </ng-template>
@@ -161,8 +161,8 @@
             <input value="no" type="radio" formControlName="contactWithCovidPerson"/>Nie
           </div>
         </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="onSubmit()" routerLink="/form" routerLinkActive="active" >Next</button>
+        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
+        <button class="btn btn-success" (click)="onSubmit()" routerLink="/form" routerLinkActive="active" >Ďalej</button>
       </div>
     </div>
   </ng-template>
