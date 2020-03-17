@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {shareReplay, startWith} from 'rxjs/operators';
-import {Exam} from './exam';
+import {Exam, ExamStatus} from './exam';
 import {DataService} from './data.service';
 import {AuthService} from './auth.service';
 import {CurrentExam} from './current-exam';
+import {first} from 'lodash-es';
 
 const defaultExams = [{
   id: '2020-03-07T13:00:00Z',
@@ -15,6 +16,7 @@ const defaultExams = [{
   breathShortness: 'modest',
   fever: true,
   other: '',
+  status: ExamStatus.INITIAL,
 }];
 
 @Injectable({providedIn: 'root'})
@@ -49,5 +51,13 @@ export class ExamService {
       .load('tpPatientExams', defaultExams)
       .filter(e => e.patientId === patientId)
     );
+  }
+
+  public getExam(examId: string): Observable<Exam> {
+    const exams = this.dataService
+      .load('tpPatientExams', defaultExams)
+      .filter(e => e.id === examId);
+    console.assert(exams.length === 1);
+    return of(first(exams));
   }
 }
