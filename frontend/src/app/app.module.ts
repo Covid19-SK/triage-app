@@ -22,8 +22,7 @@ import {InstitutionDetailModule} from './admin/institutions/institution-detail/i
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +45,7 @@ import {InstitutionDetailModule} from './admin/institutions/institution-detail/i
     BrowserAnimationsModule,
     FontAwesomeModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}

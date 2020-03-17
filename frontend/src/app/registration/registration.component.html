@@ -1,112 +1,112 @@
-<app-multi-step-form *ngIf="form$ | async as form"
-                    [formData]="form"
-                    (nextAction)="onNextAction($event)"
-                    (finishAction)="onSubmit()">
-  <ng-template let-step_content let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="1" class="form-step">
-      <div class="form-wrapper">
+<app-header [icon]="icon" title="Registrácia" subTitle="Základné údaje"></app-header>
+<div class="safe-zone">
+  <app-multi-step-form *ngIf="form$ | async as form"
+                      [formData]="form"
+                      (nextAction)="onNextAction($event)"
+                      (finishAction)="onSubmit()">
+    <ng-template let-step_content let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="1" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="form-center-content">
-          <div class="registration-page__title">Meno</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Meno</div>
 
-          <form [formGroup]="step_content">
-            <div class="form-group">
-              <input id="name" class="form-control" type="text" formControlName="firstName" value="" autofocus>
-  <!--            <input class="form-input" [ngClass]="{'is-error': name.invalid && (name.dirty || name.touched)}" type="text" id="name" name="name" [ngModel]="step_content.data.name" #name="ngModel" placeholder="Name" required>-->
-
-            </div>
-          </form>
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <input id="name" class="form-control" type="text" formControlName="firstName" value="" autofocus>
+              </div>
+            </form>
+          </div>
+          <div class="bottom-cta">
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+          </div>
         </div>
-<!--        <button class="btn btn-success" [disabled]="form.invalid" (click)="nextStepHandle(form.value)">Next</button>-->
-        <div class="bottom-cta">
-          <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+      </div>
+    </ng-template>
+
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="2" class="form-step">
+        <div class="form-wrapper">
+
+          <div class="form-center-content">
+            <div class="registration-page__title">Priezvisko</div>
+
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <input id="lastName" class="form-control" type="text" formControlName="lastName" value="" autofocus>
+              </div>
+            </form>
+          </div>
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+          </div>
         </div>
       </div>
-    </div>
-  </ng-template>
+    </ng-template>
 
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="2">
-      <div class="form-wrapper">
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="3" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="registration-page__title">Step c.2</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Rodné číslo</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label" for="lastName">Priezvisko:</label>
-            <input id="lastName" type="text" formControlName="lastName">
-            <!--            <input class="form-input" [ngClass]="{'is-error': name.invalid && (name.dirty || name.touched)}" type="text" id="name" name="name" [ngModel]="step_content.data.name" #name="ngModel" placeholder="Name" required>-->
-
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <input id="birthId" class="form-control" type="text" formControlName="birthId" value="" autofocus>
+              </div>
+            </form>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
-      </div>
-    </div>
-  </ng-template>
-
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="3">
-      <div class="form-wrapper">
-
-        <div class="registration-page__title">Step c.3</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
-
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label" for="name">Rodné číslo::</label>
-            <input id="birthId" type="text" formControlName="birthId">
-            <!--            <input class="form-input" [ngClass]="{'is-error': name.invalid && (name.dirty || name.touched)}" type="text" id="name" name="name" [ngModel]="step_content.data.name" #name="ngModel" placeholder="Name" required>-->
-
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
+        </div>
       </div>
-    </div>
-  </ng-template>
+    </ng-template>
 
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="4">
-      <div class="form-wrapper">
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="4" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="registration-page__title">Step c.4</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Email</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label" for="email">Email:</label>
-            <input id="email" type="text" formControlName="email">
-            <!--            <input class="form-input" [ngClass]="{'is-error': name.invalid && (name.dirty || name.touched)}" type="text" id="name" name="name" [ngModel]="step_content.data.name" #name="ngModel" placeholder="Name" required>-->
-
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <input id="email" class="form-control" type="email" formControlName="email" value="" autofocus>
+              </div>
+            </form>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Next</button>
-      </div>
-    </div>
-  </ng-template>
-
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="5">
-      <div class="form-wrapper">
-
-        <div class="registration-page__title">Step c.5</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
-
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label" for="phone">Telefónne číslo::</label>
-            <input id="phone" type="text" formControlName="phone">
-            <!--            <input class="form-input" [ngClass]="{'is-error': name.invalid && (name.dirty || name.touched)}" type="text" id="name" name="name" [ngModel]="step_content.data.name" #name="ngModel" placeholder="Name" required>-->
-
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" (click)="onSubmit()" routerLink="/form" routerLinkActive="active" >Next</button>
+        </div>
       </div>
-    </div>
-  </ng-template>
+    </ng-template>
 
-</app-multi-step-form>
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="5" class="form-step">
+        <div class="form-wrapper">
+
+          <div class="form-center-content">
+            <div class="registration-page__title">Telefónne číslo</div>
+
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <input id="phone" class="form-control" type="number" formControlName="phone" value="" autofocus>
+              </div>
+            </form>
+          </div>
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="onSubmit()" routerLink="/form" routerLinkActive="active">Ďalej</button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+  </app-multi-step-form>
+</div>

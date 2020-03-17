@@ -1,3 +1,5 @@
+@import "src/app/variables";
+
 :host,
 app-multi-step-form,
 .form-step,
@@ -6,6 +8,17 @@ app-multi-step-form,
 .bottom-cta {
   display: flex;
   width: 100%;
+}
+
+:host {
+  flex-direction: column;
+  height: 100%;
+}
+
+.safe-zone {
+  padding: $space-default;
+  display: flex;
+  flex-grow: 1;
 }
 
 .form-wrapper {
@@ -27,6 +40,11 @@ app-multi-step-form,
   justify-content: flex-end;
 }
 
+.back-icon {
+  padding-right: 8px;
+}
+
+.btn-prev,
 .btn-next {
   display: flex;
   width: 50%;
