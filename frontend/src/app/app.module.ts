@@ -16,10 +16,12 @@ import {WorkplaceModule} from './workplace/workplace.module';
 import {WorkplacesModule} from './admin/workplaces/workplaces.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderComponent } from './widgets/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
