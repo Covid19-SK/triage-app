@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend';
+  public title = 'frontend';
+  public icon = faInfoCircle;
 }
