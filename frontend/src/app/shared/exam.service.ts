@@ -87,7 +87,6 @@ export class ExamService {
 
   public getByPatientId(patientId: string): Observable<Exam[]> {
     return this.exams$.pipe(
-      first(),
       map(exams => exams.filter(p => p.patientId === patientId))
     );
   }
@@ -101,5 +100,12 @@ export class ExamService {
         return _first(result);
       })
     );
+  }
+
+  public delete(examId: string): void {
+    this.exams$.pipe(
+      first(),
+      map(exams => exams.filter(i => i.id !== examId)),
+    ).subscribe(exams => this.save(exams));
   }
 }

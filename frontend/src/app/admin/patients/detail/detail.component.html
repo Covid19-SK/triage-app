@@ -49,12 +49,13 @@
     <th>Dátum</th>
     <th>Odberné miesto</th>
     <th>Stav</th>
-    <th></th>
+    <th colspan="2"></th>
   </tr>
   <tr *ngFor="let exam of exams$ | async">
     <td>{{exam.date}}</td>
     <td>{{getInstitutionName(exam.institution) | async}}</td>
     <td>{{exam.status}}</td>
     <td><a routerLink="/admin/exam/{{exam.patientId}}/{{exam.id}}" routerLinkActive="active">Upraviť</a></td>
+    <td><a routerLink="/admin/detail/{{exam.patientId}}" routerLinkActive="active" (click)="onDeleteClick(exam.id)">Zmazať</a></td>
   </tr>
 </table>

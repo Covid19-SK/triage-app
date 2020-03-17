@@ -64,4 +64,8 @@ export class DetailComponent {
       map(i => i.name)
     );
   }
+
+  public onDeleteClick(examId: string): void {
+    this.examService.delete(examId);
+  }
 }
