@@ -3,6 +3,7 @@ import {
   BeforeCreate,
   Column,
   DataType,
+  HasMany,
   IsEmail,
   IsUUID,
   Model,
@@ -10,6 +11,8 @@ import {
   Table,
   Unique,
 } from 'sequelize-typescript';
+import { Examination } from 'src/examinations/examinations.model';
+
 const { v4: uuidv4 } = require('uuid');
 
 @Table({ tableName: 'patients' })
@@ -57,4 +60,7 @@ export class Patient extends Model<Patient> {
 
   @Column
   zipCode: string;
+
+  @HasMany(() => Examination)
+  examinations: Examination[];
 }
