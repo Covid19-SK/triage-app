@@ -23,6 +23,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@types/lodash-es": "^4.17.3",
+    "angular2-qrcode": "^2.0.3",
     "bootstrap": "4.1.1",
     "lodash-es": "^4.17.15",
     "ngx-bootstrap": "^5.5.0",
