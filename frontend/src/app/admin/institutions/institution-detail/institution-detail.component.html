@@ -1,0 +1,12 @@
+<h1>Odberné miesto</h1>
+<div *ngIf="form$ | async as form" [formGroup]="form">
+  <div>
+    <label>
+      Názov: <input formControlName="name"/>
+    </label>
+  </div>
+  <div>
+    <a class="btn btn-default" routerLink="/admin/institutions" routerLinkActive="active">Naspäť</a>
+    <button (click)="onSubmit()" class="btn btn-primary">Uložiť</button>
+  </div>
+</div>

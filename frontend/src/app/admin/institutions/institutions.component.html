@@ -1,5 +1,17 @@
-<h1>Pracoviska</h1>
+<h1>Odberné miesta</h1>
 <p>
-  Administracia pracovisk (CRUD)
+  <a routerLink="/admin/institution/new" routerLinkActive="active">Nové odberné miesto</a>
 </p>
-<a routerLink="/admin" routerLinkActive="active">Naspat</a>
+
+<table class="table" *ngIf="institutions$ | async as institutions">
+  <tr>
+    <th>Názov</th>
+    <th colspan="2"></th>
+  </tr>
+  <tr *ngFor="let institution of institutions">
+    <td>{{institution.name}}</td>
+    <td><a routerLink="/admin/institution/{{institution.id}}" routerLinkActive="active">Upraviť</a></td>
+    <td><a routerLink="/admin/institutions" routerLinkActive="active" (click)="onDeleteClick(institution.id)">Zmazať</a></td>
+  </tr>
+</table>
+<a routerLink="/admin" routerLinkActive="active">Naspäť</a>

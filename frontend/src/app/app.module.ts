@@ -18,6 +18,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HeaderComponent} from './widgets/header/header.component';
 import {ScanModule} from './admin/scan/scan.module';
+import {InstitutionDetailModule} from './admin/institutions/institution-detail/institution-detail.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {ScanModule} from './admin/scan/scan.module';
     RegistrationModule,
     ScanModule,
     InstitutionModule,
+    InstitutionDetailModule,
     InstitutionsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
