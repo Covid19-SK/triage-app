@@ -34,6 +34,15 @@ export class FormComponent {
         }),
         new FormGroup({
           other: new FormControl(exam.other)
+        }),
+        new FormGroup({
+          abroad: new FormControl(exam.abroad)
+        }),
+        new FormGroup({
+          contactWithFeverPerson: new FormControl(exam.contactWithFeverPerson)
+        }),
+        new FormGroup({
+          contactWithCovidPerson: new FormControl(exam.contactWithCovidPerson)
         })
       ]),
       shareReplay(1)
@@ -61,6 +70,9 @@ export class FormComponent {
       breathShortness: form[2].controls['breathShortness'].value,
       fever: form[3].controls['fever'].value,
       other: form[4].controls['other'].value,
+      abroad: form[5].controls['abroad'].value,
+      contactWithFeverPerson: form[6].controls['contactWithFeverPerson'].value,
+      contactWithCovidPerson: form[7].controls['contactWithCovidPerson'].value,
     };
     this.examService.setExam(exam);
 

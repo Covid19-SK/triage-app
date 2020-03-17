@@ -4,5 +4,8 @@ export interface CurrentExam {
   breathShortness: string; // 'no' | 'modest' | 'severe';
   fever: boolean;
   other: string;
+  abroad: boolean;
+  contactWithFeverPerson: boolean;
+  contactWithCovidPerson: boolean;
   date: string;
 }
