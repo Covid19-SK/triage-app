@@ -15,12 +15,6 @@ app-multi-step-form,
   height: 100%;
 }
 
-.safe-zone {
-  padding: $space-default;
-  display: flex;
-  flex-grow: 1;
-}
-
 .form-wrapper {
   flex-direction: column;
   text-align: center;
@@ -34,21 +28,6 @@ app-multi-step-form,
 
 .form-control {
   text-align: center;
-}
-
-.bottom-cta {
-  justify-content: flex-end;
-}
-
-.back-icon {
-  padding-right: 8px;
-}
-
-.btn-prev,
-.btn-next {
-  display: flex;
-  width: 50%;
-  justify-content: center;
 }
 
 .registration-page__title {

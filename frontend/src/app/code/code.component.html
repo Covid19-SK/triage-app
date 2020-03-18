@@ -1,16 +1,19 @@
 <app-header [icon]="icon" title="Registrácia" subTitle="QR kód"></app-header>
-  <div class="safe-zone">
+<div class="safe-zone">
   <div class="code-page">
+    <div class="center-content">
+      <div class="code-page__headline">Ukážte tento QR kód pri odbere</div>
 
-    <div class="code-page__headline">Ukážte tento QR kód pri odbere</div>
+      <div class="code-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas tortor vel felis accumsan, at tempus nunc egestas. Ut suscipit finibus ipsum, sed accumsan tortor mollis ac.</div>
 
-    <div class="code-page__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas tortor vel felis accumsan, at tempus nunc egestas. Ut suscipit finibus ipsum, sed accumsan tortor mollis ac.</div>
-
-    <div class="code-page__qr-code">
-      <qr-code [value]="userId" [size]="300"></qr-code>
+      <div class="code-page__qr-code">
+        <qr-code [value]="userId" [size]="300"></qr-code>
+      </div>
     </div>
 
-    <a routerLink="/form" routerLinkActive="active">Späť</a>
+    <div class="bottom-cta">
+      <button class="btn-prev btn btn-link text-uppercase" routerLink="/form" routerLinkActive="active"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+    </div>
 
   </div>
 </div>
