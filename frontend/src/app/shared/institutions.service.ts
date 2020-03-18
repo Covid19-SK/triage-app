@@ -18,7 +18,6 @@ function CreateDto(institution: Institution): InstitutionDto {
 export class InstitutionsService {
   private institutionsSource$: Subject<Institution[]> = new Subject();
   public institutions$: Observable<Institution[]> = this.institutionsSource$.asObservable().pipe(
-    tap(e => console.log('institutions2', e)),
     shareReplay(1),
   );
 
@@ -33,10 +32,7 @@ export class InstitutionsService {
   private refresh(): void {
     this.httpClient
       .get<InstitutionDto[]>(API_URL)
-      .subscribe(institutions => {
-        console.log('institutions3', institutions);
-        this.institutionsSource$.next(institutions);
-      });
+      .subscribe(institutions => this.institutionsSource$.next(institutions));
     this.institutions$.subscribe();
   }
 

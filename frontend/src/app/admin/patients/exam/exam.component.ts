@@ -21,9 +21,7 @@ export class ExamComponent {
   public patient$: Observable<Patient> = this.route.paramMap.pipe(
     switchMap(paramMap => this.patientsService.getById(paramMap.get('patientId')))
   );
-  public institutions$: Observable<Institution[]> = this.institutionsService.institutions$.pipe(
-    tap(e => console.log('institutions', e))
-  );
+  public institutions$: Observable<Institution[]> = this.institutionsService.institutions$;
 
   constructor(
     private patientsService: PatientsService,
