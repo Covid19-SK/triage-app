@@ -26,6 +26,7 @@
   text-align: center;
   position: absolute;
   height: 100%;
+  width: 100%;
   z-index: 1;
 }
 
@@ -40,11 +41,6 @@
   flex-direction: column;
 }
 
-.button-holder {
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.hidden {
-  visibility: hidden;
+.btn-next {
+  width: 100%;
 }

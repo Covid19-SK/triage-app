@@ -1,27 +1,14 @@
-<app-header [icon]="icon" title="{{ 'HOME.TITLE' | translate }}"
-            subTitle="{{ 'HOME.SUBTITLE' | translate }}"
-            language="EN">
-</app-header>
-<div class="safe-zone">
+<div class="safe-zone" [@Enter]>
   <div class="info-holder">
-    <div class="info" *ngIf="selectedStep === 1" [@EnterLeave]>
+    <div class="info">
       <h3 class="info-text">{{ 'HOME.STEP1' | translate }}</h3>
       <p class="info-decription text-secondary">{{ 'HOME.DESCRIPTION' | translate }}</p>
-      <img class="info-img" src="/assets/images/intro-screen-1.jpg" alt="">
-    </div>
-    <div class="info" *ngIf="selectedStep === 2" [@EnterLeave]>
-      <h3 class="info-text">{{ 'HOME.STEP2' | translate }}</h3>
-      <p class="info-decription text-secondary">{{ 'HOME.SECONDARY_DESCRIPTION' | translate }}</p>
       <img class="info-img" src="/assets/images/intro-screen-2.jpg" alt="">
     </div>
   </div>
   <div class="bottom-cta">
-    <div class="button-holder">
-      <button type="button" class="btn-prev btn btn-link" [disabled]="selectedStep === 1" (click)="prev()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
-      <button type="button" class="btn-next btn btn-primary" (click)="next()">
+      <button type="button" class="btn-next btn btn-primary" routerLink="/registration" routerLinkActive="active">
         {{ 'NAVIGATION.NEXT' | translate }}
       </button>
-    </div>
-    <button [ngClass]="{'hidden': skipHidden}" routerLink="/registration" routerLinkActive="active" type="button" class="btn btn-link">{{ 'HOME.SKIP_INSTRUCTION' | translate }}</button>
   </div>
 </div>
