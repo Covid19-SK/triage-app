@@ -1,10 +1,13 @@
-<app-header [icon]="icon" title="Registrácia" subTitle="QR kód"></app-header>
+<app-header [icon]="icon" title="{{ 'QR_CODE.TITLE' | translate }}"
+            subTitle="{{ 'QR_CODE.SUBTITLE' | translate }}"
+            language="EN">
+</app-header>
 <div class="safe-zone">
   <div class="code-page">
     <div class="center-content">
-      <div class="code-page__headline">Ukážte tento QR kód pri odbere</div>
+      <div class="code-page__headline">{{ 'QR_CODE.SHOW_YOUR_CODE' | translate }}</div>
 
-      <div class="code-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas tortor vel felis accumsan, at tempus nunc egestas. Ut suscipit finibus ipsum, sed accumsan tortor mollis ac.</div>
+      <div class="code-page__description text-secondary">{{ 'QR_CODE.SHOW_YOUR_CODE_DESCRIPTION' | translate }}</div>
 
       <div class="code-page__qr-code">
         <qr-code [value]="userId" [size]="300"></qr-code>
@@ -12,7 +15,7 @@
     </div>
 
     <div class="bottom-cta">
-      <button class="btn-prev btn btn-link text-uppercase" routerLink="/form" routerLinkActive="active"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+      <button class="btn-prev btn btn-link text-uppercase" routerLink="/form" routerLinkActive="active"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
     </div>
 
   </div>

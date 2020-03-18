@@ -55,5 +55,11 @@
     "CONTACT_WITH_COVID_DESCRIPTION": "Blizky kontakt s potvrdenym pripadom COVID-19 za poslednych 14 dni",
     "CONTACT_WITH_COVID_YES": "Áno",
     "CONTACT_WITH_COVID_NO": "Nie"
+  },
+  "QR_CODE": {
+    "TITLE": "Registrácia",
+    "SUBTITLE": "QR kód",
+    "SHOW_YOUR_CODE": "Ukážte tento QR kód pri odbere",
+    "SHOW_YOUR_CODE_DESCRIPTION": "Ukážte tento QR kód pri odbere"
   }
 }
