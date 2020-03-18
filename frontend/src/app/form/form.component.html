@@ -1,169 +1,232 @@
-<h1>Formulár</h1>
+<app-header [icon]="icon" title="Registrácia" subTitle="Príznaky / Anamnéza"></app-header>
+<div class="safe-zone">
+  <app-multi-step-form *ngIf="form$ | async as form"
+                       [formData]="form"
+                       (nextAction)="onNextAction()"
+                       (finishAction)="onSubmit()">
 
-<app-multi-step-form *ngIf="form$ | async as form"
-                     [formData]="form"
-                     (nextAction)="onNextAction()"
-                     (finishAction)="onSubmit()">
-  <ng-template let-step_content let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="1">
-      <div class="form-wrapper">
+    <ng-template let-step_content let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="1" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="registration-page__title">Step c.1</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Odberné miesto</div>
+            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label" for="workplace">Odberné miesto:</label>
-            <select id="workplace" formControlName="workplace">
-              <option value="kramare">Kramare</option>
-            </select>
+
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <select id="workplace" class="form-control" formControlName="workplace">
+                  <option value="kramare">Kramare</option>
+                  <option value="kramare2">Kramare 2</option>
+                </select>
+              </div>
+            </form>
           </div>
-        </form>
-        <button class="btn btn-error" routerLink="/registration" routerLinkActive="active">Späť</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backToRegistration()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </ng-template>
+    </ng-template>
 
 
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="2">
-      <div class="form-wrapper">
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="2" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="registration-page__title">Step c.2</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Kašeľ</div>
+            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label">Kašeľ:</label>
-            <input value="no" type="radio" formControlName="cough"/>Žiadny
-            <input value="modest" type="radio" formControlName="cough"/>Mierny
-            <input value="severe" type="radio" formControlName="cough"/>Výrazný
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <div class="btn-group" btnRadioGroup formControlName="cough">
+                  <label btnRadio="no" class="btn btn-themed"
+                         tabindex="0" role="button">Žiadny</label>
+                  <label btnRadio="modest" class="btn btn-themed"
+                         tabindex="0" role="button">Mierny</label>
+                  <label btnRadio="severe" class="btn btn-themed"
+                         tabindex="0" role="button">Výrazný</label>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </ng-template>
+    </ng-template>
 
 
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="3">
-      <div class="form-wrapper">
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="3" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="registration-page__title">Step c.3</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Dýchavičnosť</div>
+            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label">Dýchavičnosť:</label>
-            <input value="no" type="radio" formControlName="breathShortness"/>Žiadna
-            <input value="modest" type="radio" formControlName="breathShortness"/>Mierna
-            <input value="severe" type="radio" formControlName="breathShortness"/>Výrazná
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <div class="btn-group" btnRadioGroup formControlName="breathShortness">
+                  <label btnRadio="no" class="btn btn-themed"
+                         tabindex="0" role="button">Žiadna</label>
+                  <label btnRadio="modest" class="btn btn-themed"
+                         tabindex="0" role="button">Mierna</label>
+                  <label btnRadio="severe" class="btn btn-themed"
+                         tabindex="0" role="button">Výrazná</label>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </ng-template>
+    </ng-template>
 
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="4">
-      <div class="form-wrapper">
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="4" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="registration-page__title">Step c.4</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Horúčka nad 38°C</div>
+            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label">Horúčka nad 38°C:</label>
-            <input type="checkbox" formControlName="fever"/>
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <div class="btn-group" btnRadioGroup formControlName="fever">
+                  <label btnRadio="no" class="btn btn-themed"
+                         tabindex="0" role="button">Menej ako 38</label>
+                  <label btnRadio="yes" class="btn btn-themed"
+                         tabindex="0" role="button">Viac ako 38</label>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </ng-template>
+    </ng-template>
 
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="5">
-      <div class="form-wrapper">
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="5" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="registration-page__title">Step c.5</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Iné</div>
+            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label">Iné:</label>
-            <textarea formControlName="other"></textarea>
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <textarea class="form-control" formControlName="other"></textarea>
+              </div>
+            </form>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </ng-template>
+    </ng-template>
 
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="6">
-      <div class="form-wrapper">
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="6" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="registration-page__step">Step c.6</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Pobyt v zahraničí v posledných 14 dňoch</div>
+            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label">Pobyt v zahraničí v posledných 14 dňoch:</label>
-            <input value="yes" type="radio" formControlName="abroad"/>Ano
-            <input value="no" type="radio" formControlName="abroad"/>Nie
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <div class="btn-group" btnRadioGroup formControlName="abroad">
+                  <label btnRadio="yes" class="btn btn-themed"
+                         tabindex="0" role="button">Áno</label>
+                  <label btnRadio="no" class="btn btn-themed"
+                         tabindex="0" role="button">Nie</label>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
-     </div>
-    </div>
-  </ng-template>
-
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="7">
-      <div class="form-wrapper">
-
-        <div class="registration-page__step">Step c.7</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
-
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label">Blizky kontakt s osobou s horuckou alebo respiracnymi priznakmi za poslednych 14 dni</label>
-            <input value="yes" type="radio" formControlName="contactWithFeverPerson"/>Ano
-            <input value="no" type="radio" formControlName="contactWithFeverPerson"/>Nie
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
-        <button class="btn btn-success" (click)="nextStepHandle(step_content)">Ďalej</button>
+       </div>
       </div>
-    </div>
-  </ng-template>
+    </ng-template>
 
-  <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-    <div appFormStep id="8">
-      <div class="form-wrapper">
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="7" class="form-step">
+        <div class="form-wrapper">
 
-        <div class="registration-page__step">Step c.8</div>
-        <div class="registration-page__description">Lorem ipsum dolor sit amet,</div>
+          <div class="form-center-content">
+            <div class="registration-page__title">Blizky kontakt s osobou s horuckou alebo respiracnymi priznakmi za poslednych 14 dni</div>
+            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
 
-        <form [formGroup]="step_content">
-          <div class="form-group">
-            <label class="form-label">Blizky kontakt s potvrdenym pripadom COVID-19 za poslednych 14 dni:</label>
-            <input value="yes" type="radio" formControlName="contactWithCovidPerson"/>Ano
-            <input value="no" type="radio" formControlName="contactWithCovidPerson"/>Nie
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <div class="btn-group" btnRadioGroup formControlName="contactWithFeverPerson">
+                  <label btnRadio="yes" class="btn btn-themed"
+                         tabindex="0" role="button">Áno</label>
+                  <label btnRadio="no" class="btn btn-themed"
+                         tabindex="0" role="button">Nie</label>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
-        <button class="btn btn-error" (click)="backStepHandle()">Späť</button>
-        <button class="btn btn-success" (click)="onSubmit()" routerLink="/form" routerLinkActive="active" >Ďalej</button>
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </ng-template>
-</app-multi-step-form>
+    </ng-template>
+
+    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
+      <div appFormStep id="8" class="form-step">
+        <div class="form-wrapper">
+
+          <div class="form-center-content">
+            <div class="registration-page__title">Blizky kontakt s potvrdenym pripadom COVID-19 za poslednych 14 dni</div>
+            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
+
+            <form [formGroup]="step_content">
+              <div class="form-group">
+                <div class="btn-group" btnRadioGroup formControlName="contactWithCovidPerson">
+                  <label btnRadio="yes" class="btn btn-themed"
+                         tabindex="0" role="button">Áno</label>
+                  <label btnRadio="no" class="btn btn-themed"
+                         tabindex="0" role="button">Nie</label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="bottom-cta">
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="onSubmit()" routerLink="/form" routerLinkActive="active">Ďalej</button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </app-multi-step-form>
+</div>

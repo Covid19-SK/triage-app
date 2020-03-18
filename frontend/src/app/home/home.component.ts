@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Router} from '@angular/router';
-import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import {faChevronLeft, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +24,7 @@ export class HomeComponent {
   public stepCount = 2;
   public skipHidden = false;
   public icon = faInfoCircle;
+  public backIcon = faChevronLeft;
 
   public constructor(private router: Router) {
   }
