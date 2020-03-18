@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Exam} from '../../../shared/exam';
-import {first, map, shareReplay, switchMap} from 'rxjs/operators';
+import {first, map, shareReplay, switchMap, tap} from 'rxjs/operators';
 import {defaultExam, ExamService} from '../../../shared/exam.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Patient} from '../../../shared/patient';
@@ -21,7 +21,9 @@ export class ExamComponent {
   public patient$: Observable<Patient> = this.route.paramMap.pipe(
     switchMap(paramMap => this.patientsService.getById(paramMap.get('patientId')))
   );
-  public institutions$: Observable<Institution[]> = this.institutionsService.institutions$;
+  public institutions$: Observable<Institution[]> = this.institutionsService.institutions$.pipe(
+    tap(e => console.log('institutions', e))
+  );
 
   constructor(
     private patientsService: PatientsService,
@@ -45,12 +47,14 @@ export class ExamComponent {
       map((exam: Exam) => new FormGroup({
           id: new FormControl(exam.id),
           patientId: new FormControl(exam.patientId),
-          date: new FormControl(exam.date),
-          institution: new FormControl(exam.institution),
+          institutionId: new FormControl(exam.institutionId),
           cough: new FormControl(exam.cough),
           breathShortness: new FormControl(exam.breathShortness),
           fever: new FormControl(exam.fever),
           other: new FormControl(exam.other),
+          abroad: new FormControl(exam.abroad),
+          illPersonContact: new FormControl(exam.illPersonContact),
+          covid19Contact: new FormControl(exam.covid19Contact),
           status: new FormControl(exam.status),
         })
       ),

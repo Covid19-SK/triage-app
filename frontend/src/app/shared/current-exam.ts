@@ -1,11 +1,12 @@
+import {Classification} from '../../../../backend/src/shared/enum/classification';
+
 export interface CurrentExam {
-  institution: string;
-  cough: string; // 'no' | 'modest' | 'severe';
-  breathShortness: string; // 'no' | 'modest' | 'severe';
-  fever: boolean;
+  institutionId: number;
+  cough: Classification;
+  breathShortness: Classification;
+  fever: Classification;
   other: string;
   abroad: boolean;
-  contactWithFeverPerson: boolean;
-  contactWithCovidPerson: boolean;
-  date: string;
+  illPersonContact: boolean;
+  covid19Contact: boolean;
 }

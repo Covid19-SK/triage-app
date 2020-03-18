@@ -4,7 +4,7 @@ import {DataService} from './data.service';
 import {AuthService} from './auth.service';
 import {Institution} from './institution';
 import {first as _first} from 'lodash-es';
-import {first, map, shareReplay} from 'rxjs/operators';
+import {first, map, shareReplay, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {InstitutionDto} from '../../../../backend/src/institutions/institution.dto';
 
@@ -18,6 +18,7 @@ function CreateDto(institution: Institution): InstitutionDto {
 export class InstitutionsService {
   private institutionsSource$: Subject<Institution[]> = new Subject();
   public institutions$: Observable<Institution[]> = this.institutionsSource$.asObservable().pipe(
+    tap(e => console.log('institutions2', e)),
     shareReplay(1),
   );
 
@@ -32,7 +33,11 @@ export class InstitutionsService {
   private refresh(): void {
     this.httpClient
       .get<InstitutionDto[]>(API_URL)
-      .subscribe(institutions => this.institutionsSource$.next(institutions));
+      .subscribe(institutions => {
+        console.log('institutions3', institutions);
+        this.institutionsSource$.next(institutions);
+      });
+    this.institutions$.subscribe();
   }
 
   public update(institution: Institution): void {
@@ -53,7 +58,7 @@ export class InstitutionsService {
       .subscribe(() => this.refresh());
   }
 
-  public getById(id: string): Observable<Institution> {
+  public getById(id: number): Observable<Institution> {
     return this.institutions$.pipe(
       first(),
       map(objs => {

@@ -20,7 +20,7 @@ export class FormComponent {
     this.form$ = this.examService.exam$.pipe(
       map(exam => [
         new FormGroup({
-          institution: new FormControl(exam.institution)
+          institutionId: new FormControl(exam.institutionId)
         }),
         new FormGroup({
           cough: new FormControl(exam.cough)
@@ -29,7 +29,7 @@ export class FormComponent {
           breathShortness: new FormControl(exam.breathShortness)
         }),
         new FormGroup({
-          fever: new FormControl(this.convertBoolToValue(exam.fever))
+          fever: new FormControl(exam.fever)
         }),
         new FormGroup({
           other: new FormControl(exam.other)
@@ -38,10 +38,10 @@ export class FormComponent {
           abroad: new FormControl(this.convertBoolToValue(exam.abroad))
         }),
         new FormGroup({
-          contactWithFeverPerson: new FormControl(this.convertBoolToValue(exam.contactWithFeverPerson))
+          illPersonContact: new FormControl(this.convertBoolToValue(exam.illPersonContact))
         }),
         new FormGroup({
-          contactWithCovidPerson: new FormControl(this.convertBoolToValue(exam.contactWithCovidPerson))
+          covid19Contact: new FormControl(this.convertBoolToValue(exam.covid19Contact))
         })
       ]),
       shareReplay(1)
@@ -70,16 +70,14 @@ export class FormComponent {
 
   private updateExam(form: FormGroup[]): void {
     const exam = {
-      // TODO: use something normal
-      date: new Date().toString(),
-      institution: form[0].controls['institution'].value,
+      institutionId: form[0].controls['institutionId'].value,
       cough: form[1].controls['cough'].value,
       breathShortness: form[2].controls['breathShortness'].value,
-      fever: this.convertValueToBool(form[3].controls['fever'].value),
+      fever: form[4].controls['fever'].value,
       other: form[4].controls['other'].value,
       abroad: this.convertValueToBool(form[5].controls['abroad'].value),
-      contactWithFeverPerson: this.convertValueToBool(form[6].controls['contactWithFeverPerson'].value),
-      contactWithCovidPerson: this.convertValueToBool(form[7].controls['contactWithCovidPerson'].value),
+      illPersonContact: this.convertValueToBool(form[6].controls['illPersonContact'].value),
+      covid19Contact: this.convertValueToBool(form[7].controls['covid19Contact'].value),
     };
     this.examService.setExam(exam);
   }

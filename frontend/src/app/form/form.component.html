@@ -17,7 +17,7 @@
 
             <form [formGroup]="step_content">
               <div class="form-group">
-                <select id="institution" class="form-control" formControlName="institution">
+                <select id="institutionId" class="form-control" formControlName="institutionId">
                   <option value="kramare">Kramare</option>
                   <option value="kramare2">Kramare 2</option>
                 </select>
@@ -45,9 +45,9 @@
             <form [formGroup]="step_content">
               <div class="form-group">
                 <div class="btn-group" btnRadioGroup formControlName="cough">
-                  <label btnRadio="no" class="btn btn-themed"
+                  <label btnRadio="none" class="btn btn-themed"
                          tabindex="0" role="button">Žiadny</label>
-                  <label btnRadio="modest" class="btn btn-themed"
+                  <label btnRadio="mild" class="btn btn-themed"
                          tabindex="0" role="button">Mierny</label>
                   <label btnRadio="severe" class="btn btn-themed"
                          tabindex="0" role="button">Výrazný</label>
@@ -76,9 +76,9 @@
             <form [formGroup]="step_content">
               <div class="form-group">
                 <div class="btn-group" btnRadioGroup formControlName="breathShortness">
-                  <label btnRadio="no" class="btn btn-themed"
+                  <label btnRadio="none" class="btn btn-themed"
                          tabindex="0" role="button">Žiadna</label>
-                  <label btnRadio="modest" class="btn btn-themed"
+                  <label btnRadio="mild" class="btn btn-themed"
                          tabindex="0" role="button">Mierna</label>
                   <label btnRadio="severe" class="btn btn-themed"
                          tabindex="0" role="button">Výrazná</label>
@@ -106,10 +106,12 @@
             <form [formGroup]="step_content">
               <div class="form-group">
                 <div class="btn-group" btnRadioGroup formControlName="fever">
-                  <label btnRadio="no" class="btn btn-themed"
-                         tabindex="0" role="button">Menej ako 38</label>
-                  <label btnRadio="yes" class="btn btn-themed"
-                         tabindex="0" role="button">Viac ako 38</label>
+                  <label btnRadio="none" class="btn btn-themed"
+                         tabindex="0" role="button">Žiadna</label>
+                  <label btnRadio="mild" class="btn btn-themed"
+                         tabindex="0" role="button">Mierna</label>
+                  <label btnRadio="severe" class="btn btn-themed"
+                         tabindex="0" role="button">Výrazná</label>
                 </div>
               </div>
             </form>
