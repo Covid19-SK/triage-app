@@ -73,7 +73,7 @@ export class FormComponent {
       institutionId: form[0].controls['institutionId'].value,
       cough: form[1].controls['cough'].value,
       breathShortness: form[2].controls['breathShortness'].value,
-      fever: form[4].controls['fever'].value,
+      fever: form[3].controls['fever'].value,
       other: form[4].controls['other'].value,
       abroad: this.convertValueToBool(form[5].controls['abroad'].value),
       illPersonContact: this.convertValueToBool(form[6].controls['illPersonContact'].value),
