@@ -12,5 +12,14 @@
     "DESCRIPTION": "Home screen description",
     "SECONDARY_DESCRIPTION": "Home screen secondary description",
     "SKIP_INSTRUCTION": "Skip instruction"
+  },
+  "REGISTRATION": {
+    "TITLE": "Registration",
+    "SUBTITLE": "Basic data",
+    "NAME": "Name",
+    "SURNAME": "Surname",
+    "ID_NUMBER": "ID number",
+    "EMAIL": "Email",
+    "PHONE": "Phone number"
   }
 }
