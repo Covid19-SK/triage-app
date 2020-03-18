@@ -25,7 +25,7 @@
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="setTouched('firstName');nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -52,7 +52,9 @@
           </div>
           <div class="bottom-cta">
             <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase"
+            (click)="setTouched('lastName'); nextStepHandle(step_content)">{{
+            'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
