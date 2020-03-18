@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {first, map, shareReplay} from 'rxjs/operators';
 import {Observable} from 'rxjs';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ExamService} from '../shared/exam.service';
-import {faChevronLeft, faDiagnoses, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import {faChevronLeft, faDiagnoses} from '@fortawesome/free-solid-svg-icons';
 import {Router} from '@angular/router';
 
 @Component({
@@ -16,11 +16,11 @@ export class FormComponent {
   public icon = faDiagnoses;
   public backIcon = faChevronLeft;
 
-  constructor(private examService: ExamService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private examService: ExamService, private router: Router) {
     this.form$ = this.examService.exam$.pipe(
       map(exam => [
         new FormGroup({
-          workplace: new FormControl(exam.workplace)
+          institution: new FormControl(exam.institution)
         }),
         new FormGroup({
           cough: new FormControl(exam.cough)
@@ -72,7 +72,7 @@ export class FormComponent {
     const exam = {
       // TODO: use something normal
       date: new Date().toString(),
-      workplace: form[0].controls['workplace'].value,
+      institution: form[0].controls['institution'].value,
       cough: form[1].controls['cough'].value,
       breathShortness: form[2].controls['breathShortness'].value,
       fever: this.convertValueToBool(form[3].controls['fever'].value),

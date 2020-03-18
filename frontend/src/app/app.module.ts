@@ -16,9 +16,10 @@ import {InstitutionModule} from './institution/institution.module';
 import {InstitutionsModule} from './admin/institutions/institutions.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {HeaderComponent} from './widgets/header/header.component';
 import {ScanModule} from './admin/scan/scan.module';
 import {InstitutionDetailModule} from './admin/institutions/institution-detail/institution-detail.module';
+import {BsDropdownModule, ButtonsModule} from 'ngx-bootstrap';
+import {ScanCodeModule} from './scan-code/scan-code.module';
 
 @NgModule({
   declarations: [
