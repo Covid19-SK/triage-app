@@ -40,3 +40,24 @@ select.form-control:not([size]):not([multiple]) {
 .btn-themed:not(:disabled):not(.disabled).active:focus {
   box-shadow: 0 0 0 0.2rem rgba(105, 108, 254, 0.5);
 }
+
+.safe-zone {
+  padding: $space-default;
+  display: flex;
+  flex-grow: 1;
+}
+
+.bottom-cta {
+  justify-content: flex-end;
+}
+
+.back-icon {
+  padding-right: 8px;
+}
+
+.btn-prev,
+.btn-next {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}

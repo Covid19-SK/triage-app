@@ -9,10 +9,7 @@
 }
 
 .safe-zone {
-  padding: $space-default;
-  display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 
 .info-holder {
@@ -46,18 +43,6 @@
 .button-holder {
   display: flex;
   margin-bottom: 10px;
-}
-
-.back-icon {
-  padding-right: 8px;
-}
-
-.btn-prev,
-.btn-next {
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-  text-decoration: none;
 }
 
 .hidden {
