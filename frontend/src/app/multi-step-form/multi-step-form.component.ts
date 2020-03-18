@@ -57,8 +57,6 @@ export class MultiStepFormComponent implements OnInit, AfterContentInit {
   }
 
   public nextStepHandle(value) {
-    console.log(this.formData[this.step]);
-
     if (this.formData[this.step]?.status !== 'VALID') {
       return;
     }
