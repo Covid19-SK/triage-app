@@ -1,4 +1,7 @@
-<app-header [icon]="icon" title="Registrácia" subTitle="Základné údaje"></app-header>
+<app-header [icon]="icon" title="{{ 'REGISTRATION.TITLE' | translate }}"
+            subTitle="{{ 'REGISTRATION.SUBTITLE' | translate }}"
+            language="EN">
+</app-header>
 <div class="safe-zone">
   <app-multi-step-form *ngIf="form$ | async as form"
                       [formData]="form"
@@ -9,7 +12,7 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Meno</div>
+            <div class="registration-page__title">{{ 'REGISTRATION.NAME' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
@@ -18,7 +21,7 @@
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -29,7 +32,7 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Priezvisko</div>
+            <div class="registration-page__title">{{ 'REGISTRATION.SURNAME' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
@@ -38,8 +41,8 @@
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -50,7 +53,7 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Rodné číslo</div>
+            <div class="registration-page__title">{{ 'REGISTRATION.ID_NUMBER' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
@@ -59,8 +62,8 @@
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -71,7 +74,7 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Email</div>
+            <div class="registration-page__title">{{ 'REGISTRATION.EMAIL' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
@@ -80,8 +83,8 @@
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -92,7 +95,7 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Telefónne číslo</div>
+            <div class="registration-page__title">{{ 'REGISTRATION.PHONE' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
@@ -101,8 +104,8 @@
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="onSubmit()" routerLink="/form" routerLinkActive="active">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="onSubmit()" routerLink="/form" routerLinkActive="active">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>

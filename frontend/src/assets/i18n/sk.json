@@ -12,5 +12,14 @@
     "DESCRIPTION": "Popis applikacie - krok 1",
     "SECONDARY_DESCRIPTION": "Popis applikacie - krok 2",
     "SKIP_INSTRUCTION": "Preskočiť inštrukcie"
+  },
+  "REGISTRATION": {
+    "TITLE": "Registrácia",
+    "SUBTITLE": "Základné údaje",
+    "NAME": "Meno",
+    "SURNAME": "Priezvisko",
+    "ID_NUMBER": "Rodné číslo",
+    "EMAIL": "Email",
+    "PHONE": "Telefónne číslo"
   }
 }
