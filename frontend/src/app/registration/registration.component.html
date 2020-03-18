@@ -17,7 +17,7 @@
             <form [formGroup]="step_content">
               <div class="form-group">
                 <input id="name" class="form-control" type="text" formControlName="firstName" value="" autofocus>
-                <div *ngIf="step_content.controls.firstName.touched && step_content.controls.firstName.errors.required">
+                <div *ngIf="step_content.controls.firstName.touched && step_content.controls.firstName.errors?.required">
                   {{ 'REGISTRATION.NAME_ERROR_REQUIRED' | translate }}
                 </div>
               </div>
