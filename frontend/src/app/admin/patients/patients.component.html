@@ -14,13 +14,21 @@
     <th>Priezvisko</th>
     <th>Telefón</th>
     <th>Rodné číslo</th>
+    <th>Dátum narodenia</th>
+    <th>Adresa</th>
+    <th>Mesto</th>
+    <th>PSČ</th>
     <th colspan="2"></th>
   </tr>
   <tr *ngFor="let patient of patients$ | async">
     <td>{{patient.firstName}}</td>
     <td>{{patient.lastName}}</td>
-    <td>{{patient.phone}}</td>
-    <td>{{patient.birthId}}</td>
+    <td>{{patient.phoneNumber}}</td>
+    <td>{{patient.identificationNumber}}</td>
+    <td>{{patient.dateOfBirth}}</td>
+    <td>{{patient.address}}</td>
+    <td>{{patient.town}}</td>
+    <td>{{patient.zipCode}}</td>
     <td>
       <a routerLink="/admin/detail/{{patient.id}}" routerLinkActive="active">Upraviť</a>
     </td>

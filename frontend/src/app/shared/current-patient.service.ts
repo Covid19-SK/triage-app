@@ -12,9 +12,13 @@ export class CurrentPatientService {
       id: 0,
       firstName: '',
       lastName: '',
-      birthId: '',
+      identificationNumber: '',
       email: '',
-      phone: '',
+      phoneNumber: '',
+      dateOfBirth: '',
+      address: '',
+      town: '',
+      zipCode: '',
     })),
     shareReplay(1)
   );

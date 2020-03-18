@@ -29,14 +29,26 @@ export class RegistrationComponent {
           lastName: new FormControl(user.lastName)
         }),
         new FormGroup({
-          birthId: new FormControl(user.birthId)
+          identificationNumber: new FormControl(user.identificationNumber)
         }),
         new FormGroup({
           email: new FormControl(user.email)
         }),
         new FormGroup({
-          phone: new FormControl(user.phone)
-        })
+          phoneNumber: new FormControl(user.phoneNumber)
+        }),
+        new FormGroup({
+          dateOfBirth: new FormControl(user.dateOfBirth)
+        }),
+        new FormGroup({
+          address: new FormControl(user.address)
+        }),
+        new FormGroup({
+          town: new FormControl(user.town)
+        }),
+        new FormGroup({
+          zipCode: new FormControl(user.zipCode)
+        }),
       ]),
       shareReplay(1)
     );
@@ -59,9 +71,13 @@ export class RegistrationComponent {
     const patient = {
       firstName: form[0].controls['firstName'].value,
       lastName: form[1].controls['lastName'].value,
-      birthId: form[2].controls['birthId'].value,
+      identificationNumber: form[2].controls['identificationNumber'].value,
       email: form[3].controls['email'].value,
-      phone: form[4].controls['phone'].value,
+      phoneNumber: form[4].controls['phoneNumber'].value,
+      dateOfBirth: '', // TODO
+      address: '', // TODO
+      town: '', // TODO
+      zipCode: '', // TODO
     };
     console.log(`Patient: `, patient);
     this.currentPatientService.setPatient(patient);

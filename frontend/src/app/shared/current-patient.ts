@@ -1,7 +1,11 @@
 export interface CurrentPatient {
   firstName: string;
   lastName: string;
-  birthId: string;
+  identificationNumber: string;
   email: string;
-  phone: string;
+  phoneNumber: string;
+  dateOfBirth: string;
+  address: string;
+  town: string;
+  zipCode: string;
 }

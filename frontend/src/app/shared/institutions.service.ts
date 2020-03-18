@@ -10,6 +10,10 @@ import {InstitutionDto} from '../../../../backend/src/institutions/institution.d
 
 const API_URL = '/api/institutions';
 
+function CreateDto(institution: Institution): InstitutionDto {
+  return institution;
+}
+
 @Injectable({providedIn: 'root'})
 export class InstitutionsService {
   private institutionsSource$: Subject<Institution[]> = new Subject();
@@ -33,27 +37,27 @@ export class InstitutionsService {
 
   public update(institution: Institution): void {
     this.httpClient
-      .put<InstitutionDto>(`${API_URL}/${institution.id}`, {name: institution.name})
+      .put<InstitutionDto>(`${API_URL}/${institution.id}`, CreateDto(institution))
       .subscribe(() => this.refresh());
   }
 
-  public create(institution: Institution): void {
+  public create(obj: Institution): void {
     this.httpClient
-      .post<InstitutionDto>(API_URL, {name: institution.name})
+      .post<InstitutionDto>(API_URL, CreateDto(obj))
       .subscribe(() => this.refresh());
   }
 
-  public delete(institutionId: string): void {
+  public delete(id: string): void {
     this.httpClient
-      .delete(`${API_URL}/${institutionId}`)
+      .delete(`${API_URL}/${id}`)
       .subscribe(() => this.refresh());
   }
 
-  public getById(institutionId: string): Observable<Institution> {
+  public getById(id: string): Observable<Institution> {
     return this.institutions$.pipe(
       first(),
-      map(institutions => {
-        const result = institutions.filter(p => `${p.id}` === `${institutionId}`);
+      map(objs => {
+        const result = objs.filter(p => `${p.id}` === `${id}`);
         console.assert(result.length === 1);
         return _first(result);
       })

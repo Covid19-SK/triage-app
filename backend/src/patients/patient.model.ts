@@ -11,9 +11,14 @@ import {
   Table,
   Unique,
 } from 'sequelize-typescript';
-import { Examination } from 'src/examinations/examinations.model';
+import {Examination} from 'src/examinations/examinations.model';
+import {PatientDto} from "./patient.dto";
 
 const { v4: uuidv4 } = require('uuid');
+
+export function CreatePatientDto(patient: Patient): PatientDto {
+  return patient;
+}
 
 @Table({ tableName: 'patients' })
 export class Patient extends Model<Patient> {
@@ -37,8 +42,8 @@ export class Patient extends Model<Patient> {
   lastName: string;
 
   @AllowNull(false)
-  @Column({ type: DataType.DATEONLY })
-  dateOfBirth: Date;
+  @Column
+  dateOfBirth: string;
 
   @AllowNull(false)
   @Column
