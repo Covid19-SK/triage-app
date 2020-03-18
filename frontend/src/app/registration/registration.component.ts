@@ -1,9 +1,9 @@
-import {Component, ElementRef, ViewChildren} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {CurrentPatientService} from '../shared/current-patient.service';
-import {Observable} from 'rxjs';
-import {first, map, shareReplay, tap} from 'rxjs/operators';
-import {faAddressCard, faCaretLeft, faChevronLeft, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import { Component, ElementRef, ViewChildren } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CurrentPatientService } from '../shared/current-patient.service';
+import { Observable } from 'rxjs';
+import { first, map, shareReplay, tap } from 'rxjs/operators';
+import { faAddressCard, faCaretLeft, faChevronLeft, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-registration',
@@ -23,7 +23,7 @@ export class RegistrationComponent {
     this.form$ = this.currentPatientService.patient$.pipe(
       map(user => [
         new FormGroup({
-          firstName: new FormControl(user.firstName)
+            firstName: new FormControl(user.firstName, [Validators.required, Validators.minLength(3)])
         }),
         new FormGroup({
           lastName: new FormControl(user.lastName)
@@ -56,6 +56,8 @@ export class RegistrationComponent {
 
   // tslint:disable-next-line:no-any
   public onNextAction(formData: any): void {
+    console.log(this.form$);
+
     this.form$.pipe(first()).subscribe(
       form => this.updatePacient(form)
     );

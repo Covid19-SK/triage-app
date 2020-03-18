@@ -10,7 +10,8 @@ import {
   EventEmitter
 } from '@angular/core';
 import { FormStepDirective } from '../directives/form-step.directive';
-import {FormGroup} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { every } from 'rxjs/operators';
 
 @Component({
   selector: 'app-multi-step-form',
@@ -56,6 +57,11 @@ export class MultiStepFormComponent implements OnInit, AfterContentInit {
   }
 
   public nextStepHandle(value) {
+    console.log(this.formData[this.step]);
+
+    if (this.formData[this.step]?.status !== 'VALID') {
+      return;
+    }
     this.nextAction.emit(value);
     this.step++;
     this.renderForm();
