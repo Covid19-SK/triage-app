@@ -1,11 +1,11 @@
-import {Component, Input} from '@angular/core';
-import {IconDefinition} from '@fortawesome/fontawesome-svg-core';
-import {TranslationService} from '../../shared/translation.service';
+import { Component, Input } from '@angular/core';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { TranslationService } from '../../shared/translation.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   @Input()
@@ -25,5 +25,4 @@ export class HeaderComponent {
   public changeLanguage(): void {
     this.translate.switchLanguage();
   }
-
 }

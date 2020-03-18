@@ -1,13 +1,13 @@
-import {Component, TemplateRef} from '@angular/core';
-import {AuthService} from '../shared/auth.service';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
-import {ScanCodeService} from './scan-code.service';
-import {faChevronLeft, faQrcode} from '@fortawesome/free-solid-svg-icons';
+import { Component, TemplateRef } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { ScanCodeService } from './scan-code.service';
+import { faChevronLeft, faQrcode } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-code',
   templateUrl: './scan-code.component.html',
-  styleUrls: ['scan-code.scss']
+  styleUrls: ['scan-code.scss'],
 })
 export class ScanCodeComponent {
   public userId: string = this.authService.id;
@@ -18,10 +18,11 @@ export class ScanCodeComponent {
   public icon = faQrcode;
   public backIcon = faChevronLeft;
 
-  public constructor(private readonly authService: AuthService,
-                     public readonly scanCodeService: ScanCodeService,
-                     private modalService: BsModalService) {
-  }
+  public constructor(
+    private readonly authService: AuthService,
+    public readonly scanCodeService: ScanCodeService,
+    private modalService: BsModalService,
+  ) {}
 
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -33,6 +34,4 @@ export class ScanCodeComponent {
     }
     this.code = code;
   }
-
-
 }

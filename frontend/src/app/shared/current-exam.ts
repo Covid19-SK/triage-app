@@ -1,4 +1,4 @@
-import {Classification} from '../../../../backend/src/shared/enum/classification';
+import { Classification } from '../../../../backend/src/shared/enum/classification';
 
 export interface CurrentExam {
   institutionId: number;

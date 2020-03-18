@@ -1,26 +1,30 @@
-import {Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
-import {shareReplay, startWith} from 'rxjs/operators';
-import {DataService} from './data.service';
-import {CurrentPatient} from './current-patient';
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { shareReplay, startWith } from 'rxjs/operators';
+import { DataService } from './data.service';
+import { CurrentPatient } from './current-patient';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class CurrentPatientService {
   private userSource$: Subject<CurrentPatient> = new Subject();
-  public patient$: Observable<CurrentPatient> = this.userSource$.asObservable().pipe(
-    startWith(this.dataService.load('tpUser', {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      identificationNumber: '',
-      email: '',
-      phoneNumber: '',
-      dateOfBirth: '',
-      address: '',
-      town: '',
-      zipCode: '',
-    })),
-    shareReplay(1)
+  public patient$: Observable<
+    CurrentPatient
+  > = this.userSource$.asObservable().pipe(
+    startWith(
+      this.dataService.load('tpUser', {
+        id: 0,
+        firstName: '',
+        lastName: '',
+        identificationNumber: '',
+        email: '',
+        phoneNumber: '',
+        dateOfBirth: '',
+        address: '',
+        town: '',
+        zipCode: '',
+      }),
+    ),
+    shareReplay(1),
   );
 
   public constructor(private dataService: DataService) {}

@@ -1,12 +1,12 @@
-import {Component} from '@angular/core';
-import {Patient} from '../../shared/patient';
-import {Observable} from 'rxjs';
-import {PatientsService} from '../../shared/patients.service';
+import { Component } from '@angular/core';
+import { Patient } from '../../shared/patient';
+import { Observable } from 'rxjs';
+import { PatientsService } from '../../shared/patients.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './patients.component.html',
-  styleUrls: ['patients.scss']
+  styleUrls: ['patients.scss'],
 })
 export class PatientsComponent {
   public patients$: Observable<Patient[]> = this.patientsService.patients$;

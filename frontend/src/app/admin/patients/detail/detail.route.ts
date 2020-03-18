@@ -7,6 +7,6 @@ export const DETAIL_ROUTE: Route = {
   component: DetailComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
-  }
+    pageTitle: 'Welcome',
+  },
 };

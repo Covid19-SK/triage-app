@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {DataService} from './data.service';
-import {isNil} from 'lodash-es';
+import { Injectable } from '@angular/core';
+import { DataService } from './data.service';
+import { isNil } from 'lodash-es';
 import * as uuidv4 from 'uuid/v4';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
   public get id(): string {
     const i = this.dataService.load('tpId', undefined);

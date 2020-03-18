@@ -1,15 +1,15 @@
-import {Component} from '@angular/core';
-import {first, map, shareReplay} from 'rxjs/operators';
-import {Observable} from 'rxjs';
-import {FormControl, FormGroup} from '@angular/forms';
-import {ExamService} from '../shared/exam.service';
-import {faChevronLeft, faDiagnoses} from '@fortawesome/free-solid-svg-icons';
-import {Router} from '@angular/router';
+import { Component } from '@angular/core';
+import { first, map, shareReplay } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ExamService } from '../shared/exam.service';
+import { faChevronLeft, faDiagnoses } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['form.scss']
+  styleUrls: ['form.scss'],
 })
 export class FormComponent {
   public form$: Observable<FormGroup[]>;
@@ -20,31 +20,35 @@ export class FormComponent {
     this.form$ = this.examService.exam$.pipe(
       map(exam => [
         new FormGroup({
-          institutionId: new FormControl(exam.institutionId)
+          institutionId: new FormControl(exam.institutionId),
         }),
         new FormGroup({
-          cough: new FormControl(exam.cough)
+          cough: new FormControl(exam.cough),
         }),
         new FormGroup({
-          breathShortness: new FormControl(exam.breathShortness)
+          breathShortness: new FormControl(exam.breathShortness),
         }),
         new FormGroup({
-          fever: new FormControl(exam.fever)
+          fever: new FormControl(exam.fever),
         }),
         new FormGroup({
-          other: new FormControl(exam.other)
+          other: new FormControl(exam.other),
         }),
         new FormGroup({
-          abroad: new FormControl(this.convertBoolToValue(exam.abroad))
+          abroad: new FormControl(this.convertBoolToValue(exam.abroad)),
         }),
         new FormGroup({
-          illPersonContact: new FormControl(this.convertBoolToValue(exam.illPersonContact))
+          illPersonContact: new FormControl(
+            this.convertBoolToValue(exam.illPersonContact),
+          ),
         }),
         new FormGroup({
-          covid19Contact: new FormControl(this.convertBoolToValue(exam.covid19Contact))
-        })
+          covid19Contact: new FormControl(
+            this.convertBoolToValue(exam.covid19Contact),
+          ),
+        }),
       ]),
-      shareReplay(1)
+      shareReplay(1),
     );
   }
 
@@ -57,15 +61,11 @@ export class FormComponent {
   }
 
   public onNextAction(): void {
-    this.form$.pipe(first()).subscribe(
-      form => this.updateExam(form)
-    );
+    this.form$.pipe(first()).subscribe(form => this.updateExam(form));
   }
 
   public onSubmit(): void {
-    this.form$.pipe(first()).subscribe(
-      form => this.updateExam(form)
-    );
+    this.form$.pipe(first()).subscribe(form => this.updateExam(form));
   }
 
   private updateExam(form: FormGroup[]): void {
@@ -76,8 +76,12 @@ export class FormComponent {
       fever: form[3].controls['fever'].value,
       other: form[4].controls['other'].value,
       abroad: this.convertValueToBool(form[5].controls['abroad'].value),
-      illPersonContact: this.convertValueToBool(form[6].controls['illPersonContact'].value),
-      covid19Contact: this.convertValueToBool(form[7].controls['covid19Contact'].value),
+      illPersonContact: this.convertValueToBool(
+        form[6].controls['illPersonContact'].value,
+      ),
+      covid19Contact: this.convertValueToBool(
+        form[7].controls['covid19Contact'].value,
+      ),
     };
     this.examService.setExam(exam);
   }

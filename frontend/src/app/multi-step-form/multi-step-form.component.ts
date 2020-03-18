@@ -7,18 +7,17 @@ import {
   TemplateRef,
   Input,
   Output,
-  EventEmitter
+  EventEmitter,
 } from '@angular/core';
 import { FormStepDirective } from '../directives/form-step.directive';
-import {FormGroup} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-multi-step-form',
   templateUrl: './multi-step-form.component.html',
-  styleUrls: ['multi-step-form.component.scss']
+  styleUrls: ['multi-step-form.component.scss'],
 })
 export class MultiStepFormComponent implements OnInit, AfterContentInit {
-
   @Input()
   public formData: FormGroup;
 
@@ -65,5 +64,4 @@ export class MultiStepFormComponent implements OnInit, AfterContentInit {
     this.step--;
     this.renderForm();
   }
-
 }

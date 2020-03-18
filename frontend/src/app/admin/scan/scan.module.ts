@@ -6,6 +6,6 @@ import { ScanComponent } from './scan.component';
 
 @NgModule({
   imports: [RouterModule.forChild([SCAN_ROUTE])],
-  declarations: [ScanComponent]
+  declarations: [ScanComponent],
 })
 export class ScanModule {}

@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {isNil} from 'lodash-es';
+import { Injectable } from '@angular/core';
+import { isNil } from 'lodash-es';
 
 // Temporary implementation. To be replaced with web service calls
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class DataService {
   public load<T>(key: string, defaultValue: T): T {
     const user = JSON.parse(localStorage.getItem(key));

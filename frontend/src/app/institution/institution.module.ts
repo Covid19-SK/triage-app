@@ -7,6 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [HttpClientModule, RouterModule.forChild([INSTITUTION_ROUTE])],
-  declarations: [InstitutionComponent]
+  declarations: [InstitutionComponent],
 })
 export class InstitutionModule {}

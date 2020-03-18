@@ -1,14 +1,19 @@
-import {Component, ElementRef, ViewChildren} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {CurrentPatientService} from '../shared/current-patient.service';
-import {Observable} from 'rxjs';
-import {first, map, shareReplay, tap} from 'rxjs/operators';
-import {faAddressCard, faCaretLeft, faChevronLeft, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import { Component, ElementRef, ViewChildren } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CurrentPatientService } from '../shared/current-patient.service';
+import { Observable } from 'rxjs';
+import { first, map, shareReplay, tap } from 'rxjs/operators';
+import {
+  faAddressCard,
+  faCaretLeft,
+  faChevronLeft,
+  faInfoCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['registration.scss']
+  styleUrls: ['registration.scss'],
 })
 export class RegistrationComponent {
   public form$: Observable<FormGroup[]>;
@@ -23,48 +28,44 @@ export class RegistrationComponent {
     this.form$ = this.currentPatientService.patient$.pipe(
       map(user => [
         new FormGroup({
-          firstName: new FormControl(user.firstName)
+          firstName: new FormControl(user.firstName),
         }),
         new FormGroup({
-          lastName: new FormControl(user.lastName)
+          lastName: new FormControl(user.lastName),
         }),
         new FormGroup({
-          identificationNumber: new FormControl(user.identificationNumber)
+          identificationNumber: new FormControl(user.identificationNumber),
         }),
         new FormGroup({
-          email: new FormControl(user.email)
+          email: new FormControl(user.email),
         }),
         new FormGroup({
-          phoneNumber: new FormControl(user.phoneNumber)
+          phoneNumber: new FormControl(user.phoneNumber),
         }),
         new FormGroup({
-          dateOfBirth: new FormControl(user.dateOfBirth)
+          dateOfBirth: new FormControl(user.dateOfBirth),
         }),
         new FormGroup({
-          address: new FormControl(user.address)
+          address: new FormControl(user.address),
         }),
         new FormGroup({
-          town: new FormControl(user.town)
+          town: new FormControl(user.town),
         }),
         new FormGroup({
-          zipCode: new FormControl(user.zipCode)
+          zipCode: new FormControl(user.zipCode),
         }),
       ]),
-      shareReplay(1)
+      shareReplay(1),
     );
   }
 
   // tslint:disable-next-line:no-any
   public onNextAction(formData: any): void {
-    this.form$.pipe(first()).subscribe(
-      form => this.updatePacient(form)
-    );
+    this.form$.pipe(first()).subscribe(form => this.updatePacient(form));
   }
 
   public onSubmit(): void {
-    this.form$.pipe(first()).subscribe(
-      form => this.updatePacient(form)
-    );
+    this.form$.pipe(first()).subscribe(form => this.updatePacient(form));
   }
 
   private updatePacient(form: FormGroup[]): void {

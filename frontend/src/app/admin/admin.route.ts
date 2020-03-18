@@ -7,6 +7,6 @@ export const ADMIN_ROUTE: Route = {
   component: AdminComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
-  }
+    pageTitle: 'Welcome',
+  },
 };

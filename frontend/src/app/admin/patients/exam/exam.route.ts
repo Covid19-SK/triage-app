@@ -7,6 +7,6 @@ export const EXAM_ROUTE: Route = {
   component: ExamComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
-  }
+    pageTitle: 'Welcome',
+  },
 };
