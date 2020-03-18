@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
-import {DataService} from './data.service';
-import {AuthService} from './auth.service';
-import {Institution} from './institution';
-import {first as _first} from 'lodash-es';
-import {first, map, shareReplay, tap} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
-import {InstitutionDto} from '../../../../backend/src/institutions/institution.dto';
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { DataService } from './data.service';
+import { AuthService } from './auth.service';
+import { Institution } from './institution';
+import { first as _first } from 'lodash-es';
+import { first, map, shareReplay, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { InstitutionDto } from '../../../../backend/src/institutions/institution.dto';
 
 const API_URL = '/api/institutions';
 
@@ -14,12 +14,12 @@ function CreateDto(institution: Institution): InstitutionDto {
   return institution;
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class InstitutionsService {
   private institutionsSource$: Subject<Institution[]> = new Subject();
-  public institutions$: Observable<Institution[]> = this.institutionsSource$.asObservable().pipe(
-    shareReplay(1),
-  );
+  public institutions$: Observable<
+    Institution[]
+  > = this.institutionsSource$.asObservable().pipe(shareReplay(1));
 
   public constructor(
     private authService: AuthService,
@@ -38,7 +38,10 @@ export class InstitutionsService {
 
   public update(institution: Institution): void {
     this.httpClient
-      .put<InstitutionDto>(`${API_URL}/${institution.id}`, CreateDto(institution))
+      .put<InstitutionDto>(
+        `${API_URL}/${institution.id}`,
+        CreateDto(institution),
+      )
       .subscribe(() => this.refresh());
   }
 
@@ -49,9 +52,7 @@ export class InstitutionsService {
   }
 
   public delete(id: string): void {
-    this.httpClient
-      .delete(`${API_URL}/${id}`)
-      .subscribe(() => this.refresh());
+    this.httpClient.delete(`${API_URL}/${id}`).subscribe(() => this.refresh());
   }
 
   public getById(id: number): Observable<Institution> {
@@ -61,7 +62,7 @@ export class InstitutionsService {
         const result = objs.filter(p => `${p.id}` === `${id}`);
         console.assert(result.length === 1);
         return _first(result);
-      })
+      }),
     );
   }
 }

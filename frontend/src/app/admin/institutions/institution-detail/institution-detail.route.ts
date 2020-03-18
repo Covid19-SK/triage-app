@@ -7,6 +7,6 @@ export const INSTITUTION_DETAIL_ROUTE: Route = {
   component: InstitutionDetailComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
-  }
+    pageTitle: 'Welcome',
+  },
 };

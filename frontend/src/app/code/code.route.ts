@@ -7,6 +7,6 @@ export const CODE_ROUTE: Route = {
   component: CodeComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
-  }
+    pageTitle: 'Welcome',
+  },
 };

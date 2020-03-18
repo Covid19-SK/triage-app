@@ -5,9 +5,8 @@ import { ScanCodeComponent } from './scan-code.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { WebcamPreviewDirective } from './webcam-preview.directive';
 import { ModalModule, BsDropdownModule, ButtonsModule } from 'ngx-bootstrap';
-import {SharedModule} from '../shared/shared.module';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-
+import { SharedModule } from '../shared/shared.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -17,9 +16,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     BsDropdownModule.forRoot(),
     RouterModule.forChild([SCAN_CODE_ROUTE]),
     SharedModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
-  declarations: [ScanCodeComponent, WebcamPreviewDirective]
+  declarations: [ScanCodeComponent, WebcamPreviewDirective],
 })
-export class ScanCodeModule {
-}
+export class ScanCodeModule {}

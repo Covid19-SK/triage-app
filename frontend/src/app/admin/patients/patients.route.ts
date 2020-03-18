@@ -7,6 +7,6 @@ export const PATIENTS_ROUTE: Route = {
   component: PatientsComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
-  }
+    pageTitle: 'Welcome',
+  },
 };

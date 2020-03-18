@@ -6,6 +6,6 @@ import { AdminComponent } from './admin.component';
 
 @NgModule({
   imports: [RouterModule.forChild([ADMIN_ROUTE])],
-  declarations: [AdminComponent]
+  declarations: [AdminComponent],
 })
 export class AdminModule {}

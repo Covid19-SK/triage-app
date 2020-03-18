@@ -7,6 +7,6 @@ export const FORM_ROUTE: Route = {
   component: FormComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
-  }
+    pageTitle: 'Welcome',
+  },
 };

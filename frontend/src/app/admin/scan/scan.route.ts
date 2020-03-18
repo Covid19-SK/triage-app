@@ -7,6 +7,6 @@ export const SCAN_ROUTE: Route = {
   component: ScanComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
-  }
+    pageTitle: 'Welcome',
+  },
 };

@@ -7,6 +7,6 @@ export const REGISTRATION_ROUTE: Route = {
   component: RegistrationComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
-  }
+    pageTitle: 'Welcome',
+  },
 };

@@ -1,7 +1,13 @@
-import {Component} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Router} from '@angular/router';
-import {faChevronLeft, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import { Component } from '@angular/core';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import { Router } from '@angular/router';
+import { faChevronLeft, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +16,12 @@ import {faChevronLeft, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
   animations: [
     trigger('EnterLeave', [
       transition(':enter', [
-        style({opacity: 0}),
-        animate('0.5s 300ms ease-in')
+        style({ opacity: 0 }),
+        animate('0.5s 300ms ease-in'),
       ]),
-      transition(':leave', [
-        animate('0.3s ease-out', style({opacity: 1}))
-      ])
-    ])
-  ]
+      transition(':leave', [animate('0.3s ease-out', style({ opacity: 1 }))]),
+    ]),
+  ],
 })
 export class HomeComponent {
   public selectedStep = 1;
@@ -26,8 +30,7 @@ export class HomeComponent {
   public icon = faInfoCircle;
   public backIcon = faChevronLeft;
 
-  public constructor(private router: Router) {
-  }
+  public constructor(private router: Router) {}
 
   public next(): void {
     if (this.selectedStep < this.stepCount) {

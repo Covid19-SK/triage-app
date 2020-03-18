@@ -1,13 +1,14 @@
-import {Injectable} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {head} from 'lodash-es';
-import {Observable, Subject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { head } from 'lodash-es';
+import { Observable, Subject } from 'rxjs';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class TranslationService {
-
   private translationsSubject$: Subject<any> = new Subject();
-  public translations$: Observable<any> = this.translationsSubject$.asObservable();
+  public translations$: Observable<
+    any
+  > = this.translationsSubject$.asObservable();
 
   public constructor(private translate: TranslateService) {
     translate.addLangs(['en', 'sk']);
@@ -21,7 +22,9 @@ export class TranslationService {
   }
 
   public switchLanguage(): void {
-    const newLanguage = head(this.translate.getLangs().filter(l => l !== this.translate.currentLang));
+    const newLanguage = head(
+      this.translate.getLangs().filter(l => l !== this.translate.currentLang),
+    );
     this.changeLanguage(newLanguage);
   }
 

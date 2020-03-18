@@ -1,9 +1,9 @@
-import {CurrentExam} from './current-exam';
+import { CurrentExam } from './current-exam';
 
 export enum ExamStatus {
   INITIAL = 'Initial',
   POSITIVE = 'Positive',
-  NEGATIVE = 'Negative'
+  NEGATIVE = 'Negative',
 }
 
 export interface Exam extends CurrentExam {

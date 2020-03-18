@@ -1,10 +1,9 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appFormStep]'
+  selector: '[appFormStep]',
 })
 export class FormStepDirective {
-//  @HostBinding('class.hidden') @Input() hidden = false;
-  constructor() { }
-
+  //  @HostBinding('class.hidden') @Input() hidden = false;
+  constructor() {}
 }
