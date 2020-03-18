@@ -18,6 +18,7 @@
     "SUBTITLE": "Basic data",
     "NAME": "Name",
     "NAME_ERROR_REQUIRED": "Enter your name",
+    "NAME_HINT": "For example Peter Novák",
     "SURNAME": "Surname",
     "ID_NUMBER": "ID number",
     "EMAIL": "Email",

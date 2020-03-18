@@ -18,6 +18,7 @@
     "SUBTITLE": "Základné údaje",
     "NAME": "Meno",
     "NAME_ERROR_REQUIRED": "Zadajte vaše meno",
+    "NAME_HINT": "Napríklad Peter Novák",
     "SURNAME": "Priezvisko",
     "ID_NUMBER": "Rodné číslo",
     "EMAIL": "Email",
