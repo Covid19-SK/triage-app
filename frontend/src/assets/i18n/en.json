@@ -61,5 +61,15 @@
     "SUBTITLE": "QR code",
     "SHOW_YOUR_CODE": "Show this QR code when asked",
     "SHOW_YOUR_CODE_DESCRIPTION": "Show this QR code when asked"
+  },
+  "SCAN_QR_CODE": {
+    "TITLE": "Registration",
+    "SUBTITLE": "Scan QR code",
+    "SCAN_CODE_HEADLINE": "Scan QR kód.",
+    "SCAN_CODE_DESCRIPTION": "Oskenujte QR kód.",
+    "SCAN_CODE": "Oskenujte QR kód.",
+    "PLEASE_SCAN_CODE": "Please scan QR code",
+    "YOUR_SCAN_CODE": "Your QR code is",
+    "SWITCH_CAMERA": "Switch camera"
   }
 }

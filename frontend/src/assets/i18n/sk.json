@@ -61,5 +61,15 @@
     "SUBTITLE": "QR kód",
     "SHOW_YOUR_CODE": "Ukážte tento QR kód pri odbere",
     "SHOW_YOUR_CODE_DESCRIPTION": "Ukážte tento QR kód pri odbere"
+  },
+  "SCAN_QR_CODE": {
+    "TITLE": "Registrácia",
+    "SUBTITLE": "Skenovanie QR kód",
+    "SCAN_CODE_HEADLINE": "Oskenujte QR kód.",
+    "SCAN_CODE_DESCRIPTION": "Oskenujte QR kód.",
+    "SCAN_CODE": "Oskenujte QR kód.",
+    "PLEASE_SCAN_CODE": "Prosm, oskenujte QR kód",
+    "YOUR_SCAN_CODE": "Váš QR kód je ",
+    "SWITCH_CAMERA": "Zmeňte kameru"
   }
 }
