@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {first, map, shareReplay} from 'rxjs/operators';
 import {Observable} from 'rxjs';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ExamService} from '../shared/exam.service';
 import {faChevronLeft, faDiagnoses} from '@fortawesome/free-solid-svg-icons';
 import {Router} from '@angular/router';
