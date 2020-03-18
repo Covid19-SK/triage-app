@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChildren} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {UserService} from '../shared/user.service';
+import {CurrentPatientService} from '../shared/current-patient.service';
 import {Observable} from 'rxjs';
-import {first, map, shareReplay} from 'rxjs/operators';
+import {first, map, shareReplay, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-registration',
@@ -10,31 +10,59 @@ import {first, map, shareReplay} from 'rxjs/operators';
   styleUrls: ['registration.scss']
 })
 export class RegistrationComponent {
-  public form$: Observable<FormGroup>;
+  public form$: Observable<FormGroup[]>;
 
-  constructor(private userService: UserService) {
-    this.form$ = this.userService.user$.pipe(
-      map(user => new FormGroup({
-          firstName: new FormControl(user.firstName),
-          lastName: new FormControl(user.lastName),
-          birthId: new FormControl(user.birthId),
-          email: new FormControl(user.email),
-          phone: new FormControl(user.phone),
+  @ViewChildren('form')
+  public form: ElementRef;
+
+  constructor(private currentPatientService: CurrentPatientService) {
+    this.form$ = this.currentPatientService.patient$.pipe(
+      map(user => [
+        new FormGroup({
+          firstName: new FormControl(user.firstName)
+        }),
+        new FormGroup({
+          lastName: new FormControl(user.lastName)
+        }),
+        new FormGroup({
+          birthId: new FormControl(user.birthId)
+        }),
+        new FormGroup({
+          email: new FormControl(user.email)
+        }),
+        new FormGroup({
+          phone: new FormControl(user.phone)
         })
-      ),
+      ]),
       shareReplay(1)
     );
   }
 
+  // tslint:disable-next-line:no-any
+  public onNextAction(formData: any): void {
+    this.form$.pipe(first()).subscribe(form =>
+      console.log(`onNExtStep$: `, form)
+    );
+    // this.form_data = {
+    //   ...this.form_data,
+    //   ...formData
+    // };
+    // console.log('next',this.form_data);
+  }
+
   public onSubmit(): void {
     this.form$.pipe(first()).subscribe(
-      form => this.userService.setUser({
-        firstName: form.value['firstName'],
-        lastName: form.value['lastName'],
-        birthId: form.value['birthId'],
-        email: form.value['email'],
-        phone: form.value['phone'],
-      })
+      form => {
+        const patient = {
+          firstName: form[0].controls['firstName'].value,
+          lastName: form[1].controls['lastName'].value,
+          birthId: form[2].controls['birthId'].value,
+          email: form[3].controls['email'].value,
+          phone: form[4].controls['phone'].value,
+        };
+        console.log(`Patient: `, patient);
+        this.currentPatientService.setPatient(patient);
+      }
     );
   }
 }

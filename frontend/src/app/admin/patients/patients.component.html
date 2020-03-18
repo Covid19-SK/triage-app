@@ -1,8 +1,31 @@
 <h1>Pacienti</h1>
 <p>
-  Filter
+  <a class="btn btn-default" routerLink="/admin" routerLinkActive="active">Naspäť</a>
+  <a class="btn btn-primary btn-sm" routerLink="/admin/detail/new" routerLinkActive="active">Pridať pacienta</a>
+  <a style="margin-left: 10px" class="btn btn-primary btn-sm" routerLink="/admin/scan" routerLinkActive="active">Naskenovať QR kód</a>
 </p>
 <p>
-  Tabulka s pacientami. Pri kliknuti na pacienta sa dostanem na jeho <a routerLink="/admin/detail" routerLinkActive="active">detail</a>.
+  <em>Tu bude filter</em>
 </p>
-<a routerLink="/admin/detail" routerLinkActive="active">Oskenovat QR kod</a> | <a routerLink="/admin" routerLinkActive="active">Naspat</a>
+<table class="table">
+  <tr>
+    <th>Meno</th>
+    <th>Priezvisko</th>
+    <th>Telefón</th>
+    <th>Rodné číslo</th>
+    <th colspan="2"></th>
+  </tr>
+  <tr *ngFor="let patient of patients$ | async">
+    <td>{{patient.firstName}}</td>
+    <td>{{patient.lastName}}</td>
+    <td>{{patient.phone}}</td>
+    <td>{{patient.birthId}}</td>
+    <td>
+      <a routerLink="/admin/detail/{{patient.id}}" routerLinkActive="active">Upraviť</a>
+    </td>
+    <td>
+      <a routerLink="/admin/patients" routerLinkActive="active" (click)="onDeleteClick(patient.id)">Zmazať</a>
+    </td>
+  </tr>
+</table>
+<hr/>

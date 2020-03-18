@@ -3,6 +3,8 @@ import {first, map, shareReplay} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ExamService} from '../shared/exam.service';
+import {Institution} from '../shared/institution';
+import {InstitutionsService} from '../shared/institutions.service';
 
 @Component({
   selector: 'app-form',
@@ -11,11 +13,15 @@ import {ExamService} from '../shared/exam.service';
 })
 export class FormComponent {
   public form$: Observable<FormGroup>;
+  public institutions$: Observable<Institution[]> = this.institutionsService.institutions$;
 
-  constructor(private examService: ExamService) {
+  constructor(
+    private examService: ExamService,
+    private institutionsService: InstitutionsService
+  ) {
     this.form$ = this.examService.exam$.pipe(
       map(exam => new FormGroup({
-          workplace: new FormControl(exam.workplace),
+          institution: new FormControl(exam.institution),
           cough: new FormControl(exam.cough),
           breathShortness: new FormControl(exam.breathShortness),
           fever: new FormControl(exam.fever),
@@ -30,7 +36,9 @@ export class FormComponent {
     this.form$.pipe(first()).subscribe(
       form => {
         this.examService.setExam({
-          workplace: form.value['workplace'],
+          // TODO: use something normal
+          date: new Date().toString(),
+          institution: form.value['institution'],
           cough: form.value['cough'],
           breathShortness: form.value['breathShortness'],
           fever: form.value['fever'],

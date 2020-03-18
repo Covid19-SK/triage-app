@@ -12,12 +12,18 @@ import {HomeModule} from './home/home.module';
 import {LoginModule} from './login/login.module';
 import {RegistrationModule} from './registration/registration.module';
 import {PatientsModule} from './admin/patients/patients.module';
-import {WorkplaceModule} from './workplace/workplace.module';
-import {WorkplacesModule} from './admin/workplaces/workplaces.module';
+import {InstitutionModule} from './institution/institution.module';
+import {InstitutionsModule} from './admin/institutions/institutions.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {HeaderComponent} from './widgets/header/header.component';
+import {ScanModule} from './admin/scan/scan.module';
+import {InstitutionDetailModule} from './admin/institutions/institution-detail/institution-detail.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,13 +32,18 @@ import {WorkplacesModule} from './admin/workplaces/workplaces.module';
     DetailModule,
     ExamModule,
     FormModule,
+    FontAwesomeModule,
     HomeModule,
     LoginModule,
     PatientsModule,
     RegistrationModule,
-    WorkplaceModule,
-    WorkplacesModule,
-    AppRoutingModule
+    ScanModule,
+    InstitutionModule,
+    InstitutionDetailModule,
+    InstitutionsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   bootstrap: [AppComponent]
 })
