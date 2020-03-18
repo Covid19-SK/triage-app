@@ -1,3 +1,29 @@
+:host,
+.bottom-cta {
+  display: flex;
+  width: 100%;
+}
+
+:host {
+  flex-direction: column;
+  height: 100%;
+}
+
+.code-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+}
+
+.center-content {
+  flex-direction: column;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .code-page {
   display: flex;
   flex-direction: column;
@@ -8,7 +34,7 @@
 
 .code-page__headline {
   text-align: center;
-  font-size: large;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -22,4 +48,8 @@
   display: flex;
   justify-content: space-around;
   margin: 48px;
+}
+
+.bottom-cta {
+  justify-content: flex-start;
 }

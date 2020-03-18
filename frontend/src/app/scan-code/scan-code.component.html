@@ -1,40 +1,46 @@
-<div class="code-page">
+<app-header [icon]="icon" title="Registrácia" subTitle="QR kód"></app-header>
+<div class="safe-zone">
+  <div class="code-page">
+    <div class="center-content">
+      <div class="code-page__headline">Ukážte tento QR kód pri odbere</div>
 
-  <div class="code-page__headline">Ukážte tento QR kód pri odbere</div>
+      <div class="code-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas tortor vel felis accumsan, at tempus nunc egestas. Ut suscipit finibus ipsum, sed accumsan tortor mollis ac.</div>
+      <div class="code-page__qr-code">
 
-  <div class="code-page__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas tortor vel felis accumsan, at tempus nunc egestas. Ut suscipit finibus ipsum, sed accumsan tortor mollis ac.</div>
-  <div class="code-page__qr-code">
+        <span *ngIf="code" class="code-page__qr-code-result">
+          Your QR code is: {{code}}
+        </span>
+        <button type="button" (click)="openModal(webcamPreview)" class="btn btn-primary">
+          Scan code
+        </button>
+        <ng-template #webcamPreview>
+          <div class="modal-header">
+            <strong>Please scan QR code</strong>
+            <div class="btn-group" dropdown>
+              <button id="camera-list" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                      aria-controls="dropdown-basic">
+                Switch camera<span class="caret"></span>
+              </button>
+              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                  role="menu" aria-labelledby="camera-list">
+                <li *ngFor="let camera of scanCodeService.cameras$ | async"
+                    (click)="webcamPreview.useCamera(camera)"
+                    class="dropdown-item"
+                    role="menuitem">
+                  {{camera.name}}
+                </li>
+              </ul>
+            </div>
 
-    <span *ngIf="code" class="code-page__qr-code-result">
-      Your QR code is: {{code}}
-    </span>
-    <button type="button" (click)="openModal(webcamPreview)" class="btn btn-primary">
-      Scan code
-    </button>
-    <ng-template #webcamPreview>
-      <div class="modal-header">
-        <strong>Please scan QR code</strong>
-        <div class="btn-group" dropdown>
-          <button id="camera-list" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-                  aria-controls="dropdown-basic">
-            Switch camera<span class="caret"></span>
-          </button>
-          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-              role="menu" aria-labelledby="camera-list">
-            <li *ngFor="let camera of scanCodeService.cameras$ | async"
-                (click)="webcamPreview.useCamera(camera)"
-                class="dropdown-item"
-                role="menuitem">
-              {{camera.name}}
-            </li>
-          </ul>
-        </div>
-
+          </div>
+          <video #webcamPreview="webCamPreview" appWebcamPreview (codeScanned)="onCodeScanned($event)"></video>
+        </ng-template>
       </div>
-      <video #webcamPreview="webCamPreview" appWebcamPreview (codeScanned)="onCodeScanned($event)"></video>
-    </ng-template>
+    </div>
+
+    <div class="bottom-cta">
+      <button class="btn-prev btn btn-link text-uppercase" routerLink="/form" routerLinkActive="active"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+    </div>
+
   </div>
-
-  <a routerLink="/form" routerLinkActive="active">Späť</a>
-
 </div>
