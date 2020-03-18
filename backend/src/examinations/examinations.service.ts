@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { ExaminationDto } from 'src/examinations/examinations.dto';
-import { Examination } from 'src/examinations/examinations.model';
+import {CreateExaminationDto, Examination} from 'src/examinations/examinations.model';
 
 @Injectable()
 export class ExaminationsService {
@@ -11,7 +11,7 @@ export class ExaminationsService {
 
   async findAll(): Promise<ExaminationDto[]> {
     const examinations = this.examination.findAll();
-    return examinations.map(p => new ExaminationDto(p));
+    return examinations.map(p => CreateExaminationDto(p));
   }
 
   async find(id: string): Promise<ExaminationDto> {
@@ -19,7 +19,7 @@ export class ExaminationsService {
     if (!examination) {
       throw new HttpException('No examination found.', HttpStatus.NOT_FOUND);
     }
-    return new ExaminationDto(examination);
+    return CreateExaminationDto(examination);
   }
 
   async create(dto: ExaminationDto): Promise<Examination> {
@@ -56,7 +56,7 @@ export class ExaminationsService {
 
     try {
       const examination2 = await examination.save();
-      return new ExaminationDto(examination2);
+      return CreateExaminationDto(examination2);
     } catch (err) {
       throw new HttpException(err, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -65,6 +65,6 @@ export class ExaminationsService {
   async delete(id: string): Promise<ExaminationDto> {
     const examination = await this.examination.findByPk(id);
     await examination.destroy();
-    return new ExaminationDto(examination);
+    return CreateExaminationDto(examination);
   }
 }

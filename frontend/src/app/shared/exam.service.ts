@@ -5,66 +5,55 @@ import {Exam, ExamStatus} from './exam';
 import {DataService} from './data.service';
 import {AuthService} from './auth.service';
 import {CurrentExam} from './current-exam';
-import {concat, first as _first} from 'lodash-es';
-import * as uuidv4 from 'uuid/v4';
+import {first as _first} from 'lodash-es';
+import {ExaminationDto} from '../../../../backend/src/examinations/examinations.dto';
+import {Classification} from '../../../../backend/src/shared/enum/classification';
+import {HttpClient} from '@angular/common/http';
+
+function CreateDto(exam: Exam): ExaminationDto {
+  return exam;
+}
+
+const API_URL = '/api/examinations';
 
 export const defaultExam = {
-  institution: '',
-  cough: 'no',
-  breathShortness: 'no',
-  fever: false,
+  institutionId: 0,
+  cough: Classification.None,
+  breathShortness: Classification.None,
+  fever: Classification.None,
   other: '',
   status: ExamStatus.INITIAL,
-};
-
-const defaultExams = [{
-  id: '2020-03-07T13:00:00Z',
-  date: '2020-03-07T13:00:00Z',
-  patientId: 'vncnt',
-  institution: 'kramare',
-  cough: 'no',
-  breathShortness: 'modest',
-  fever: true,
-  other: '',
   abroad: false,
-  contactWithFeverPerson: false,
-  contactWithCovidPerson: false,
-  status: ExamStatus.INITIAL,
-}];
+  illPersonContact: false,
+  covid19Contact: false,
+};
 
 @Injectable({providedIn: 'root'})
 export class ExamService {
   private examsSource$: Subject<Exam[]> = new Subject();
   public exams$: Observable<Exam[]> = this.examsSource$.asObservable().pipe(
-    startWith(this.dataService.load('tpPatientExams', defaultExams)),
     shareReplay(1),
   );
   private examSource$: Subject<CurrentExam> = new Subject();
 
   public exam$: Observable<CurrentExam> = this.examSource$.asObservable().pipe(
-    startWith(this.dataService.load('tpExam', {
-      // use something normal for date
-      date: new Date().toString(),
-      institution: '',
-      cough: 'no',
-      breathShortness: 'no',
-      fever: false,
-      other: '',
-      abroad: false,
-      contactWithFeverPerson: false,
-      contactWithCovidPerson: false,
-    })),
+    startWith(this.dataService.load('tpExam', defaultExam)),
     shareReplay(1)
   );
 
   public constructor(
     private authService: AuthService,
-    private dataService: DataService
-  ) {}
+    private dataService: DataService,
+    private httpClient: HttpClient
+  ) {
 
-  private save(exams: Exam[]): void {
-    this.examsSource$.next(exams);
-    this.dataService.save('tpPatientExams', exams);
+    this.refresh();
+  }
+
+  private refresh(): void {
+    this.httpClient
+      .get<ExaminationDto[]>(API_URL)
+      .subscribe(examinations => this.examsSource$.next(examinations.map(e => ({...e, status: ExamStatus.INITIAL}))));
   }
 
   public setExam(exam: CurrentExam): void {
@@ -72,46 +61,38 @@ export class ExamService {
     this.examSource$.next(exam);
   }
 
-  public update(exam: Exam): void {
-    this.exams$.pipe(
-      first(),
-      map(exams => exams.map(i => i.id === exam.id ? exam : i)),
-    ).subscribe(institutions => this.save(institutions));
+  public update(obj: Exam): void {
+    this.httpClient
+      .put<ExaminationDto>(`${API_URL}/${obj.id}`, CreateDto(obj))
+      .subscribe(() => this.refresh());
   }
 
-  public create(exam: Exam): void {
-    this.exams$.pipe(
-      first(),
-      map(exams => concat(exams, [{
-        ...exam,
-        id: uuidv4(),
-        // use something normal
-        date: new Date().toISOString()
-      }])),
-    ).subscribe(institutions => this.save(institutions));
+  public create(obj: Exam): void {
+    this.httpClient
+      .post<ExaminationDto>(API_URL, CreateDto(obj))
+      .subscribe(() => this.refresh());
   }
 
   public getByPatientId(patientId: string): Observable<Exam[]> {
     return this.exams$.pipe(
-      map(exams => exams.filter(p => p.patientId === patientId))
+      map(objs => objs.filter(p => `${p.patientId}` === `${patientId}`))
     );
   }
 
   public getById(id: string): Observable<Exam> {
     return this.exams$.pipe(
       first(),
-      map(exams => {
-        const result = exams.filter(p => p.id === id);
+      map(objs => {
+        const result = objs.filter(p => `${p.id}` === `${id}`);
         console.assert(result.length === 1);
         return _first(result);
       })
     );
   }
 
-  public delete(examId: string): void {
-    this.exams$.pipe(
-      first(),
-      map(exams => exams.filter(i => i.id !== examId)),
-    ).subscribe(exams => this.save(exams));
+  public delete(id: string): void {
+    this.httpClient
+      .delete(`${API_URL}/${id}`)
+      .subscribe(() => this.refresh());
   }
 }

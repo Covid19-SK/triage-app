@@ -40,8 +40,8 @@
   <div class="form-group row" *ngIf="institutions$ | async as institutions">
     <label class="col-sm-3 col-form-label">Odberné miesto:</label>
     <div class="col-sm-9">
-      <select class="form-control" formControlName="institution">
-        <option value="">Vyberte odberné miesto</option>
+      <select class="form-control" formControlName="institutionId">
+        <option value="0">Vyberte odberné miesto</option>
         <option *ngFor="let institution of institutions" [value]="institution.id">{{institution.name}}</option>
       </select>
     </div>
@@ -50,11 +50,11 @@
     <label class="col-sm-3 col-form-label">Kašeľ:</label>
     <div class="col-sm-9">
       <div class="form-check">
-        <input class="form-check-input" type="radio" formControlName="cough" value="no" checked>
+        <input class="form-check-input" type="radio" formControlName="cough" value="none" checked>
         <label class="form-check-label">Žiadny</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" formControlName="cough" value="modest" checked>
+        <input class="form-check-input" type="radio" formControlName="cough" value="mild" checked>
         <label class="form-check-label">Mierny</label>
       </div>
       <div class="form-check">
@@ -67,11 +67,11 @@
     <label class="col-sm-3 col-form-label">Dýchavičnosť:</label>
     <div class="col-sm-9">
       <div class="form-check">
-        <input class="form-check-input" type="radio" formControlName="breathShortness" value="no" checked>
+        <input class="form-check-input" type="radio" formControlName="breathShortness" value="none" checked>
         <label class="form-check-label">Žiadna</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" formControlName="breathShortness" value="modest" checked>
+        <input class="form-check-input" type="radio" formControlName="breathShortness" value="mild" checked>
         <label class="form-check-label">Mierna</label>
       </div>
       <div class="form-check">
@@ -84,7 +84,16 @@
     <label class="col-sm-3 col-form-label">Horúčka >38°C:</label>
     <div class="col-sm-9">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" formControlName="fever">
+        <input class="form-check-input" type="radio" formControlName="fever" value="none" checked>
+        <label class="form-check-label">Žiadna</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="fever" value="mild" checked>
+        <label class="form-check-label">Mierna</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="fever" value="severe" checked>
+        <label class="form-check-label">Výrazná</label>
       </div>
     </div>
   </div>
@@ -94,6 +103,31 @@
       <textarea class="form-control" formControlName="other"></textarea>
     </div>
   </div>
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Návšteva v zahraničí:</label>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="abroad">
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Kontakt s chorým:</label>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="illPersonContact">
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Kontakt s nakazeným COVID-19:</label>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="covid19Contact">
+      </div>
+    </div>
+  </div>
+
   <div class="form-group row">
     <label class="col-sm-3 col-form-label">Stav:</label>
     <div class="col-sm-9">

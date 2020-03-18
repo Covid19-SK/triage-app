@@ -75,7 +75,7 @@ export class DetailComponent {
     );
   }
 
-  public getInstitutionName(institutionId: string): Observable<string> {
+  public getInstitutionName(institutionId: number): Observable<string> {
     return this.institutionsService.getById(institutionId).pipe(
       map(i => i.name)
     );

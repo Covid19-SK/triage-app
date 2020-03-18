@@ -27,7 +27,7 @@ export class InstitutionDetailComponent {
             name: '',
           });
         }
-        return this.institutionsService.getById(institutionId);
+        return this.institutionsService.getById(Number(institutionId));
       }),
       map(institution => new FormGroup({
         id: new FormControl(institution.id),

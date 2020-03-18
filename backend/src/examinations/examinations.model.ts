@@ -14,8 +14,13 @@ import {
 import { Institution } from 'src/institutions/institution.model';
 import { Patient } from 'src/patients/patient.model';
 import { Classification } from 'src/shared/enum/classification';
+import {ExaminationDto} from "./examinations.dto";
 
 const { v4: uuidv4 } = require('uuid');
+
+export function CreateExaminationDto(examination: Examination): ExaminationDto {
+  return examination;
+}
 
 @Table({ tableName: 'examinations' })
 export class Examination extends Model<Examination> {

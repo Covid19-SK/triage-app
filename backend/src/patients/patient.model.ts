@@ -2,7 +2,6 @@ import {
   AllowNull,
   BeforeCreate,
   Column,
-  DataType,
   HasMany,
   IsEmail,
   IsUUID,
