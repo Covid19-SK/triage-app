@@ -1,0 +1,16 @@
+{
+  "LANGUAGE": "EN",
+  "NAVIGATION": {
+    "BACK": "Back",
+    "NEXT": "Next"
+  },
+  "HOME": {
+    "TITLE": "Instruction",
+    "SUBTITLE": "Basic data",
+    "STEP1": "Step 1",
+    "STEP2": "Step 2",
+    "DESCRIPTION": "Home screen description",
+    "SECONDARY_DESCRIPTION": "Home screen secondary description",
+    "SKIP_INSTRUCTION": "Skip instruction"
+  }
+}
