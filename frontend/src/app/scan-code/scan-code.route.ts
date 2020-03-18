@@ -7,6 +7,7 @@ export const SCAN_CODE_ROUTE: Route = {
   component: ScanCodeComponent,
   data: {
     authorities: [],
-    pageTitle: 'Welcome'
+    pageTitle: 'Welcome',
+    animation: 'ScanCodePage'
   }
 };

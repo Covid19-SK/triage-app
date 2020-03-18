@@ -1,4 +1,4 @@
-<app-header [icon]="icon" title="Registrácia" subTitle="QR kód"></app-header>
+<app-header [icon]="icon" title="Registrácia" subTitle="Skenovanie QR kódu"></app-header>
 <div class="safe-zone">
   <div class="code-page">
     <div class="center-content">
@@ -39,7 +39,9 @@
     </div>
 
     <div class="bottom-cta">
-      <button class="btn-prev btn btn-link text-uppercase" routerLink="/form" routerLinkActive="active"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
+      <button type="button" *ngIf="code" class="btn-next btn btn-primary" routerLink="/registration" routerLinkActive="active">
+        {{ 'NAVIGATION.NEXT' | translate }}
+      </button>
     </div>
 
   </div>
