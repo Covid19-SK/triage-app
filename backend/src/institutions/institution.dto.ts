@@ -1,9 +1,4 @@
-import { Institution } from 'src/institutions/institution.model';
-
-export class InstitutionDto {
+export interface InstitutionDto {
+  id: string;
   name: string;
-
-  constructor(institution: Institution) {
-    this.name = institution.name;
-  }
 }
