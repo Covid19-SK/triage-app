@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {IconDefinition} from '@fortawesome/fontawesome-svg-core';
+import {TranslationService} from '../../shared/translation.service';
 
 @Component({
   selector: 'app-header',
@@ -15,4 +16,14 @@ export class HeaderComponent {
 
   @Input()
   public subTitle: string;
+
+  @Input()
+  public language: string;
+
+  public constructor(private translate: TranslationService) {}
+
+  public changeLanguage(): void {
+    this.translate.switchLanguage();
+  }
+
 }
