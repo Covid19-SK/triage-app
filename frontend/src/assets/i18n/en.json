@@ -17,6 +17,7 @@
     "TITLE": "Registration",
     "SUBTITLE": "Basic data",
     "NAME": "Name",
+    "NAME_ERROR_REQUIRED": "Enter your name",
     "SURNAME": "Surname",
     "ID_NUMBER": "ID number",
     "EMAIL": "Email",
