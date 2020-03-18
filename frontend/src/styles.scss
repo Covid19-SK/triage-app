@@ -2,3 +2,41 @@
 @import "app/variables";
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+// Bootstrap style overrides
+
+.btn, .form-control {
+  padding: 0.575rem 0.75rem;
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.85rem + 2px);
+}
+
+// Defining global styles
+
+.btn-themed {
+  color: #354E5D;
+  background-color: #ffffff;
+  border-color: #D1DAE3;
+}
+
+.btn-themed:not(:disabled):not(.disabled):active,
+.btn-themed:not(:disabled):not(.disabled).active,
+.show > .btn-themed.dropdown-toggle {
+  color: #fff;
+  background-color: #696CFE;
+  border-color: #696CFE;
+}
+
+.btn-themed:not(:disabled):not(.disabled):active:focus,
+.btn-themed:not(:disabled):not(.disabled).active:focus,
+.show > .btn-themed.dropdown-toggle:focus {
+  color: #fff;
+  background-color: #696CFE;
+  border-color: #696CFE;
+}
+
+.btn-themed:not(:disabled):not(.disabled).active:focus {
+  box-shadow: 0 0 0 0.2rem rgba(105, 108, 254, 0.5);
+}
