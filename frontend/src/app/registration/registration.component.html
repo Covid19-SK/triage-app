@@ -37,10 +37,16 @@
 
           <div class="form-center-content">
             <div class="registration-page__title">{{ 'REGISTRATION.SURNAME' | translate }}</div>
+            <div class="registration-page__hint">{{ 'REGISTRATION.SURNAME_HINT' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
-                <input id="lastName" class="form-control" type="text" formControlName="lastName" value="" autofocus>
+                <input id="lastName" class="form-control" type="text"
+                formControlName="lastName" value="" autofocus>
+                <div class="registration-page__error"
+                  *ngIf="step_content.controls.lastName.touched && step_content.controls.lastName.errors?.required">
+                  {{ 'REGISTRATION.SURNAME_ERROR_REQUIRED' | translate }}
+                </div>
               </div>
             </form>
           </div>

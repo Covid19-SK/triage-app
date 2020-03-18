@@ -23,10 +23,10 @@ export class RegistrationComponent {
     this.form$ = this.currentPatientService.patient$.pipe(
       map(user => [
         new FormGroup({
-            firstName: new FormControl(user.firstName, [Validators.required, Validators.minLength(3)])
+          firstName: new FormControl(user.firstName, [Validators.required])
         }),
         new FormGroup({
-          lastName: new FormControl(user.lastName)
+          lastName: new FormControl(user.lastName, [Validators.required])
         }),
         new FormGroup({
           identificationNumber: new FormControl(user.identificationNumber)
@@ -48,7 +48,7 @@ export class RegistrationComponent {
         }),
         new FormGroup({
           zipCode: new FormControl(user.zipCode)
-        }),
+        })
       ]),
       shareReplay(1)
     );

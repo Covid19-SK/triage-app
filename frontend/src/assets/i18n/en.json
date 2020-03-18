@@ -18,8 +18,10 @@
     "SUBTITLE": "Basic data",
     "NAME": "Name",
     "NAME_ERROR_REQUIRED": "Enter your name",
-    "NAME_HINT": "For example Peter Novák",
+    "NAME_HINT": "For example Peter",
     "SURNAME": "Surname",
+    "SURNAME_HINT": "For example Novák",
+    "SURNAME_ERROR_REQUIRED": "Zadajte vaše priezvisko",
     "ID_NUMBER": "ID number",
     "EMAIL": "Email",
     "PHONE": "Phone number"
