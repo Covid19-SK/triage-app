@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { PatientDto } from 'src/patients/patient.dto';
-import { Patient } from './patient.model';
+import {CreatePatientDto, Patient} from './patient.model';
 
 @Injectable()
 export class PatientsService {
@@ -9,7 +9,7 @@ export class PatientsService {
 
   async findAll(): Promise<PatientDto[]> {
     const patients = this.patient.findAll();
-    return patients.map(p => new PatientDto(p));
+    return patients.map(p => CreatePatientDto(p));
   }
 
   async find(id: string): Promise<PatientDto> {
@@ -17,7 +17,7 @@ export class PatientsService {
     if (!patient) {
       throw new HttpException('No patient found.', HttpStatus.NOT_FOUND);
     }
-    return new PatientDto(patient);
+    return CreatePatientDto(patient);
   }
 
   async create(dto: PatientDto): Promise<Patient> {
@@ -52,7 +52,7 @@ export class PatientsService {
 
     try {
       const patient2 = await patient.save();
-      return new PatientDto(patient2);
+      return CreatePatientDto(patient2);
     } catch (err) {
       throw new HttpException(err, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -61,6 +61,6 @@ export class PatientsService {
   async delete(id: string): Promise<PatientDto> {
     const patient = await this.patient.findByPk(id);
     await patient.destroy();
-    return new PatientDto(patient);
+    return CreatePatientDto(patient);
   }
 }
