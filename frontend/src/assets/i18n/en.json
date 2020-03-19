@@ -29,6 +29,7 @@
     "EMAIL": "Email",
     "EMAIL_ERROR_EMAIL": "Enter email in a valid format, for example name@gmail.com",
     "EMAIL_HINT": "For example name@gmail.com",
-    "PHONE": "Phone number"
+    "PHONE": "Phone number",
+    "PHONE_ERROR_REQUIRED": "Enter your phone number"
   }
 }

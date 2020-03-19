@@ -6,7 +6,7 @@
   <app-multi-step-form *ngIf="form$ | async as form"
                       [formData]="form"
                       (nextAction)="onNextAction($event)"
-                      (finishAction)="onSubmit()">
+                      (finishAction)="onSubmit($event)">
     <ng-template let-step_content let-nextStepHandle="nextStepHandle">
       <div appFormStep id="1" class="form-step">
         <div class="form-wrapper">
@@ -123,13 +123,19 @@
 
             <form [formGroup]="step_content">
               <div class="form-group">
-                <input id="phoneNumber" class="form-control" type="number" formControlName="phoneNumber" value="" autofocus>
+                <input id="phoneNumber" class="form-control" type="number" inputmode="numeric"
+                formControlName="phoneNumber" value="" autofocus>
+                <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'phoneNumber')">
+                  {{ 'REGISTRATION.PHONE_ERROR_REQUIRED' | translate }}
+                </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
             <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="onSubmit()" routerLink="/form" routerLinkActive="active">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase"
+            (click)="setTouched('phoneNumber'); onSubmit(step_content)">{{ 'NAVIGATION.NEXT' | translate
+            }}</button>
           </div>
         </div>
       </div>

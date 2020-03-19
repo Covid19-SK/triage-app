@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChildren } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 import { CurrentPatientService } from "../shared/current-patient.service";
 import { Observable } from "rxjs";
 import { first, map, shareReplay, tap } from "rxjs/operators";
@@ -27,7 +28,7 @@ export class RegistrationComponent {
   /** https://www.npmjs.com/package/rodnecislo#regexp  */
   private identificationNumberRegexp = new RegExp(/^\d{0,2}((0[1-9]|1[0-2])|(2[1-9]|3[0-2])|(5[1-9]|6[0-2])|(7[1-9]|8[0-2]))(0[1-9]|[1-2][0-9]|3[01])\/?[0-9]{3,4}$/);
 
-  constructor(private currentPatientService: CurrentPatientService) {
+  constructor(private currentPatientService: CurrentPatientService, private router: Router) {
     this.form$ = this.currentPatientService.patient$.pipe(
       map(user => [
         new FormGroup({
@@ -52,7 +53,7 @@ export class RegistrationComponent {
           })
         }),
         new FormGroup({
-          phoneNumber: new FormControl(user.phoneNumber)
+          phoneNumber: new FormControl(user.phoneNumber, [Validators.required])
         }),
         new FormGroup({
           dateOfBirth: new FormControl(user.dateOfBirth)
@@ -78,8 +79,12 @@ export class RegistrationComponent {
     this.form$.pipe(first()).subscribe(form => this.updatePacient(form));
   }
 
-  public onSubmit(): void {
+  public onSubmit(step_content: FormGroup): void {
+    if (step_content.invalid) {
+      return;
+    }
     this.form$.pipe(first()).subscribe(form => this.updatePacient(form));
+    this.router.navigate(['/form']);
   }
 
   private updatePacient(form: FormGroup[]): void {
@@ -117,7 +122,7 @@ export class RegistrationComponent {
   public shouldShowError(
     step_content: FormGroup,
     fieldName: string,
-    errorType: string = "required"
+    errorType = "required"
   ) {
     console.log(step_content);
 

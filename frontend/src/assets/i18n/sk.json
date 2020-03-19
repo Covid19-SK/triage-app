@@ -29,6 +29,6 @@
     "EMAIL": "Email",
     "EMAIL_ERROR_EMAIL": "TODO",
     "EMAIL_HINT": "Napríklad meno@gmail.com",
-    "PHONE": "Telefónne číslo"
+    "PHONE_ERROR_REQUIRED": "Zadajte telefónne číslo"
   }
 }
