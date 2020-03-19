@@ -124,8 +124,6 @@ export class RegistrationComponent {
     fieldName: string,
     errorType = "required"
   ) {
-    console.log(step_content);
-
     return (
       step_content.controls[fieldName]?.touched &&
       step_content.controls[fieldName]?.errors?.[errorType]
