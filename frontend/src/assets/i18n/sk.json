@@ -23,6 +23,7 @@
     "SURNAME_HINT": "Napríklad Novák",
     "SURNAME_ERROR_REQUIRED": "Zadajte vaše priezvisko",
     "ID_NUMBER": "Rodné číslo",
+    "ID_NUMBER_HINT": "Napríklad 1234561111",
     "ID_NUMBER_ERROR_REQUIRED": "Zadajte vaše rodné číslo",
     "ID_NUMBER_ERROR_FORMAT": "TODO",
     "EMAIL": "Email",

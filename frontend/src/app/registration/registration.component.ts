@@ -25,8 +25,7 @@ export class RegistrationComponent {
   public backIcon = faChevronLeft;
 
   /** https://www.npmjs.com/package/rodnecislo#regexp  */
-  private identificationNumberRegexp = new RegExp(/^\d{0,2}((0[1-9]|1[0-2])|(2[1-9]|3[0-2])|(5[1-9]|6[0-2])|(7[1-9]|8[0-2]))(0[1-9]|[1-2][0-9]|3[01])\/?[0-9]{3,4}$/)
-    ;
+  private identificationNumberRegexp = new RegExp(/^\d{0,2}((0[1-9]|1[0-2])|(2[1-9]|3[0-2])|(5[1-9]|6[0-2])|(7[1-9]|8[0-2]))(0[1-9]|[1-2][0-9]|3[01])\/?[0-9]{3,4}$/);
 
   constructor(private currentPatientService: CurrentPatientService) {
     this.form$ = this.currentPatientService.patient$.pipe(
@@ -38,10 +37,13 @@ export class RegistrationComponent {
           lastName: new FormControl(user.lastName, [Validators.required])
         }),
         new FormGroup({
-          identificationNumber: new FormControl(user.identificationNumber, [
-            Validators.required,
-            Validators.pattern(this.identificationNumberRegexp)
-          ])
+          identificationNumber: new FormControl(user.identificationNumber, {
+            validators: [
+              Validators.required,
+              Validators.pattern(this.identificationNumberRegexp)
+            ],
+            updateOn: 'change'
+          })
         }),
         new FormGroup({
           email: new FormControl(user.email)
