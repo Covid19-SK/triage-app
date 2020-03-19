@@ -40,7 +40,7 @@ export class RegistrationComponent {
         new FormGroup({
           identificationNumber: new FormControl(user.identificationNumber, [
             Validators.required,
-            Validators.pattern(this.identificationNumberRegexp)
+            // Validators.pattern(this.identificationNumberRegexp)
           ])
         }),
         new FormGroup({

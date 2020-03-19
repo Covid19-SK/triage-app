@@ -70,6 +70,9 @@
             <form [formGroup]="step_content">
               <div class="form-group">
                 <input id="identificationNumber" class="form-control" type="text" formControlName="identificationNumber" value="" autofocus>
+                <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'identificationNumber')">
+                  {{ 'REGISTRATION.ID_NUMBER_ERROR_REQUIRED' | translate }}
+                </div>
               </div>
             </form>
           </div>
