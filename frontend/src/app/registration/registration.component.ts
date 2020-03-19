@@ -25,8 +25,8 @@ export class RegistrationComponent {
   public backIcon = faChevronLeft;
 
   /** https://www.npmjs.com/package/rodnecislo#regexp  */
-  private identificationNumberRegexp =
-    "/^d{0,2}((0[1-9]|1[0-2])|(2[1-9]|3[0-2])|(5[1-9]|6[0-2])|(7[1-9]|8[0-2]))(0[1-9]|[1-2][0-9]|3[01])/?[0-9]{3,4}$/;";
+  private identificationNumberRegexp = new RegExp(/^\d{0,2}((0[1-9]|1[0-2])|(2[1-9]|3[0-2])|(5[1-9]|6[0-2])|(7[1-9]|8[0-2]))(0[1-9]|[1-2][0-9]|3[01])\/?[0-9]{3,4}$/)
+    ;
 
   constructor(private currentPatientService: CurrentPatientService) {
     this.form$ = this.currentPatientService.patient$.pipe(
@@ -40,7 +40,7 @@ export class RegistrationComponent {
         new FormGroup({
           identificationNumber: new FormControl(user.identificationNumber, [
             Validators.required,
-            // Validators.pattern(this.identificationNumberRegexp)
+            Validators.pattern(this.identificationNumberRegexp)
           ])
         }),
         new FormGroup({
@@ -68,7 +68,7 @@ export class RegistrationComponent {
 
   // tslint:disable-next-line:no-any
   public onNextAction(formData: any): void {
-    console.log(this.form$);
+    // console.log(this.form$);
 
     this.form$.pipe(first()).subscribe(form => this.updatePacient(form));
   }
@@ -89,7 +89,7 @@ export class RegistrationComponent {
       town: "", // TODO
       zipCode: "" // TODO
     };
-    console.log(`Patient: `, patient);
+    // console.log(`Patient: `, patient);
     this.currentPatientService.setPatient(patient);
   }
 
@@ -109,10 +109,16 @@ export class RegistrationComponent {
       .subscribe();
   }
 
-  public shouldShowError(step_content: FormGroup, fieldName: string) {
+  public shouldShowError(
+    step_content: FormGroup,
+    fieldName: string,
+    errorType: string = "required"
+  ) {
+    console.log(step_content);
+
     return (
       step_content.controls[fieldName]?.touched &&
-      step_content.controls[fieldName]?.errors?.required
+      step_content.controls[fieldName]?.errors?.[errorType]
     );
   }
 }

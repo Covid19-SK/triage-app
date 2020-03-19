@@ -24,6 +24,7 @@
     "SURNAME_ERROR_REQUIRED": "Zadajte vaše priezvisko",
     "ID_NUMBER": "Rodné číslo",
     "ID_NUMBER_ERROR_REQUIRED": "Zadajte vaše rodné číslo",
+    "ID_NUMBER_ERROR_FORMAT": "TODO",
     "EMAIL": "Email",
     "PHONE": "Telefónne číslo"
   }

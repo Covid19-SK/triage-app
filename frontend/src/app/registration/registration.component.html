@@ -73,12 +73,16 @@
                 <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'identificationNumber')">
                   {{ 'REGISTRATION.ID_NUMBER_ERROR_REQUIRED' | translate }}
                 </div>
+                <div class="registration-page__error"
+                *ngIf="shouldShowError(step_content, 'identificationNumber', 'pattern')">
+                  {{ 'REGISTRATION.ID_NUMBER_ERROR_PATTERN' | translate }}
+                </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
             <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="setTouched('identificationNumber');nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>

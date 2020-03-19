@@ -24,6 +24,7 @@
     "SURNAME_ERROR_REQUIRED": "Enter your surname",
     "ID_NUMBER": "ID number",
     "ID_NUMBER_ERROR_REQUIRED": "Enter your identification number",
+    "ID_NUMBER_ERROR_PATTERN": "Enter your valid identification number",
     "EMAIL": "Email",
     "PHONE": "Phone number"
   }
