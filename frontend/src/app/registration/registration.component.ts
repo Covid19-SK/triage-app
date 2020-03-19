@@ -42,11 +42,14 @@ export class RegistrationComponent {
               Validators.required,
               Validators.pattern(this.identificationNumberRegexp)
             ],
-            updateOn: 'change'
+            updateOn: 'blur'
           })
         }),
         new FormGroup({
-          email: new FormControl(user.email)
+          email: new FormControl(user.email, {
+            validators: [Validators.email],
+            updateOn: 'blur'
+          })
         }),
         new FormGroup({
           phoneNumber: new FormControl(user.phoneNumber)

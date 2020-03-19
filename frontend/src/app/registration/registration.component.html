@@ -95,16 +95,20 @@
 
           <div class="form-center-content">
             <div class="registration-page__title">{{ 'REGISTRATION.EMAIL' | translate }}</div>
+            <div class="registration-page__hint">{{ 'REGISTRATION.EMAIL_HINT' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <input id="email" class="form-control" type="email" formControlName="email" value="" autofocus>
+                <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'email', 'email')">
+                  {{ 'REGISTRATION.EMAIL_ERROR_EMAIL' | translate }}
+                </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
             <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="setTouched('email');nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
