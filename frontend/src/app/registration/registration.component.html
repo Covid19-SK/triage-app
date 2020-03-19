@@ -123,7 +123,7 @@
 
             <form [formGroup]="step_content">
               <div class="form-group">
-                <input id="phoneNumber" class="form-control" type="number" inputmode="numeric"
+                <input id="phoneNumber" class="form-control" type="text" inputmode="numeric"
                 formControlName="phoneNumber" value="" autofocus>
                 <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'phoneNumber')">
                   {{ 'REGISTRATION.PHONE_ERROR_REQUIRED' | translate }}
