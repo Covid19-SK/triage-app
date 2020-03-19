@@ -18,7 +18,7 @@
             <form [formGroup]="step_content">
               <div class="form-group">
                 <input id="name" class="form-control" type="text" formControlName="firstName" value="" autofocus>
-                <div class="registration-page__error" *ngIf="step_content.controls.firstName.touched && step_content.controls.firstName.errors?.required">
+                <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'firstName')">
                   {{ 'REGISTRATION.NAME_ERROR_REQUIRED' | translate }}
                 </div>
               </div>
@@ -44,7 +44,7 @@
                 <input id="lastName" class="form-control" type="text"
                 formControlName="lastName" value="" autofocus>
                 <div class="registration-page__error"
-                  *ngIf="step_content.controls.lastName.touched && step_content.controls.lastName.errors?.required">
+                  *ngIf="shouldShowError(step_content, 'lastName')">
                   {{ 'REGISTRATION.SURNAME_ERROR_REQUIRED' | translate }}
                 </div>
               </div>

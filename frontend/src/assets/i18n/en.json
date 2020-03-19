@@ -21,7 +21,7 @@
     "NAME_HINT": "For example Peter",
     "SURNAME": "Surname",
     "SURNAME_HINT": "For example Novák",
-    "SURNAME_ERROR_REQUIRED": "Zadajte vaše priezvisko",
+    "SURNAME_ERROR_REQUIRED": "Enter your surname",
     "ID_NUMBER": "ID number",
     "EMAIL": "Email",
     "PHONE": "Phone number"

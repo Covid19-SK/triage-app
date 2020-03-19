@@ -24,6 +24,10 @@ export class RegistrationComponent {
   public icon = faAddressCard;
   public backIcon = faChevronLeft;
 
+  /** https://www.npmjs.com/package/rodnecislo#regexp  */
+  private identificationNumberRegexp =
+    "/^d{0,2}((0[1-9]|1[0-2])|(2[1-9]|3[0-2])|(5[1-9]|6[0-2])|(7[1-9]|8[0-2]))(0[1-9]|[1-2][0-9]|3[01])/?[0-9]{3,4}$/;";
+
   constructor(private currentPatientService: CurrentPatientService) {
     this.form$ = this.currentPatientService.patient$.pipe(
       map(user => [
@@ -34,7 +38,10 @@ export class RegistrationComponent {
           lastName: new FormControl(user.lastName, [Validators.required])
         }),
         new FormGroup({
-          identificationNumber: new FormControl(user.identificationNumber)
+          identificationNumber: new FormControl(user.identificationNumber, [
+            Validators.required,
+            Validators.pattern(this.identificationNumberRegexp)
+          ])
         }),
         new FormGroup({
           email: new FormControl(user.email)
@@ -57,21 +64,6 @@ export class RegistrationComponent {
       ]),
       shareReplay(1)
     );
-  }
-
-  public setTouched(fieldName: string) {
-    this.form$
-      .pipe(
-        map(forms => {
-          return forms.map(form => {
-            form.controls[fieldName]
-              ? form.controls[fieldName].markAsTouched()
-              : null;
-            return form;
-          });
-        })
-      )
-      .subscribe();
   }
 
   // tslint:disable-next-line:no-any
@@ -99,5 +91,28 @@ export class RegistrationComponent {
     };
     console.log(`Patient: `, patient);
     this.currentPatientService.setPatient(patient);
+  }
+
+  /** Validation */
+  public setTouched(fieldName: string) {
+    this.form$
+      .pipe(
+        map(forms => {
+          return forms.map(form => {
+            form.controls[fieldName]
+              ? form.controls[fieldName].markAsTouched()
+              : null;
+            return form;
+          });
+        })
+      )
+      .subscribe();
+  }
+
+  public shouldShowError(step_content: FormGroup, fieldName: string) {
+    return (
+      step_content.controls[fieldName]?.touched &&
+      step_content.controls[fieldName]?.errors?.required
+    );
   }
 }
