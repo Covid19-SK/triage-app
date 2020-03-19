@@ -11,7 +11,6 @@ import {
 } from '@angular/core';
 import { FormStepDirective } from '../directives/form-step.directive';
 import { FormGroup } from '@angular/forms';
-import { every } from 'rxjs/operators';
 
 @Component({
   selector: 'app-multi-step-form',

@@ -74,8 +74,6 @@ export class RegistrationComponent {
 
   // tslint:disable-next-line:no-any
   public onNextAction(formData: any): void {
-    // console.log(this.form$);
-
     this.form$.pipe(first()).subscribe(form => this.updatePacient(form));
   }
 
