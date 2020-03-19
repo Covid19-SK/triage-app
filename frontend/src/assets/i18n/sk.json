@@ -25,9 +25,9 @@
     "ID_NUMBER": "Rodné číslo",
     "ID_NUMBER_HINT": "Napríklad 1234561111",
     "ID_NUMBER_ERROR_REQUIRED": "Zadajte vaše rodné číslo",
-    "ID_NUMBER_ERROR_FORMAT": "TODO",
+    "ID_NUMBER_ERROR_FORMAT": "Zadajte správne rodné číslo",
     "EMAIL": "Email",
-    "EMAIL_ERROR_EMAIL": "TODO",
+    "EMAIL_ERROR_EMAIL": "Zadajte email v správnom formáte, napríklad meno@gmail.com",
     "EMAIL_HINT": "Napríklad meno@gmail.com",
     "PHONE_ERROR_REQUIRED": "Zadajte telefónne číslo"
   }
