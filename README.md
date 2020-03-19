@@ -1,11 +1,13 @@
 # Triage app
 
-## Important link to get in touch witch Covid19-SK
-
-- FB -- https://www.facebook.com/groups/covid19sk (alebo bit.ly/covid19sk-fb)
-- Slack -- http://covid19sk.slack.com
-- Brainstorming dokument -- http://bit.ly/covid19sk-doc 
-- Kontakty dobrovoľníkov -- https://airtable.com/shrAV71gMOf7ul5J2
+## Important links and resources
+ 
+- Pitch - https://docs.google.com/document/d/19mqkhv_NkkpYv08C_FsrKXZS1vJEkefgd-UwWVYt23U/edit
+- Design rozhrania pacienta: https://xd.adobe.com/view/3907211f-a7e9-4418-5ac6-c22e5ee2a6d8-4f36/
+- Design rozhrania zdravotníka: https://xd.adobe.com/view/c4e45665-6df8-45ea-6b0f-cecb67e8ee3d-b2d5/
+- Brainstorming dokument - http://bit.ly/covid19sk-doc 
+- Iniciatíva SK Covid Hackathon:  https://covid19sk.sk/ a https://www.facebook.com/groups/covid19sk/
+- Kontakty dobrovoľníkov - https://airtable.com/shrAV71gMOf7ul5J2
 
 ## Specification / brainstorming document
 
