@@ -9,8 +9,7 @@
 </p>
 <table class="table">
   <tr>
-    <th>Meno</th>
-    <th>Priezvisko</th>
+    <th>Celé meno</th>
     <th>Telefón</th>
     <th>Rodné číslo</th>
     <th>Dátum narodenia</th>
@@ -20,8 +19,7 @@
     <th colspan="2"></th>
   </tr>
   <tr *ngFor="let patient of patients$ | async">
-    <td>{{patient.firstName}}</td>
-    <td>{{patient.lastName}}</td>
+    <td>{{patient.fullName}}</td>
     <td>{{patient.phoneNumber}}</td>
     <td>{{patient.identificationNumber}}</td>
     <td>{{patient.dateOfBirth}}</td>

@@ -1,7 +1,6 @@
 export interface PatientDto {
   id: string;
-  firstName: string;
-  lastName: string;
+  fullName: string;
   dateOfBirth: string;
   phoneNumber: string;
   identificationNumber: string;

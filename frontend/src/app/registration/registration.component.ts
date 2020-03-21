@@ -23,10 +23,7 @@ export class RegistrationComponent {
     this.form$ = this.currentPatientService.patient$.pipe(
       map(user => [
         new FormGroup({
-          firstName: new FormControl(user.firstName)
-        }),
-        new FormGroup({
-          lastName: new FormControl(user.lastName)
+          fullName: new FormControl(user.fullName)
         }),
         new FormGroup({
           identificationNumber: new FormControl(user.identificationNumber)
@@ -69,11 +66,10 @@ export class RegistrationComponent {
 
   private updatePacient(form: FormGroup[]): void {
     const patient = {
-      firstName: form[0].controls['firstName'].value,
-      lastName: form[1].controls['lastName'].value,
-      identificationNumber: form[2].controls['identificationNumber'].value,
-      email: form[3].controls['email'].value,
-      phoneNumber: form[4].controls['phoneNumber'].value,
+      fullName: form[0].controls['fullName'].value,
+      identificationNumber: form[1].controls['identificationNumber'].value,
+      email: form[2].controls['email'].value,
+      phoneNumber: form[3].controls['phoneNumber'].value,
       dateOfBirth: '', // TODO
       address: '', // TODO
       town: '', // TODO

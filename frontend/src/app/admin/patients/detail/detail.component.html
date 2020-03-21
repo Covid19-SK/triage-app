@@ -2,15 +2,9 @@
 <h4>Údaje</h4>
 <ng-container *ngIf="form$ | async as form" [formGroup]="form">
   <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Meno:</label>
+    <label class="col-sm-3 col-form-label">Celé meno:</label>
     <div class="col-sm-9">
-      <input class="form-control" formControlName="firstName"/>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Priezvisko:</label>
-    <div class="col-sm-9">
-      <input class="form-control" formControlName="lastName"/>
+      <input class="form-control" formControlName="fullName"/>
     </div>
   </div>
   <div class="form-group row">

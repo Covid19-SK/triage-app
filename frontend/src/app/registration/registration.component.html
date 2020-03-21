@@ -12,36 +12,15 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">{{ 'REGISTRATION.NAME' | translate }}</div>
+            <div class="registration-page__title">{{ 'REGISTRATION.FULL_NAME' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
-                <input id="name" class="form-control" type="text" formControlName="firstName" value="" autofocus>
+                <input id="name" class="form-control" type="text" formControlName="fullName" value="" autofocus>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
-          </div>
-        </div>
-      </div>
-    </ng-template>
-
-    <ng-template let-step_content let-backStepHandle="backStepHandle" let-nextStepHandle="nextStepHandle">
-      <div appFormStep id="2" class="form-step">
-        <div class="form-wrapper">
-
-          <div class="form-center-content">
-            <div class="registration-page__title">{{ 'REGISTRATION.SURNAME' | translate }}</div>
-
-            <form [formGroup]="step_content">
-              <div class="form-group">
-                <input id="lastName" class="form-control" type="text" formControlName="lastName" value="" autofocus>
-              </div>
-            </form>
-          </div>
-          <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
             <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
