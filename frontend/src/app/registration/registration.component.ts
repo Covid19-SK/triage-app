@@ -26,9 +26,6 @@ export class RegistrationComponent {
           firstName: new FormControl(user.firstName)
         }),
         new FormGroup({
-          lastName: new FormControl(user.lastName)
-        }),
-        new FormGroup({
           identificationNumber: new FormControl(user.identificationNumber)
         }),
         new FormGroup({
@@ -58,14 +55,14 @@ export class RegistrationComponent {
   private updatePacient(form: FormGroup[]): void {
     const patient = {
       firstName: form[0].controls['firstName'].value,
-      lastName: form[1].controls['lastName'].value,
-      identificationNumber: form[2].controls['identificationNumber'].value,
-      email: form[3].controls['email'].value,
-      phoneNumber: form[4].controls['phoneNumber'].value,
+      identificationNumber: form[1].controls['identificationNumber'].value,
+      email: form[2].controls['email'].value,
+      phoneNumber: form[3].controls['phoneNumber'].value,
       dateOfBirth: '',
       address: '',
       town: '',
-      zipCode: ''
+      zipCode: '',
+      lastName: ''
     };
     console.log(`Patient: `, patient);
     this.currentPatientService.setPatient(patient);

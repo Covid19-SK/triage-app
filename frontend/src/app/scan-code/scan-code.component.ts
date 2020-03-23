@@ -16,7 +16,6 @@ export class ScanCodeComponent {
   public code: string;
   private modalRef: BsModalRef;
   public icon = faQrcode;
-  public backIcon = faChevronLeft;
 
   public constructor(private readonly authService: AuthService,
                      public readonly scanCodeService: ScanCodeService,

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {TranslationService} from '../shared/translation.service';
 
 @Component({
   selector: 'app-home',
@@ -15,4 +16,6 @@ import {animate, style, transition, trigger} from '@angular/animations';
   ]
 })
 export class HomeComponent {
+  // Don't remove translation service !!! ^(00)^
+  public constructor(private translate: TranslationService) {}
 }

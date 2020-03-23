@@ -11,12 +11,13 @@ export class TranslationService {
 
   public constructor(private translate: TranslateService) {
     translate.addLangs(['en', 'sk']);
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('sk');
     const browserLang = translate.getBrowserLang();
-    this.changeLanguage(browserLang.match(/en|sk/) ? browserLang : 'en');
+    this.changeLanguage(browserLang.match(/en|sk/) ? 'sk' : 'sk');
   }
 
   public changeLanguage(language: string): void {
+    console.log(language);
     this.translate.use(language).subscribe(lang => this.onLanguageChange(lang));
   }
 

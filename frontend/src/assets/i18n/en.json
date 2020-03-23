@@ -2,7 +2,8 @@
   "LANGUAGE": "EN",
   "NAVIGATION": {
     "BACK": "Back",
-    "NEXT": "Next"
+    "NEXT": "Next",
+    "CONT_TO_REGIST": "Continue to registration"
   },
   "HOME": {
     "TITLE": "Instruction",
@@ -16,7 +17,7 @@
   "REGISTRATION": {
     "TITLE": "Registration",
     "SUBTITLE": "Basic data",
-    "NAME": "Name",
+    "NAME": "Name and surname",
     "SURNAME": "Surname",
     "ID_NUMBER": "ID number",
     "EMAIL": "Email",

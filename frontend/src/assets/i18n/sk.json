@@ -2,7 +2,8 @@
   "LANGUAGE": "SK",
   "NAVIGATION": {
     "BACK": "Späť",
-    "NEXT": "Pokračovať"
+    "NEXT": "Pokračovať",
+    "CONT_TO_REGIST": "Ďalej na registráciu"
   },
   "HOME": {
     "TITLE": "Inštrukcie",
@@ -16,7 +17,7 @@
   "REGISTRATION": {
     "TITLE": "Registrácia",
     "SUBTITLE": "Základné údaje",
-    "NAME": "Meno",
+    "NAME": "Meno a priezvisko",
     "SURNAME": "Priezvisko",
     "ID_NUMBER": "Rodné číslo",
     "EMAIL": "Email",
