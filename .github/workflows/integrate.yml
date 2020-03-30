@@ -1,0 +1,29 @@
+name: "Triage CI"
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  test_frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm --prefix ./frontend ci
+      - run: npm --prefix ./frontend test
+      - run: npm --prefix ./frontend run build
+
+  test_backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm --prefix ./backend ci
+      - run: npm --prefix ./backend test
+      - run: npm --prefix ./backend run build
+
