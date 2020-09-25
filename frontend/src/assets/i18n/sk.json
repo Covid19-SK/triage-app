@@ -16,8 +16,7 @@
   "REGISTRATION": {
     "TITLE": "Registrácia",
     "SUBTITLE": "Základné údaje",
-    "NAME": "Meno",
-    "SURNAME": "Priezvisko",
+    "FULL_NAME": "Celé meno",
     "ID_NUMBER": "Rodné číslo",
     "EMAIL": "Email",
     "PHONE": "Telefónne číslo"

@@ -16,8 +16,7 @@
   "REGISTRATION": {
     "TITLE": "Registration",
     "SUBTITLE": "Basic data",
-    "NAME": "Name",
-    "SURNAME": "Surname",
+    "FULL_NAME": "Full name",
     "ID_NUMBER": "ID number",
     "EMAIL": "Email",
     "PHONE": "Phone number"

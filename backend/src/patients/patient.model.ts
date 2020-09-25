@@ -34,11 +34,7 @@ export class Patient extends Model<Patient> {
 
   @AllowNull(false)
   @Column
-  firstName: string;
-
-  @AllowNull(false)
-  @Column
-  lastName: string;
+  fullName: string;
 
   @AllowNull(false)
   @Column

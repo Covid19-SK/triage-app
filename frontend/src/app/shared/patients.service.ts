@@ -13,8 +13,7 @@ function CreateDto(patient: Patient): PatientDto {
 }
 
 export const defaultPatient = {
-  firstName: '',
-  lastName: '',
+  fullName: '',
   identificationNumber: '',
   email: '',
   phoneNumber: '',

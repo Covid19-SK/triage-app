@@ -2,12 +2,8 @@
 <h4>Pacient</h4>
 <div *ngIf="patient$ | async as patient">
   <div class="row">
-    <label class="col-sm-3">Meno:</label>
-    <div class="col-sm-9">{{patient.firstName}}</div>
-  </div>
-  <div class="row">
-    <label class="col-sm-3">Priezvisko:</label>
-    <div class="col-sm-9">{{patient.lastName}}</div>
+    <label class="col-sm-3">Celé meno:</label>
+    <div class="col-sm-9">{{patient.fullName}}</div>
   </div>
   <div class="row">
     <label class="col-sm-3">Rodné číslo:</label>

@@ -10,8 +10,7 @@ export class CurrentPatientService {
   public patient$: Observable<CurrentPatient> = this.userSource$.asObservable().pipe(
     startWith(this.dataService.load('tpUser', {
       id: 0,
-      firstName: '',
-      lastName: '',
+      fullName: '',
       identificationNumber: '',
       email: '',
       phoneNumber: '',

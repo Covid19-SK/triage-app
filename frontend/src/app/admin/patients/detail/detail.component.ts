@@ -45,8 +45,7 @@ export class DetailComponent {
       }),
       map(patient => new FormGroup({
         id: new FormControl(patient.id),
-        firstName: new FormControl(patient.firstName),
-        lastName: new FormControl(patient.lastName),
+        fullName: new FormControl(patient.fullName),
         identificationNumber: new FormControl(patient.identificationNumber),
         email: new FormControl(patient.email),
         phoneNumber: new FormControl(patient.phoneNumber),

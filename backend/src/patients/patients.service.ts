@@ -22,8 +22,7 @@ export class PatientsService {
 
   async create(dto: PatientDto): Promise<Patient> {
     const patient = new Patient();
-    patient.firstName = dto.firstName;
-    patient.lastName = dto.lastName;
+    patient.fullName = dto.fullName;
     patient.dateOfBirth = dto.dateOfBirth;
     patient.phoneNumber = dto.phoneNumber;
     patient.identificationNumber = dto.identificationNumber;
@@ -39,8 +38,7 @@ export class PatientsService {
     if (!patient) {
       throw new HttpException('No patient found.', HttpStatus.NOT_FOUND);
     }
-    patient.firstName = dto.firstName || patient.firstName;
-    patient.lastName = dto.lastName || patient.lastName;
+    patient.fullName = dto.fullName || patient.fullName;
     patient.dateOfBirth = dto.dateOfBirth || patient.dateOfBirth;
     patient.phoneNumber = dto.phoneNumber || patient.phoneNumber;
     patient.identificationNumber =
