@@ -1,4 +1,7 @@
-<app-header [icon]="icon" title="Registrácia" subTitle="Príznaky / Anamnéza"></app-header>
+<app-header [icon]="icon" title="{{ 'FORM.TITLE' | translate }}"
+            subTitle="{{ 'FORM.SUBTITLE' | translate }}"
+            language="EN">
+</app-header>
 <div class="safe-zone">
   <app-multi-step-form *ngIf="form$ | async as form"
                        [formData]="form"
@@ -10,9 +13,8 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Odberné miesto</div>
-            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
+            <div class="registration-page__title">{{ 'FORM.INSTITUTION' | translate }}</div>
+            <div class="registration-page__description text-secondary">{{ 'FORM.INSTITUTION_DESCRIPTION' | translate }}</div>
 
 
             <form [formGroup]="step_content">
@@ -25,8 +27,8 @@
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backToRegistration()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backToRegistration()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -38,26 +40,25 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Kašeľ</div>
-            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
+            <div class="registration-page__title">{{ 'FORM.COUGH' | translate }}</div>
+            <div class="registration-page__description text-secondary">{{ 'FORM.COUGH_DESCRIPTION' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <div class="btn-group" btnRadioGroup formControlName="cough">
                   <label btnRadio="none" class="btn btn-themed"
-                         tabindex="0" role="button">Žiadny</label>
+                         tabindex="0" role="button">{{ 'FORM.COUGH_NONE' | translate }}</label>
                   <label btnRadio="mild" class="btn btn-themed"
-                         tabindex="0" role="button">Mierny</label>
+                         tabindex="0" role="button">{{ 'FORM.COUGH_MODEST' | translate }}</label>
                   <label btnRadio="severe" class="btn btn-themed"
-                         tabindex="0" role="button">Výrazný</label>
+                         tabindex="0" role="button">{{ 'FORM.COUGH_SIGNIFICANT' | translate }}</label>
                 </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -69,26 +70,25 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Dýchavičnosť</div>
-            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
+            <div class="registration-page__title">{{ 'FORM.BREATH_SHORTNESS' | translate }}</div>
+            <div class="registration-page__description text-secondary">{{ 'FORM.BREATH_SHORTNESS_DESCRIPTION' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <div class="btn-group" btnRadioGroup formControlName="breathShortness">
                   <label btnRadio="none" class="btn btn-themed"
-                         tabindex="0" role="button">Žiadna</label>
+                         tabindex="0" role="button">{{ 'FORM.BREATH_SHORTNESS_NONE' | translate }}</label>
                   <label btnRadio="mild" class="btn btn-themed"
-                         tabindex="0" role="button">Mierna</label>
+                         tabindex="0" role="button">{{ 'FORM.BREATH_SHORTNESS_MODEST' | translate }}</label>
                   <label btnRadio="severe" class="btn btn-themed"
-                         tabindex="0" role="button">Výrazná</label>
+                         tabindex="0" role="button">{{ 'FORM.BREATH_SHORTNESS_SIGNIFICANT' | translate }}</label>
                 </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -99,26 +99,25 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Horúčka nad 38°C</div>
-            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
+            <div class="registration-page__title">{{ 'FORM.FEVER' | translate }}</div>
+            <div class="registration-page__description text-secondary">{{ 'FORM.FEVER_DESCRIPTION' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <div class="btn-group" btnRadioGroup formControlName="fever">
                   <label btnRadio="none" class="btn btn-themed"
-                         tabindex="0" role="button">Žiadna</label>
+                         tabindex="0" role="button">{{ 'FORM.FEVER_NONE' | translate }}</label>
                   <label btnRadio="mild" class="btn btn-themed"
-                         tabindex="0" role="button">Mierna</label>
+                         tabindex="0" role="button">{{ 'FORM.FEVER_MILD' | translate }}</label>
                   <label btnRadio="severe" class="btn btn-themed"
-                         tabindex="0" role="button">Výrazná</label>
+                         tabindex="0" role="button">{{ 'FORM.FEVER_SEVERE' | translate }}</label>
                 </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -129,9 +128,8 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Iné</div>
-            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
+            <div class="registration-page__title">{{ 'FORM.OTHER' | translate }}</div>
+            <div class="registration-page__description text-secondary">{{ 'FORM.OTHER_DESCRIPTION' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
@@ -140,8 +138,8 @@
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -152,24 +150,23 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Pobyt v zahraničí v posledných 14 dňoch</div>
-            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
+            <div class="registration-page__title">{{ 'FORM.STAY_IN_ABROAD' | translate }}</div>
+            <div class="registration-page__description text-secondary">{{ 'FORM.STAY_IN_ABROAD_DESCRIPTION' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <div class="btn-group" btnRadioGroup formControlName="abroad">
                   <label btnRadio="yes" class="btn btn-themed"
-                         tabindex="0" role="button">Áno</label>
+                         tabindex="0" role="button">{{ 'FORM.STAY_IN_ABROAD_YES' | translate }}</label>
                   <label btnRadio="no" class="btn btn-themed"
-                         tabindex="0" role="button">Nie</label>
+                         tabindex="0" role="button">{{ 'FORM.STAY_IN_ABROAD_NO' | translate }}</label>
                 </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
        </div>
       </div>
@@ -180,24 +177,23 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Blizky kontakt s osobou s horuckou alebo respiracnymi priznakmi za poslednych 14 dni</div>
-            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
+            <div class="registration-page__title">{{ 'FORM.CONTACT_WITH_FEVER' | translate }}</div>
+            <div class="registration-page__description text-secondary">{{ 'FORM.CONTACT_WITH_FEVER_DESCRIPTION' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <div class="btn-group" btnRadioGroup formControlName="illPersonContact">
                   <label btnRadio="yes" class="btn btn-themed"
-                         tabindex="0" role="button">Áno</label>
+                         tabindex="0" role="button">{{ 'FORM.CONTACT_WITH_FEVER_YES' | translate }}</label>
                   <label btnRadio="no" class="btn btn-themed"
-                         tabindex="0" role="button">Nie</label>
+                         tabindex="0" role="button">{{ 'FORM.CONTACT_WITH_FEVER_NO' | translate }}</label>
                 </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -208,24 +204,23 @@
         <div class="form-wrapper">
 
           <div class="form-center-content">
-            <div class="registration-page__title">Blizky kontakt s potvrdenym pripadom COVID-19 za poslednych 14 dni</div>
-            <div class="registration-page__description text-secondary">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Cras tellus est, faucibus tempor diam vitae, condimentum interdum nibh.</div>
+            <div class="registration-page__title">{{ 'FORM.CONTACT_WITH_COVID' | translate }}</div>
+            <div class="registration-page__description text-secondary">{{ 'FORM.CONTACT_WITH_COVID_DESCRIPTION' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <div class="btn-group" btnRadioGroup formControlName="covid19Contact">
                   <label btnRadio="yes" class="btn btn-themed"
-                         tabindex="0" role="button">Áno</label>
+                         tabindex="0" role="button">{{ 'FORM.CONTACT_WITH_COVID_YES' | translate }}</label>
                   <label btnRadio="no" class="btn btn-themed"
-                         tabindex="0" role="button">Nie</label>
+                         tabindex="0" role="button">{{ 'FORM.CONTACT_WITH_COVID_NO' | translate }}</label>
                 </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> Späť</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="onSubmit()" routerLink="/code" routerLinkActive="active">Ďalej</button>
+            <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="onSubmit()" routerLink="/code" routerLinkActive="active">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>

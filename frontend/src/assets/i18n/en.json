@@ -2,7 +2,8 @@
   "LANGUAGE": "EN",
   "NAVIGATION": {
     "BACK": "Back",
-    "NEXT": "Next"
+    "NEXT": "Next",
+    "CONT_TO_REGIST": "Continue to registration"
   },
   "HOME": {
     "TITLE": "Instruction",
@@ -16,10 +17,61 @@
   "REGISTRATION": {
     "TITLE": "Registration",
     "SUBTITLE": "Basic data",
-    "NAME": "Name",
+    "NAME": "Name and surname",
     "SURNAME": "Surname",
     "ID_NUMBER": "ID number",
     "EMAIL": "Email",
     "PHONE": "Phone number"
+  },
+  "FORM": {
+    "TITLE": "Registration",
+    "SUBTITLE": "Basic data",
+    "INSTITUTION": "Institution",
+    "INSTITUTION_DESCRIPTION": "Miesto, kde sa bude konat odber",
+    "COUGH": "Cough",
+    "COUGH_DESCRIPTION": "Cough description",
+    "COUGH_NONE": "None",
+    "COUGH_MODEST": "Modest",
+    "COUGH_SIGNIFICANT": "Significant",
+    "BREATH_SHORTNESS": "Breath Shortness",
+    "BREATH_SHORTNESS_DESCRIPTION": "Breath Shortness description",
+    "BREATH_SHORTNESS_NONE": "None",
+    "BREATH_SHORTNESS_MODEST": "Modest",
+    "BREATH_SHORTNESS_SIGNIFICANT": "Significant",
+    "FEVER": "Fever above 38°C",
+    "FEVER_DESCRIPTION": "Fever above 38°C description",
+    "FEVER_NONE": "Less than 38°C",
+    "FEVER_MILD": "More than 38°C",
+    "FEVER_SEVERE": "More than 38°C",
+    "OTHER": "Other",
+    "OTHER_DESCRIPTION": "Other description",
+    "STAY_IN_ABROAD": "Pobyt v zahraničí v posledných 14 dňoch",
+    "STAY_IN_ABROAD_DESCRIPTION": "Pobyt v zahraničí v posledných 14 dňoch",
+    "STAY_IN_ABROAD_YES": "Yes",
+    "STAY_IN_ABROAD_NO": "No",
+    "CONTACT_WITH_FEVER": "Blizky kontakt s osobou s horuckou alebo respiracnymi priznakmi za poslednych 14 dni",
+    "CONTACT_WITH_FEVER_DESCRIPTION": "Blizky kontakt s osobou s horuckou alebo respiracnymi priznakmi za poslednych 14 dni",
+    "CONTACT_WITH_FEVER_YES": "Yes",
+    "CONTACT_WITH_FEVER_NO": "No",
+    "CONTACT_WITH_COVID": "Blizky kontakt s potvrdenym pripadom COVID-19 za poslednych 14 dn",
+    "CONTACT_WITH_COVID_DESCRIPTION": "Blizky kontakt s potvrdenym pripadom COVID-19 za poslednych 14 dni",
+    "CONTACT_WITH_COVID_YES": "Yes",
+    "CONTACT_WITH_COVID_NO": "No"
+  },
+  "QR_CODE": {
+    "TITLE": "Registration",
+    "SUBTITLE": "QR code",
+    "SHOW_YOUR_CODE": "Show this QR code when asked",
+    "SHOW_YOUR_CODE_DESCRIPTION": "Show this QR code when asked"
+  },
+  "SCAN_QR_CODE": {
+    "TITLE": "Registration",
+    "SUBTITLE": "Scan QR code",
+    "SCAN_CODE_HEADLINE": "Scan QR kód.",
+    "SCAN_CODE_DESCRIPTION": "Oskenujte QR kód.",
+    "SCAN_CODE": "Oskenujte QR kód.",
+    "PLEASE_SCAN_CODE": "Please scan QR code",
+    "YOUR_SCAN_CODE": "Your QR code is",
+    "SWITCH_CAMERA": "Switch camera"
   }
 }

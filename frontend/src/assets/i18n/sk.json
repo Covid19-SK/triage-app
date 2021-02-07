@@ -2,24 +2,76 @@
   "LANGUAGE": "SK",
   "NAVIGATION": {
     "BACK": "Späť",
-    "NEXT": "Pokračovať"
+    "NEXT": "Pokračovať",
+    "CONT_TO_REGIST": "Ďalej na registráciu"
   },
   "HOME": {
     "TITLE": "Inštrukcie",
     "SUBTITLE": "Základné údaje",
-    "STEP1": "Krok 1",
+    "STEP1": "Vitajte!",
     "STEP2": "Krok 2",
-    "DESCRIPTION": "Popis applikacie - krok 1",
+    "DESCRIPTION": "Registrujte sa, prosím, a vyplňte Vašu zdravotnú a cestovateľskú anamnézu",
     "SECONDARY_DESCRIPTION": "Popis applikacie - krok 2",
     "SKIP_INSTRUCTION": "Preskočiť inštrukcie"
   },
   "REGISTRATION": {
     "TITLE": "Registrácia",
     "SUBTITLE": "Základné údaje",
-    "NAME": "Meno",
+    "NAME": "Meno a priezvisko",
     "SURNAME": "Priezvisko",
     "ID_NUMBER": "Rodné číslo",
     "EMAIL": "Email",
     "PHONE": "Telefónne číslo"
+  },
+  "FORM": {
+    "TITLE": "Registrácia",
+    "SUBTITLE": "Príznaky / Anamnéza",
+    "INSTITUTION": "Odberné miesto",
+    "INSTITUTION_DESCRIPTION": "",
+    "COUGH": "Máte problémy s kašľom?",
+    "COUGH_DESCRIPTION": "",
+    "COUGH_NONE": "nie",
+    "COUGH_MODEST": "mierne",
+    "COUGH_SIGNIFICANT": "silné",
+    "BREATH_SHORTNESS": "Máte problémy s dýchaním?",
+    "BREATH_SHORTNESS_DESCRIPTION": "",
+    "BREATH_SHORTNESS_NONE": "nie",
+    "BREATH_SHORTNESS_MODEST": "mierne",
+    "BREATH_SHORTNESS_SIGNIFICANT": "silné",
+    "FEVER": "Horúčka nad 38°C",
+    "FEVER_DESCRIPTION": "Horúčka nad 38°C description",
+    "FEVER_NONE": "Menej ako 38°C",
+    "FEVER_MILD": "Viac ako 38°C",
+    "FEVER_SEVERE": "Viac ako 38°C",
+    "OTHER": "Máte iné ťažkosti?",
+    "OTHER_DESCRIPTION": "Pociťujete únavu, vyčerpanosť alebo malátnosť? Cítite bolesť v svaloch a kĺboch, ktorú obyčajne nemávate?",
+    "STAY_IN_ABROAD": "Boli ste za posledné dva týždne v zahraničí?",
+    "STAY_IN_ABROAD_DESCRIPTION": "",
+    "STAY_IN_ABROAD_YES": "áno",
+    "STAY_IN_ABROAD_NO": "nie",
+    "CONTACT_WITH_FEVER": "Boli ste za posledné dva týždne v blízkom kontakte s osobou s horúčkou alebo respiračnými príznakmi?",
+    "CONTACT_WITH_FEVER_DESCRIPTION": "",
+    "CONTACT_WITH_FEVER_YES": "áno",
+    "CONTACT_WITH_FEVER_NO": "nie",
+    "CONTACT_WITH_COVID": "Boli ste za posledné dva týždne v blízkom kontakte s osobou u ktorej sa potvrdil koronavírus?",
+    "CONTACT_WITH_COVID_DESCRIPTION": "",
+    "CONTACT_WITH_COVID_YES": "áno",
+    "CONTACT_WITH_COVID_NO": "nie"
+  },
+  "QR_CODE": {
+    "TITLE": "Registrácia",
+    "SUBTITLE": "QR kód",
+    "SHOW_YOUR_CODE": "Ukážte tento kód pri odbere",
+    "SHOW_YOUR_CODE_DESCRIPTION": "Kód slúži Vášmu doktorovi na skontrolovanie anamnézy a na spárovanie Vašej vzorky"
+  },
+  "SCAN_QR_CODE": {
+    "TITLE": "Registrácia",
+    "SUBTITLE": "Skenovanie QR kód",
+    "SCAN_CODE_HEADLINE": "Oskenujte QR kód.",
+    "SCAN_CODE_DESCRIPTION": "Oskenujte QR kód.",
+    "SCAN_CODE": "Oskenujte QR kód.",
+    "PLEASE_SCAN_CODE": "Prosm, oskenujte QR kód",
+    "YOUR_SCAN_CODE": "Váš QR kód je ",
+    "SWITCH_CAMERA": "Zmeňte kameru"
   }
 }
