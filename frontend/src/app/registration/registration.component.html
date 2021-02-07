@@ -6,22 +6,26 @@
   <app-multi-step-form *ngIf="form$ | async as form"
                       [formData]="form"
                       (nextAction)="onNextAction($event)"
-                      (finishAction)="onSubmit()">
+                      (finishAction)="onSubmit($event)">
     <ng-template let-step_content let-nextStepHandle="nextStepHandle">
       <div appFormStep id="1" class="form-step">
         <div class="form-wrapper">
 
           <div class="form-center-content">
             <div class="registration-page__title">{{ 'REGISTRATION.NAME' | translate }}</div>
+            <div class="registration-page__hint">{{ 'REGISTRATION.NAME_HINT' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <input id="name" class="form-control" type="text" formControlName="firstName" value="" autofocus>
+                <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'firstName')">
+                  {{ 'REGISTRATION.NAME_ERROR_REQUIRED' | translate }}
+                </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="setTouched('firstName');nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -33,16 +37,24 @@
 
           <div class="form-center-content">
             <div class="registration-page__title">{{ 'REGISTRATION.SURNAME' | translate }}</div>
+            <div class="registration-page__hint">{{ 'REGISTRATION.SURNAME_HINT' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
-                <input id="lastName" class="form-control" type="text" formControlName="lastName" value="" autofocus>
+                <input id="lastName" class="form-control" type="text"
+                formControlName="lastName" value="" autofocus>
+                <div class="registration-page__error"
+                  *ngIf="shouldShowError(step_content, 'lastName')">
+                  {{ 'REGISTRATION.SURNAME_ERROR_REQUIRED' | translate }}
+                </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
             <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase"
+            (click)="setTouched('lastName'); nextStepHandle(step_content)">{{
+            'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -54,16 +66,24 @@
 
           <div class="form-center-content">
             <div class="registration-page__title">{{ 'REGISTRATION.ID_NUMBER' | translate }}</div>
+            <div class="registration-page__hint">{{ 'REGISTRATION.ID_NUMBER_HINT' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <input id="identificationNumber" class="form-control" type="text" formControlName="identificationNumber" value="" autofocus>
+                <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'identificationNumber')">
+                  {{ 'REGISTRATION.ID_NUMBER_ERROR_REQUIRED' | translate }}
+                </div>
+                <div class="registration-page__error"
+                *ngIf="shouldShowError(step_content, 'identificationNumber', 'pattern')">
+                  {{ 'REGISTRATION.ID_NUMBER_ERROR_PATTERN' | translate }}
+                </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
             <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="setTouched('identificationNumber');nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -75,16 +95,20 @@
 
           <div class="form-center-content">
             <div class="registration-page__title">{{ 'REGISTRATION.EMAIL' | translate }}</div>
+            <div class="registration-page__hint">{{ 'REGISTRATION.EMAIL_HINT' | translate }}</div>
 
             <form [formGroup]="step_content">
               <div class="form-group">
                 <input id="email" class="form-control" type="email" formControlName="email" value="" autofocus>
+                <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'email', 'email')">
+                  {{ 'REGISTRATION.EMAIL_ERROR_EMAIL' | translate }}
+                </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
             <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase" (click)="setTouched('email');nextStepHandle(step_content)">{{ 'NAVIGATION.NEXT' | translate }}</button>
           </div>
         </div>
       </div>
@@ -99,13 +123,19 @@
 
             <form [formGroup]="step_content">
               <div class="form-group">
-                <input id="phoneNumber" class="form-control" type="number" formControlName="phoneNumber" value="" autofocus>
+                <input id="phoneNumber" class="form-control" type="text" inputmode="numeric"
+                formControlName="phoneNumber" value="" autofocus>
+                <div class="registration-page__error" *ngIf="shouldShowError(step_content, 'phoneNumber')">
+                  {{ 'REGISTRATION.PHONE_ERROR_REQUIRED' | translate }}
+                </div>
               </div>
             </form>
           </div>
           <div class="bottom-cta">
             <button class="btn-prev btn btn-link text-uppercase" (click)="backStepHandle()"><fa-icon class="back-icon" [icon]="backIcon"></fa-icon> {{ 'NAVIGATION.BACK' | translate }}</button>
-            <button class="btn-next btn btn-primary text-uppercase" (click)="onSubmit()" routerLink="/form" routerLinkActive="active">{{ 'NAVIGATION.NEXT' | translate }}</button>
+            <button class="btn-next btn btn-primary text-uppercase"
+            (click)="setTouched('phoneNumber'); onSubmit(step_content)">{{ 'NAVIGATION.NEXT' | translate
+            }}</button>
           </div>
         </div>
       </div>

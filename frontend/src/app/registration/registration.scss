@@ -32,12 +32,22 @@ app-multi-step-form,
 
 .registration-page__title {
   display: block;
-  font-size: 24px;
+  font-size: 40px;
   font-weight: 500;
+  margin-bottom: 12px;
+}
+.registration-page__hint {
+  font-size: 20px;
+  color: lightgray;
   margin-bottom: 12px;
 }
 
 .registration-page__description {
   display: block;
   margin-bottom: 12px;
+}
+
+.registration-page__error {
+  color: red; // TODO set the correct color
+  margin-top: 12px;
 }

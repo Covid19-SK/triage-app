@@ -17,9 +17,18 @@
     "TITLE": "Registrácia",
     "SUBTITLE": "Základné údaje",
     "NAME": "Meno",
+    "NAME_ERROR_REQUIRED": "Zadajte vaše meno",
+    "NAME_HINT": "Napríklad Peter",
     "SURNAME": "Priezvisko",
+    "SURNAME_HINT": "Napríklad Novák",
+    "SURNAME_ERROR_REQUIRED": "Zadajte vaše priezvisko",
     "ID_NUMBER": "Rodné číslo",
+    "ID_NUMBER_HINT": "Napríklad 1234561111",
+    "ID_NUMBER_ERROR_REQUIRED": "Zadajte vaše rodné číslo",
+    "ID_NUMBER_ERROR_FORMAT": "Zadajte správne rodné číslo",
     "EMAIL": "Email",
-    "PHONE": "Telefónne číslo"
+    "EMAIL_ERROR_EMAIL": "Zadajte email v správnom formáte, napríklad meno@gmail.com",
+    "EMAIL_HINT": "Napríklad meno@gmail.com",
+    "PHONE_ERROR_REQUIRED": "Zadajte telefónne číslo"
   }
 }
