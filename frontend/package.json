@@ -27,7 +27,7 @@
     "@types/lodash-es": "^4.17.3",
     "angular2-qrcode": "^2.0.3",
     "bootstrap": "4.1.1",
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "ngx-bootstrap": "^5.5.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
